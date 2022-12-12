@@ -1,0 +1,39 @@
+<div class="mobile_search_container">
+  <ul class="mobile_sub_cat_select">
+    <app-single-switch
+      [items]="subCategories"
+      [selectedItem]="subCategories[0]"
+    ></app-single-switch>
+  </ul>
+  <form class="mobile_search_form" onsubmit="return false;">
+    <ul class="search_columns">
+      <header class="mode_switcher_header">
+        <h4>חפשו לפי</h4>
+        <span>נקה הכל</span>
+      </header>
+      <app-slider-switch
+        [categories]="this.searchCategories"
+      ></app-slider-switch>
+      <li>
+        <app-input
+          labelName="חפשו עיר"
+          inputPlaceholder="לדוגמה: ירושלים"
+        ></app-input>
+      </li>
+      <li>
+        <app-input
+          labelName="חפשו שכונה"
+          inputPlaceholder="הזינו שם של שכונה"
+          [disabled]="!!!cityInput"
+        ></app-input>
+      </li>
+      <li class="search_column">
+        <h4 class="unbold">סוג נכס</h4>
+        <app-box-multi-toggle
+          [items]="multiToggleBoxItems"
+        ></app-box-multi-toggle>
+      </li>
+    </ul>
+    <div class="button_wrapper"></div>
+  </form>
+</div>

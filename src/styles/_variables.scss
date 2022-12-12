@@ -1,0 +1,17 @@
+:root {
+  //Any global scss variable to share with components
+  --navbar-main-height: 45px;
+  --navbar-logo-height: 25px;
+  --navbar-logo-width: 90px;
+  --body-padding-top: 45px;
+  --btn-primary-color: #0fca80;
+  --font-size-standard: 1rem;
+
+}
+
+// @media only screen and (max-width: 745px) {
+//   :root {
+//     --chart-width-size: 90%;
+//     --chart-width-half-size: 90%;
+//   }
+// }

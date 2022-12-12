@@ -1,0 +1,33 @@
+label {
+  font-size: 1rem;
+  min-width: 100%;
+  display: inline-block;
+  color: #363636;
+  text-align: right;
+
+  input {
+    margin-top: 5px;
+    height: 50px;
+    border-radius: 2px;
+    font-size: 1rem;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+  }
+  input::placeholder {
+    font-size: 1rem;
+    color: #999999;
+  }
+  input[disabled] {
+    background-color: #fff;
+    border-color: #ccc;
+    color: #ccc;
+  }
+  input[disabled]::placeholder {
+    color: #ccc;
+  }
+}
+
+.disabled {
+  color: #ccc;
+}

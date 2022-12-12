@@ -1,0 +1,42 @@
+button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 16px 14px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  height: 50px;
+  width: 100%;
+  position: relative;
+}
+
+.left-section {
+  img {
+    object-fit: contain;
+    width: 22px;
+    margin-left: 5px;
+    position: relative;
+    top: 3px;
+  }
+
+  span {
+    font-size: 1rem;
+    // line-height: 1.0625rem;
+    border: none;
+    background: #fff;
+    color: #999;
+  }
+}
+
+.search_text {
+  color: #ff7100;
+  font-size: 1rem;
+  line-height: 1.0625rem;
+  width: 60px;
+
+
+
+}

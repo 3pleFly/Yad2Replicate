@@ -1,0 +1,19 @@
+.breadcrumbs-container {
+    margin-top: 15px;
+}
+
+.breadcrumbs {
+  font-size: 1rem;
+  display: inline;
+  span {
+    margin-left: 8px;
+  }
+}
+
+.breadcrumbs:last-child {
+    color: #999;
+  }
+
+.main_route_text {
+  margin-left: 8px;
+}

@@ -1,0 +1,264 @@
+<div
+  [ngClass]="{
+    'sidemenu-container': true,
+    'active-sidemenu-container': (this.modal | async)
+  }"
+  (click)="closeSidemenu($event)"
+  >
+  <nav (click)="stopPropogation($event)"
+   [ngClass]="{ sidemenu: true, 'active-sidemenu': (this.modal | async) }">
+    <span class="close_btn" (click)="closeSidemenu($event)">
+      <i class="close_icon"></i>
+    </span>
+    <div class="mobile_menu_top_section">
+      <div class="login-container">
+        <img
+          src="../../../../assets/images/additonal_links/user.png"
+          width="55px"
+          height="55px"
+          alt=""
+        />
+        <button class="btn">התחברות</button>
+      </div>
+      <button class="primary-btn btn new_post">פרסום מודעה</button>
+      <div class="link-container_additions">
+        <a class="link">
+          <i class="chat-link_icon"></i>
+          <span class="link-label">צ׳אט</span>
+        </a>
+        <a class="link">
+          <img
+            src="../../../../assets/images/additonal_links/bell.png"
+            width="20px"
+            alt=""
+          />
+          <span class="link-label">התראות שלי</span>
+        </a>
+        <a class="link">
+          <i class="heart_icon"></i>
+          <span class="link-label">מודעות שאהבתי</span>
+        </a>
+        <a class="link">
+          <img
+            src="../../../../assets/images/additonal_links/search.png"
+            width="20px"
+            alt=""
+          />
+          <span class="link-label">חיפושים אחרונים</span>
+        </a>
+
+        <a class="link">
+          <img
+            src="../../../../assets/images/additonal_links/compare.png"
+            width="20px"
+            alt=""
+          />
+          <span class="link-label">השוואות רכבים</span>
+        </a>
+      </div>
+    </div>
+    <div class="search_links_sections">
+      <span class="search_links-title"> חיפוש מהיר באתר </span>
+      <ul>
+        <li class="search_link">
+          <a>
+            <img
+              src="../../../../assets//images//search_links/nadlan.png"
+              alt=""
+            />
+            <span>נדל״ן</span>
+          </a>
+        </li>
+        <li class="search_link">
+          <a>
+            <img
+              src="../../../../assets//images//search_links/cars.png"
+              alt=""
+            />
+            <span>רכב</span>
+          </a>
+        </li>
+        <li class="search_link">
+          <a>
+            <img
+              src="../../../../assets//images//search_links/second_hand.png"
+              alt=""
+            />
+            <span>יד שנייה</span>
+          </a>
+        </li>
+        <li class="search_link">
+          <a>
+            <img
+              src="../../../../assets//images//search_links/business_forsale.png"
+              alt=""
+            />
+            <span>עסקים למכירה</span>
+          </a>
+        </li>
+        <li class="search_link">
+          <a>
+            <img
+              src="../../../../assets//images//search_links/recruiting_yad2.png"
+              alt=""
+            />
+            <span>דרושים IL</span>
+          </a>
+        </li>
+        <li class="search_link">
+          <a>
+            <img
+              src="../../../../assets//images//search_links/pets.png"
+              alt=""
+            />
+            <span>חיות מחמד</span>
+          </a>
+        </li>
+        <li class="search_link">
+          <a>
+            <img
+              src="../../../../assets//images//search_links/tourism.png"
+              alt=""
+            />
+            <span>תיירות ונופש</span>
+          </a>
+        </li>
+        <li class="search_link">
+          <a>
+            <img
+              src="../../../../assets//images//search_links/education.png"
+              alt=""
+            />
+            <span>לימודים</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="feed_links_section">
+      <span class="feed_links-title">ניווט לפי קטגוריות</span>
+      <ul>
+        <li>
+          <button class="btn content-header">
+            <span>נדל״ן</span>
+            <img
+              src="../../../../assets/images/additonal_links/menu_arrow.png"
+              alt="open-menu"
+            />
+          </button>
+          <div class="content"></div>
+        </li>
+        <li>
+          <button class="btn content-header">
+            <span>רכב</span>
+            <img
+              src="../../../../assets/images/additonal_links/menu_arrow.png"
+              alt="open-menu"
+            />
+          </button>
+          <div class="content"></div>
+        </li>
+        <li>
+          <button class="btn content-header">
+            <span>יד שנייה</span>
+            <img
+              src="../../../../assets/images/additonal_links/menu_arrow.png"
+              alt="open-menu"
+            />
+          </button>
+          <div class="content"></div>
+        </li>
+        <li>
+          <button class="btn content-header">
+            <span>דרושים IL</span>
+            <img
+              src="../../../../assets/images/additonal_links/menu_arrow.png"
+              alt="open-menu"
+            />
+          </button>
+          <div class="content"></div>
+        </li>
+        <li>
+          <button class="btn content-header">
+            <span>עסקים למכירה</span>
+            <img
+              src="../../../../assets/images/additonal_links/menu_arrow.png"
+              alt="open-menu"
+            />
+          </button>
+          <div class="content"></div>
+        </li>
+        <li>
+          <button class="btn content-header">
+            <span>חיות מחמד</span>
+            <img
+              src="../../../../assets/images/additonal_links/menu_arrow.png"
+              alt="open-menu"
+            />
+          </button>
+          <div class="content"></div>
+        </li>
+        <li>
+          <button class="btn content-header">
+            <span>בעלי מקצוע</span>
+            <img
+              src="../../../../assets/images/additonal_links/menu_arrow.png"
+              alt="open-menu"
+            />
+          </button>
+          <div class="content"></div>
+        </li>
+        <li>
+          <button class="btn content-header">
+            <span>תיירות ונופש</span>
+          </button>
+        </li>
+        <li>
+          <button class="btn content-header">
+            <span>לימודים</span>
+          </button>
+        </li>
+        <li>
+          <button class="btn content-header">
+            <span>מגזין יד2</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <div class="menu_bottom_section">
+      <a>
+        <img src="../../../../assets/images/internal_links/terms.png" alt="" />
+        <span>תקנון</span>
+      </a>
+      <a>
+        <img
+          src="../../../../assets/images/internal_links/privacy.png"
+          alt=""
+        />
+        <span>פרטיות ותנאים</span>
+      </a>
+      <a>
+        <img
+          src="../../../../assets/images/internal_links/accessability.png"
+          alt=""
+        />
+        <span>נגישות</span>
+      </a>
+      <a>
+        <img
+          src="../../../../assets/images/internal_links/questions.png"
+          alt=""
+        />
+        <span>מענה לשאלות</span>
+      </a>
+      <a>
+        <img
+          src="../../../../assets/images/internal_links/contact.png"
+          alt=""
+        />
+        <span>יצירת קשר</span>
+      </a>
+    </div>
+  </nav>
+</div>
+

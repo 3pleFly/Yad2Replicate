@@ -1,0 +1,10 @@
+<ul>
+  <li *ngFor="let item of items">
+    <button
+      (click)="selectItem(item)"
+      [ngClass]="{ selected: this.selectedItem.title === item.title }"
+    >
+      {{ item.value }}
+    </button>
+  </li>
+</ul>

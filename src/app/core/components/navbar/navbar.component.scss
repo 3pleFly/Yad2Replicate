@@ -1,0 +1,26 @@
+:host {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.08);
+  height: var(--navbar-main-height);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.heart-and-hamburger-container {
+  display: flex;
+}
+
+.chat-button {
+  cursor: pointer;
+  padding: 0 12px;
+}
+
+.yad2_logo {
+  cursor: pointer;
+  width: var(--navbar-logo-width);
+  height: var(--navbar-logo-height);
+}

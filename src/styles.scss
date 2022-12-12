@@ -1,1 +1,57 @@
-/* You can add global styles to this file, and also import other style files */
+@use "./styles/variables";
+@use "./styles/icons.scss";
+
+
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@900&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+}
+
+body {
+  // font-family: "Rubik", sans-serif;
+  color: #363636;
+  direction: rtl;
+  line-height: 16px;
+  background-color: #f9f9f9;
+  margin: 0;
+  z-index: 800;
+
+  padding-top: var(--body-padding-top);
+}
+
+.btn {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+
+.primary-btn {
+  background-color: var(--btn-primary-color);
+  color: #fff;
+  display: block;
+  font-size: var(--font-size-standard);
+  font-weight: 500;
+  line-height: 35px;
+
+}
+
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.unbold {
+  font-weight: 400;
+  padding: 0;
+  margin: 0;
+}

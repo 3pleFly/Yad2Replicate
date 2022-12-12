@@ -1,0 +1,13 @@
+<ul class="modes_wrapper">
+  <li *ngFor="let category of categories; let i = index">
+    <span
+      (click)="selectCategory(category.title, i)"
+      [ngClass]="{
+        active: this.selectedCategory === category.title
+      }"
+    >
+      {{ category.value }}
+    </span>
+  </li>
+  <span #slider class="slider"></span>
+</ul>
