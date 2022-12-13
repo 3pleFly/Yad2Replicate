@@ -1,0 +1,9 @@
+.wrapper {
+  z-index: 2000;
+}
+
+.arrow > img {
+  object-fit: contain;
+  width: 18px;
+  transform: rotate(180deg);
+}

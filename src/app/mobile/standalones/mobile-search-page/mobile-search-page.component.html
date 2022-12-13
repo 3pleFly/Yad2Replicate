@@ -27,13 +27,26 @@
           [disabled]="!!!cityInput"
         ></app-input>
       </li>
-      <li class="search_column">
+      <li>
+        <app-select></app-select>
+      </li>
+      <li>
         <h4 class="unbold">סוג נכס</h4>
         <app-box-multi-toggle
-          [items]="multiToggleBoxItems"
+          [multiToggleBoxes]="multiToggleBoxItems"
         ></app-box-multi-toggle>
+        <a class="show_all_btn">
+          <button class="btn" (click)="this.showSelectPropertyModal = true">
+            להצגת כל סוגי הנכסים
+          </button>
+        </a>
       </li>
     </ul>
     <div class="button_wrapper"></div>
   </form>
 </div>
+<app-mobile-property-select-modal
+  [(showModal)]="showSelectPropertyModal"
+  [checkBoxItems]="this.checkBoxItems"
+  *ngIf="showSelectPropertyModal"
+></app-mobile-property-select-modal>

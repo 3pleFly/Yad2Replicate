@@ -1,0 +1,44 @@
+.modal_wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+
+  background: #fff;
+  z-index: 1300;
+}
+
+.modal_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  height: 60px;
+  box-shadow: 0 3px 10px 0 rgb(0 0 0 / 10%);
+
+  img {
+    width: 18px;
+    object-fit: contain;
+  }
+
+  h3 {
+    font-size: 1.125rem;
+    display: block;
+    font-size: 1.125rem;
+    line-height: 1.375rem;
+    font-weight: 500;
+  }
+}
+
+.reset-btn {
+  padding: 0 15px;
+  width: 100%;
+  span {
+    text-align: left;
+    display: block;
+    padding: 15px;
+    color: #ccc;
+    font-size: 1rem;
+  }
+}

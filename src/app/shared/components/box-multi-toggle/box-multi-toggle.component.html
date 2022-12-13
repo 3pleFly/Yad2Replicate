@@ -1,14 +1,18 @@
 <div class="wrapper">
   <ul>
-    <li *ngFor="let item of items">
+    <li *ngFor="let item of multiToggleBoxes">
       <div class="group_type">
-        <button #boxElement (click)="this.selectItem(boxElement, textElement, item)">
+        <button
+          #boxElement
+          (click)="this.selectItem(boxElement, textElement, item)"
+        >
           <img src="{{ item.imgSrc }}" />
-          <strong>{{ item.description }}</strong>
-          <span #textElement>{{ item.optionItems.length }} סוגי נכסים</span>
+          <strong>{{ item.checkBoxItem.value }}</strong>
+          <span #textElement
+            >{{ item.checkBoxItem.subItems?.length }} סוגי נכסים</span
+          >
         </button>
       </div>
     </li>
   </ul>
-  <a>להצגת כל סוגי הנכסים</a>
 </div>

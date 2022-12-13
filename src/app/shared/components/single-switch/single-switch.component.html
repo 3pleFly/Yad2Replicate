@@ -2,7 +2,7 @@
   <li *ngFor="let item of items">
     <button
       (click)="selectItem(item)"
-      [ngClass]="{ selected: this.selectedItem.title === item.title }"
+      [ngClass]="{ selected: this.selectedItem.id === item.id }"
     >
       {{ item.value }}
     </button>

@@ -1,0 +1,138 @@
+.wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+
+  background: #fff;
+  z-index: 1300;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  height: 60px;
+  box-shadow: 0 3px 10px 0 rgb(0 0 0 / 10%);
+
+  img {
+    width: 18px;
+    object-fit: contain;
+  }
+
+  h3 {
+    font-size: 1.125rem;
+    display: block;
+    font-size: 1.125rem;
+    line-height: 1.375rem;
+    font-weight: 500;
+  }
+}
+
+.reset-btn {
+  display: block;
+  text-align: left;
+  padding: 0 15px;
+
+  button {
+    padding: 15px;
+    color: #ccc;
+    font-size: 1rem;
+  }
+}
+
+.mobile_multi_select {
+  li {
+    padding: 0 20px;
+    background-color: #f9f9f9;
+  }
+}
+
+.arrow > img {
+  object-fit: contain;
+  width: 18px;
+  transform: rotate(180deg);
+}
+
+.checkbox_data {
+  width: calc(100% - 50px);
+  margin: 0;
+  min-height: 44px;
+  display: inline-flex;
+  color: #363636;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1.1875rem;
+  align-items: center;
+  -webkit-box-align: center;
+  &:hover > .checkmark {
+    border: 1px solid #ff7100;
+  }
+}
+
+.checkbox {
+  position: absolute;
+  display: none;
+}
+
+.checkmark::after {
+  position: relative;
+  top: -2.5px;
+  color: #fff;
+  content: "\2713";
+  display: none;
+}
+
+.checkmark {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 5px;
+  height: 1em;
+  width: 1em;
+  min-width: 1em;
+  background-color: #fff;
+  border: 1px solid #363636;
+  border-radius: 2px;
+}
+
+.cb_text {
+}
+
+.multi_select_option {
+  margin-bottom: 10px;
+}
+
+.sub_multi_select {
+  overflow: hidden;
+  padding: 0 20px;
+  display: none;
+
+  li {
+    border-bottom: 1px solid #eee;
+    min-height: 50px;
+  }
+}
+
+.active {
+  display: block;
+}
+
+.checkbox:checked ~ .checkmark {
+  background-color: #ff7100;
+  border: 1px solid #ff7100;
+}
+
+.checkbox:checked ~ .checkmark:hover {
+  background-color: #d86000;
+  border: 1px solid #d86000;
+}
+
+.checkbox:checked ~ .checkmark::after {
+  display: block;
+}
+

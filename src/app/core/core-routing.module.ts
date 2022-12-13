@@ -18,9 +18,9 @@ const routes: Routes = [
       {
         path: 'search/realestate/forsale',
         loadComponent: () =>
-          import('../modules/search-page/search-page.component').then(
-            (c) => c.SearchPageComponent
-          ),
+          import(
+            '../mobile/standalones/mobile-search-page/mobile-search-page.component'
+          ).then((c) => c.MobileSearchPageComponent),
       },
     ],
   },

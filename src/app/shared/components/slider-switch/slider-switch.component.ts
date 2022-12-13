@@ -7,7 +7,7 @@ import {
   Renderer2,
   ViewChild,
 } from '@angular/core';
-import { Item } from '../../models/item.model';
+import { Item } from '../../models/inner.models';
 
 @Component({
   selector: 'app-slider-switch',
@@ -30,7 +30,7 @@ export class SliderSwitchComponent implements AfterViewInit, OnInit {
   }
 
   ngOnInit(): void {
-    this.selectedCategory = this.categories[0].title;
+    this.selectedCategory = this.categories[0].id;
   }
 
   calculateCssTranslateAmount(index: number) {
@@ -40,8 +40,6 @@ export class SliderSwitchComponent implements AfterViewInit, OnInit {
 
   selectCategory(category: string, index: number) {
     this.selectedCategory = category;
-    console.log(this.calculateCssTranslateAmount(index));
-
     this.renderer.setStyle(
       this.el.nativeElement,
       'transform',

@@ -1,9 +1,9 @@
 <ul class="modes_wrapper">
   <li *ngFor="let category of categories; let i = index">
     <span
-      (click)="selectCategory(category.title, i)"
+      (click)="selectCategory(category.id, i)"
       [ngClass]="{
-        active: this.selectedCategory === category.title
+        active: this.selectedCategory === category.id
       }"
     >
       {{ category.value }}

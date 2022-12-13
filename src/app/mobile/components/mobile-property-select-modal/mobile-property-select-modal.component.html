@@ -1,0 +1,18 @@
+<div class="modal_wrapper">
+  <header class="modal_header">
+    <h3>כל סוגי הנכסים</h3>
+    <img
+      src="../../../../../assets/images/back_arrow.png"
+      alt="go back"
+      (click)="this.emitCloseModal()"
+    />
+  </header>
+  <button class="reset-btn btn">
+    <span>איפוס</span>
+  </button>
+  <ul>
+    <li *ngFor="let item of this.checkBoxItems">
+      <app-checkbox-parent [checkboxItem]="item"></app-checkbox-parent>
+    </li>
+  </ul>
+</div>

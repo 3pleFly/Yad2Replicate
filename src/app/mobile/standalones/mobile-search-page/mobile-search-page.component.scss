@@ -55,3 +55,13 @@
   padding: 17px 0;
   border-bottom: 1px solid #ebebeb;
 }
+
+.show_all_btn {
+  display: block;
+  text-align: center;
+  button {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #363636;
+  }
+}

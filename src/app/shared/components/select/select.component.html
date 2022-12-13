@@ -1,0 +1,8 @@
+<select>
+  <option selected>
+    <span>הכל</span>
+  </option>
+  <option *ngFor="let area of data | async">
+    <span>{{ area.text }}</span>
+  </option>
+</select>
