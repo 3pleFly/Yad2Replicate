@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {
   CheckBoxItem,
@@ -31,9 +31,9 @@ export class MobileSearchPageComponent {
   checkBoxItems!: CheckBoxItem[];
   selectedSubCategory!: string;
   cityInput!: string;
-  showSelectPropertyModal: boolean = true;
+  showSelectPropertyModal: boolean = false;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private cdRef: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     this.route.url.subscribe(
@@ -47,5 +47,10 @@ export class MobileSearchPageComponent {
 
   selectCategory(category: string) {
     this.selectedSubCategory = category;
+  }
+
+  openModal() {
+    this.showSelectPropertyModal = true;
+    this.cdRef.detectChanges();
   }
 }

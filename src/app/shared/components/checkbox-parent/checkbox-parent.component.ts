@@ -35,7 +35,7 @@ export class CheckboxParentComponent implements OnInit {
     this.checkboxService.openChildrenView(this.viewChildren);
   }
 
-  get selectedIndicator() {
+  get getSelectedString() {
     let selectedCount = this.checkboxSubItemsChecked?.length;
     if (selectedCount) return `נבחרו ${selectedCount} סוגים`;
     return '';
@@ -44,4 +44,10 @@ export class CheckboxParentComponent implements OnInit {
   get checkboxSubItemsChecked() {
     return this.checkboxItem.subItems?.filter((item) => item.checked);
   }
+
+  get isAllMarked() {
+    return this.checkboxSubItemsChecked?.length === this.checkboxItem.subItems?.length;
+  }
+
+
 }

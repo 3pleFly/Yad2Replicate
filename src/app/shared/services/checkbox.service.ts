@@ -46,7 +46,7 @@ export class CheckboxService {
     }
   }
 
-  private uncheckAll(parentCheckbox: CheckBoxItem) {
+  public uncheckAll(parentCheckbox: CheckBoxItem) {
     if (!parentCheckbox.subItems) return;
 
     for (const childCheckbox of parentCheckbox.subItems) {
@@ -60,7 +60,7 @@ export class CheckboxService {
     parentCheckbox.subItems?.forEach((item) => (item.checked = false));
   }
 
-  private checkAll(parentCheckbox: CheckBoxItem) {
+  public checkAll(parentCheckbox: CheckBoxItem) {
     parentCheckbox.checked = true;
     parentCheckbox.subItems?.forEach((item) => (item.checked = true));
   }
@@ -75,5 +75,10 @@ export class CheckboxService {
 
   get isAnyChecked() {
     return this.checkboxItems.filter((item) => item.checked).length > 0;
+  }
+
+  getMarkedCheckboxesCount(checkboxItem: CheckBoxItem): number {
+    let length = checkboxItem.subItems?.filter(item => item.checked).length
+    return length ? length : 0;
   }
 }

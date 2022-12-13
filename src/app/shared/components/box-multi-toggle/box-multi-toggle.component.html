@@ -3,13 +3,18 @@
     <li *ngFor="let item of multiToggleBoxes">
       <div class="group_type">
         <button
-          #boxElement
-          (click)="this.selectItem(boxElement, textElement, item)"
+          [ngClass]="{
+            box_button_active: this.isAnyCheckboxMarked(item.checkBoxItem)
+          }"
+          (click)="this.selectItem(item.checkBoxItem)"
         >
           <img src="{{ item.imgSrc }}" />
           <strong>{{ item.checkBoxItem.value }}</strong>
-          <span #textElement
-            >{{ item.checkBoxItem.subItems?.length }} סוגי נכסים</span
+          <span
+            [ngClass]="{
+              box_span_active: this.isAnyCheckboxMarked(item.checkBoxItem)
+            }"
+            >{{ this.getBoxDescriptionString(item.checkBoxItem) }}</span
           >
         </button>
       </div>

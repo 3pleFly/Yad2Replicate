@@ -12,7 +12,7 @@ import { SingleSwitchComponent } from './components/single-switch/single-switch.
 import { BoxMultiToggleComponent } from './components/box-multi-toggle/box-multi-toggle.component';
 import { SelectTypePageComponent } from './components/select-type-page/select-type-page.component';
 import { SelectComponent } from './components/select/select.component';
-import { ProjectedContentComponent } from './components/projected-content/projected-content.component';
+
 import { CheckboxParentComponent } from './components/checkbox-parent/checkbox-parent.component';
 import { CheckboxChildrenComponent } from './components/checkbox-children/checkbox-children.component';
 
@@ -27,7 +27,6 @@ import { CheckboxChildrenComponent } from './components/checkbox-children/checkb
     BoxMultiToggleComponent,
     SelectTypePageComponent,
     SelectComponent,
-    ProjectedContentComponent,
     CheckboxParentComponent,
     CheckboxChildrenComponent,
   ],
@@ -41,9 +40,8 @@ import { CheckboxChildrenComponent } from './components/checkbox-children/checkb
     SingleSwitchComponent,
     BoxMultiToggleComponent,
     SelectComponent,
-    ProjectedContentComponent,
     CheckboxParentComponent,
-    CheckboxChildrenComponent
+    CheckboxChildrenComponent,
   ],
 })
 export class SharedModule {}

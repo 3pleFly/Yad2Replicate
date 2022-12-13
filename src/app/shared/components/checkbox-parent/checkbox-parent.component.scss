@@ -39,9 +39,11 @@
   border-radius: 2px;
 }
 
-partial_checkmark:after {
-  content: "\2212";
+.checkmark-partial:after {
+  content: "\2212" !important;
   font-weight: bold;
+  position: relative;
+  right: 2px;
 }
 
 .checkmark:after {

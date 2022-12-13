@@ -10,9 +10,9 @@
         [checked]="this.checkboxItem.checked"
         disabled
       />
-      <span class="checkmark"></span>
+      <span [ngClass]="{ 'checkmark-partial': !isAllMarked, 'checkmark': true }"></span>
       <span class="cb_text">{{ this.checkboxItem.value }}</span>
-      <span class="selected_indicator">{{this.selectedIndicator}}</span>
+      <span class="selected_indicator">{{this.getSelectedString}}</span>
     </label>
     <button class="arrow btn" (click)="this.toggleChildrenView()">
       <img
