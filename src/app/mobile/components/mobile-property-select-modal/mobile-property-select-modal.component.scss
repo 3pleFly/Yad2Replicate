@@ -32,13 +32,19 @@
 }
 
 .reset-btn {
-  padding: 0 15px;
+  cursor: default;
+  padding:  15px;
+  text-align: left;
   width: 100%;
+  color: #ccc;
+
   span {
-    text-align: left;
-    display: block;
+    cursor: pointer;
     padding: 15px;
-    color: #ccc;
     font-size: 1rem;
   }
+}
+
+.active-reset {
+  color: #363636 !important;
 }

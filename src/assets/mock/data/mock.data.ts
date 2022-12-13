@@ -20,6 +20,7 @@ export const multiToggleBoxItems: MultiToggleBox[] = [
     imgSrc:
       'https://assets.yad2.co.il/yad2site/y2assets/images/realestate/Building.svg',
     checkBoxItem: {
+      id: 1,
       value: 'דירות',
       subItems: [
         { id: 'apartment', value: 'דירה' },
@@ -39,6 +40,7 @@ export const multiToggleBoxItems: MultiToggleBox[] = [
     imgSrc:
       'https://assets.yad2.co.il/yad2site/y2assets/images/realestate/Country-house.svg',
     checkBoxItem: {
+      id: 2,
       value: 'בתים',
       subItems: [
         { id: 'private_residence', value: 'בית פרטי/קוטג׳' },
@@ -53,6 +55,7 @@ export const multiToggleBoxItems: MultiToggleBox[] = [
     imgSrc:
       'https://assets.yad2.co.il/yad2site/y2assets/images/realestate/Other.svg',
     checkBoxItem: {
+      id: 3,
       value: 'סוגים נוספים',
       subItems: [
         { id: 'lots', value: 'מגרשים' },

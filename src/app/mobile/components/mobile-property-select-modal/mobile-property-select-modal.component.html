@@ -7,8 +7,13 @@
       (click)="this.emitCloseModal()"
     />
   </header>
-  <button class="reset-btn btn">
-    <span>איפוס</span>
+  <button
+    [ngClass]="{
+      'btn reset-btn': true,
+      'active-reset': this.isAnyChecked()
+    }"
+  >
+    <span (click)="resetSelection()">איפוס</span>
   </button>
   <ul>
     <li *ngFor="let item of this.checkBoxItems">

@@ -1,10 +1,30 @@
-<div class="wrapper" *ngIf="this.checkboxItem">
-  <label class="checkbox_data">
-    <input type="checkbox" class="checkbox" />
-    <span class="checkmark"></span>
-    <span class="cb_text">{{ this.checkboxItem.value }}</span>
-  </label>
-  <button class="arrow btn">
-    <img src="../../../../../assets/images/arrow_gray_bg.png" alt="open" />
-  </button>
+<div class="property_types">
+  <div class="property_type_header" *ngIf="this.checkboxItem">
+    <label
+      class="mobile_checkbox_label"
+      (click)="this.checkParentAndChildren()"
+    >
+      <input
+        type="checkbox"
+        class="checkbox"
+        [checked]="this.checkboxItem.checked"
+        disabled
+      />
+      <span class="checkmark"></span>
+      <span class="cb_text">{{ this.checkboxItem.value }}</span>
+      <span class="selected_indicator">{{this.selectedIndicator}}</span>
+    </label>
+    <button class="arrow btn" (click)="this.toggleChildrenView()">
+      <img
+        [ngClass]="{ 'active-arrow': this.viewChildren.view }"
+        #arrow
+        src="../../../../../assets/images/arrow_gray_bg.png"
+        alt="open"
+      />
+    </button>
+  </div>
+  <app-checkbox-children
+    *ngIf="this.viewChildren.view"
+    [checkboxItems]="this.checkboxItem.subItems"
+  ></app-checkbox-children>
 </div>

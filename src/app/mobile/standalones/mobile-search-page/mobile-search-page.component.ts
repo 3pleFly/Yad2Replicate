@@ -6,7 +6,8 @@ import {
   Item,
   MultiToggleBox,
 } from 'src/app/shared/models/inner.models';
-import { InputType } from 'src/app/shared/models/inputType.enum';
+
+import { CheckboxService } from 'src/app/shared/services/checkbox.service';
 import { SharedModule } from 'src/app/shared/shared.module';
 import {
   subCategories,
@@ -21,6 +22,7 @@ import { MobileModule } from '../../mobile.module';
   templateUrl: './mobile-search-page.component.html',
   styleUrls: ['./mobile-search-page.component.scss'],
   imports: [CommonModule, SharedModule, MobileModule],
+  providers: [CheckboxService]
 })
 export class MobileSearchPageComponent {
   subCategories: Item[] = subCategories;

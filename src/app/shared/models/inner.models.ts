@@ -1,5 +1,5 @@
 export interface CheckBoxItem {
-  id?: string;
+  id: number | string;
   checked?: boolean;
   value: string;
   subItems?: CheckBoxItem[];
@@ -13,4 +13,8 @@ export interface MultiToggleBox {
 export interface Item {
   id: string;
   value: string;
+}
+
+export interface View {
+  view: boolean;
 }
