@@ -12,9 +12,10 @@ import { SingleSwitchComponent } from './components/single-switch/single-switch.
 import { BoxMultiToggleComponent } from './components/box-multi-toggle/box-multi-toggle.component';
 import { SelectTypePageComponent } from './components/select-type-page/select-type-page.component';
 import { SelectComponent } from './components/select/select.component';
-
-import { CheckboxParentComponent } from './components/checkbox-parent/checkbox-parent.component';
-import { CheckboxChildrenComponent } from './components/checkbox-children/checkbox-children.component';
+import { CheckboxComponent } from './components/checkbox/checkbox.component';
+import { ModalComponent } from './components/modal/modal.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
+import { HebrewMonthPipe } from './pipes/hebrew-month.pipe';
 
 @NgModule({
   declarations: [
@@ -27,8 +28,10 @@ import { CheckboxChildrenComponent } from './components/checkbox-children/checkb
     BoxMultiToggleComponent,
     SelectTypePageComponent,
     SelectComponent,
-    CheckboxParentComponent,
-    CheckboxChildrenComponent,
+    CheckboxComponent,
+    ModalComponent,
+    CalendarComponent,
+    HebrewMonthPipe,
   ],
   imports: [CommonModule, HttpClientModule],
   exports: [
@@ -39,9 +42,10 @@ import { CheckboxChildrenComponent } from './components/checkbox-children/checkb
     InputComponent,
     SingleSwitchComponent,
     BoxMultiToggleComponent,
+    CheckboxComponent,
     SelectComponent,
-    CheckboxParentComponent,
-    CheckboxChildrenComponent,
+    ModalComponent,
+    CalendarComponent
   ],
 })
 export class SharedModule {}

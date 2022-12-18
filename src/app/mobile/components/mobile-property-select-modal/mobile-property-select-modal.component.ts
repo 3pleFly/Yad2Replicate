@@ -7,8 +7,8 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import { CheckBoxItem } from 'src/app/shared/models/inner.models';
-import { CheckboxService } from 'src/app/shared/services/checkbox.service';
+import { CheckBoxItem } from 'src/app/shared/models/checkboxItem.model';
+import { ChildrenView } from 'src/app/shared/models/inner.models';
 
 @Component({
   selector: 'app-mobile-property-select-modal',
@@ -19,8 +19,8 @@ export class MobilePropertySelectModalComponent implements OnInit {
   @Input() checkBoxItems!: CheckBoxItem[];
   @Input() showModal!: boolean;
   @Output() showModalChange = new EventEmitter<boolean>();
-
-  constructor(private checkboxService: CheckboxService) {}
+  prevCheckboxChildrenView!: ChildrenView;
+  constructor() {}
 
   ngOnInit(): void {}
 
@@ -32,29 +32,22 @@ export class MobilePropertySelectModalComponent implements OnInit {
     this.showModalChange.emit(false);
   }
 
-  checkChildren(checkBoxItem: CheckBoxItem): void {
-    checkBoxItem.checked = true;
-    checkBoxItem.subItems?.forEach((item) => (item.checked = true));
-  }
-
-  unCheckChildren(checkBoxItem: CheckBoxItem): void {
-    if (!checkBoxItem.subItems) return;
-
-    for (let i = 0; i < checkBoxItem.subItems?.length; i++) {
-      if (!checkBoxItem.subItems[i].checked) {
-        this.checkChildren(checkBoxItem);
-        return;
-      }
+  handleCheckboxChildrenViewEvent(view: ChildrenView) {
+    if (this.prevCheckboxChildrenView && this.prevCheckboxChildrenView.view) {
+      this.prevCheckboxChildrenView.view = false;
     }
-    checkBoxItem.checked = false;
-    checkBoxItem.subItems?.forEach((item) => (item.checked = false));
+    this.prevCheckboxChildrenView = view;
   }
 
-  isAnyChecked(): boolean {
-    return this.checkboxService.isAnyChecked;
+  clearAll(): void {
+    this.checkBoxItems.forEach(item => item.clear());
   }
 
-  resetSelection(): void {
-    this.checkboxService.resetSelection();
+  get isAnySelected(): boolean {
+    let checkItem = this.checkBoxItems.find((item) => item.checked);
+    if (!checkItem) return false;
+    return true;
   }
+
+
 }

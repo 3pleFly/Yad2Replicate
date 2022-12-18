@@ -1,4 +1,7 @@
-<div class="mobile_search_container">
+<div
+  class="mobile_search_container"
+  (click)="closeCalendarComponentViewOnFocus($event)"
+>
   <ul class="mobile_sub_cat_select">
     <app-single-switch
       [items]="subCategories"
@@ -9,7 +12,16 @@
     <ul class="search_columns">
       <header class="mode_switcher_header">
         <h4>חפשו לפי</h4>
-        <span>נקה הכל</span>
+        <button
+          [ngClass]="{
+            'naked-btn': true,
+            'reset-btn': true,
+            'active-reset': isAnyInputActive
+          }"
+          (click)="toggleClearAllModal = true"
+        >
+          <span>נקה הכל</span>
+        </button>
       </header>
       <app-slider-switch
         [categories]="this.searchCategories"
@@ -28,7 +40,11 @@
         ></app-input>
       </li>
       <li>
-        <app-select></app-select>
+        <app-select
+          [data$]="selectLivingAreaData$"
+          [labelName]="selectLivingAreaLabelName"
+          [width]="'100%'"
+        ></app-select>
       </li>
       <li>
         <h4 class="unbold">סוג נכס</h4>
@@ -36,17 +52,178 @@
           [multiToggleBoxes]="multiToggleBoxItems"
         ></app-box-multi-toggle>
         <a class="show_all_btn">
-          <button class="btn" (click)="this.openModal()">
+          <button
+            class="naked-btn"
+            (click)="toggleSelectPropertyModal = !toggleSelectPropertyModal"
+          >
             להצגת כל סוגי הנכסים
           </button>
         </a>
       </li>
+      <li>
+        <label>חדרים</label>
+        <ul class="range_select_wrapper">
+          <li>
+            <app-select
+              [data]="numberOfRoomsSelectOptions"
+              [width]="'100%'"
+            ></app-select>
+          </li>
+          <span class="underline_seperator"></span>
+          <li>
+            <app-select
+              [data]="numberOfRoomsSelectOptions"
+              [width]="'100%'"
+            ></app-select>
+          </li>
+        </ul>
+        <ul class="pre_choice_list">
+          <li>
+            <button class="rounded-btn btn">
+              <span> 2 - 3 חדרים </span>
+            </button>
+          </li>
+          <li>
+            <button class="rounded-btn btn">
+              <span> 3 - 4 חדרים </span>
+            </button>
+          </li>
+          <li>
+            <button class="rounded-btn btn">
+              <span> 4 - 5 חדרים </span>
+            </button>
+          </li>
+          <li>
+            <button class="rounded-btn btn">
+              <span> 5 - 6 חדרים </span>
+            </button>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <label>מחיר</label>
+        <ul class="range_select_wrapper">
+          <li>
+            <app-input [inputType]="'number'"></app-input>
+          </li>
+          <span class="underline_seperator"></span>
+          <li>
+            <app-input [inputType]="'number'"></app-input>
+          </li>
+        </ul>
+        <ul class="pre_choice_list">
+          <li>
+            <button class="rounded-btn btn">
+              <span>עד 1,500,000 ₪</span>
+            </button>
+          </li>
+          <li>
+            <button class="rounded-btn btn">
+              <span>1.5 - 2 מיליון ₪</span>
+            </button>
+          </li>
+          <li>
+            <button class="rounded-btn btn">
+              <span>2 - 3.5 מיליון ₪</span>
+            </button>
+          </li>
+          <li>
+            <button class="rounded-btn btn">
+              <span>3.5 - 5 מיליון ₪</span>
+            </button>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <button class="advanced_search_btn naked-btn">חיפוש מתקדם</button>
+        <ul class="advanced_search" *ngIf="toggleAdvancedSearchVisibility">
+          <li class="advanced_search_row">
+            <div
+              class="advanced_search_col"
+              *ngFor="let item of advancedSearchCheckboxItems"
+            >
+              <app-checkbox [checkboxItem]="item"></app-checkbox>
+            </div>
+          </li>
+          <li class="advanced_search_row">
+            <label>קומה</label>
+            <ul class="range_select_wrapper">
+              <li>
+                <app-select
+                  [data]="numberOfRoomsSelectOptions"
+                  [width]="'100%'"
+                ></app-select>
+              </li>
+              <span class="underline_seperator"></span>
+              <li>
+                <app-select
+                  [data]="numberOfRoomsSelectOptions"
+                  [width]="'100%'"
+                ></app-select>
+              </li>
+            </ul>
+          </li>
+          <li class="advanced_search_row">
+            <label>גודל דירה (במ״ר)</label>
+            <ul class="range_select_wrapper">
+              <li>
+                <app-input [inputType]="'number'"></app-input>
+              </li>
+              <span class="underline_seperator"></span>
+              <li>
+                <app-input [inputType]="'number'"></app-input>
+              </li>
+            </ul>
+          </li>
+          <li class="advanced_search_row" (click)="stopPropogation($event)">
+            <div class="calendar-col">
+              <label>תאריך כניסה</label>
+              <app-calendar
+                *ngIf="calendarComponentVisible"
+                (selectedDateEvent)="setCalendarSelectedDate($event)"
+              ></app-calendar>
+              <app-input
+                (click)="openCalendarComponentViewOnFocus($event)"
+                [textColor]="'#363636'"
+                [readonly]="'readonly'"
+                [inputType]="'text'"
+                [placeHolder]="'החל מ-הזינו תאריך'"
+                [value]="calendarSelectedDateValueString"
+              ></app-input>
+              <img
+                class="calendar-img"
+                src="../../../.././assets/images/calendar.png"
+                alt="entering-date"
+              />
+              <app-checkbox
+                [checkboxItem]="immidiateEntryCheckboxItem"
+                ></app-checkbox>
+              </div>
+            </li>
+            <li class="advanced_search_row">
+              <label>חיפוש חופשי</label>
+              <app-input></app-input>
+            </li>
+            <span class="last_item_border"></span>
+        </ul>
+      </li>
     </ul>
-    <div class="button_wrapper"></div>
+    <div class="button_wrapper">
+      <button class="primary-btn search-btn">
+        <span>חיפוש</span>
+      </button>
+    </div>
   </form>
 </div>
 <app-mobile-property-select-modal
-  [(showModal)]="showSelectPropertyModal"
+  *ngIf="toggleSelectPropertyModal"
+  [(showModal)]="toggleSelectPropertyModal"
   [checkBoxItems]="this.checkBoxItems"
-  *ngIf="showSelectPropertyModal"
 ></app-mobile-property-select-modal>
+<app-modal
+  [(showModal)]="toggleClearAllModal"
+  [isVisible]="toggleClearAllModal"
+  [promptMessage]="toggleClearAllModalPromptMessage"
+  [primaryButtonFunc]="toggleClearAllModalPrimaryFunc"
+  [secondaryButtonFunc]="toggleClearAllModalSecondaryFunc"
+></app-modal>

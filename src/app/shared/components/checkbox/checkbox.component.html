@@ -1,0 +1,54 @@
+<div class="checkbox_wrapper" *ngIf="checkboxItem">
+  <div
+    [ngClass]="{ checkbox_multi_layer_wrapper: checkboxItem.subItems?.length }"
+  >
+    <label
+      [ngClass]="{ checkbox_label: checkboxItem.subItems?.length }"
+      (click)="checkboxItem.toggleAllChildren()"
+    >
+      <input
+        type="checkbox"
+        class="checkbox"
+        [checked]="checkboxItem.checked"
+        disabled
+      />
+      <span [ngClass]="isAllChecked ? 'checkmark' : 'checkmark-partial'"></span>
+      <span class="cb_text">{{ checkboxItem.value }}</span>
+      <span class="selected_indicator"></span>
+    </label>
+    <button
+      *ngIf="checkboxItem.subItems?.length"
+      class="arrow naked-btn"
+      (click)="openChildrenListView()"
+    >
+      <img
+        [ngClass]="{
+          arrow: !childrenView.view,
+          'arrow-active': childrenView.view
+        }"
+        src="../../../../../assets/images/arrow_gray_bg.png"
+        alt="open-children"
+      />
+    </button>
+  </div>
+  <ul
+    [ngClass]="{
+      checkbox_children_list: true,
+      open_children_list: childrenView.view
+    }"
+  >
+    <li *ngFor="let childItem of checkboxItem.subItems">
+      <label class="checkbox_label" (click)="toggle(childItem.id)">
+        <input
+          type="checkbox"
+          class="checkbox"
+          [checked]="childItem.checked"
+          disabled
+        />
+        <span class="checkmark"></span>
+        <span class="cb_text">{{ childItem.value }}</span>
+        <span class="selected_indicator"></span>
+      </label>
+    </li>
+  </ul>
+</div>

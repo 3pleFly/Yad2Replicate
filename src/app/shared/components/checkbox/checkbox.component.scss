@@ -1,0 +1,42 @@
+.checkbox_multi_layer_wrapper {
+  padding: 0 20px;
+  background-color: #f9f9f9;
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.arrow > img {
+  object-fit: contain;
+  width: 18px;
+  transform: rotate(180deg);
+}
+
+.arrow-active {
+  transform: rotate(360deg) !important;
+}
+
+.checkbox_label {
+  width: calc(100% - 50px);
+  margin: 0;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.checkbox_children_list {
+  display: none;
+  overflow: hidden;
+  padding: 0 20px;
+
+  li {
+    padding: 0 20px;
+    border-bottom: 1px solid #eee;
+    min-height: 50px;
+
+  }
+}
+
+.open_children_list {
+  display: block;
+}

@@ -9,15 +9,15 @@
   </header>
   <button
     [ngClass]="{
-      'btn reset-btn': true,
-      'active-reset': this.isAnyChecked()
+      'naked-btn reset-btn': true,
+      'active-reset': isAnySelected
     }"
   >
-    <span (click)="resetSelection()">איפוס</span>
+    <span (click)="clearAll()">איפוס</span>
   </button>
   <ul>
     <li *ngFor="let item of this.checkBoxItems">
-      <app-checkbox-parent [checkboxItem]="item"></app-checkbox-parent>
+      <app-checkbox (childrenListViewEvent)="handleCheckboxChildrenViewEvent($event)" [checkboxItem]="item"></app-checkbox>
     </li>
   </ul>
 </div>

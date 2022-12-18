@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GovtApiAreaModel } from '../../models/govtApiAreaModel.model';
 import { GovtAPIService } from '../../services/govt-api.service';
@@ -8,16 +8,12 @@ import { GovtAPIService } from '../../services/govt-api.service';
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.scss']
 })
-export class SelectComponent implements OnInit {
+export class SelectComponent  {
 
-  data!: Observable<GovtApiAreaModel[]>;
+  @Input() data$!: Observable<string[]>;
+  @Input() data!: string[];
+  @Input() labelName!: string;
+  @Input() width!: string;
 
-  constructor(private govtApiService: GovtAPIService) {}
-
-  ngOnInit(): void {
-    this.data = this.govtApiService.getIsraeliAreasOfLiving();
-
-
-  }
 
 }

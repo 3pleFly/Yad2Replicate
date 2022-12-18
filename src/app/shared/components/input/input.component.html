@@ -1,9 +1,11 @@
 <label [ngClass]="{ disabled: disabled }">
   <span [ngClass]="{ disabled: this.disabled }">{{ labelName }}</span>
   <input
+    [readOnly]="readonly"
+    [ngStyle]="{ color: textColor }"
     [disabled]="disabled"
-    class=""
+    [value]="value"
     [type]="inputType"
-    [placeholder]="this.inputPlaceholder"
+    [placeholder]="placeHolder"
   />
 </label>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
@@ -20,7 +20,7 @@ export class SidebarModalComponent implements OnInit {
     this.authService.nextModalValue(false);
   }
 
-  stopPropogation(e: MouseEvent) {
+  stopPropogation(e: Event) {
     e.stopPropagation();
   }
 }

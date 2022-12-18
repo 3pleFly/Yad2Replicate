@@ -1,0 +1,39 @@
+
+<div class="calendar_wrapper">
+  <header>
+    <span
+      class="prev"
+      [ngClass]="{ img_disabled: isMonthBeforeCurrent }"
+      (click)="prevMonth()"
+    >
+      <img src="../../../../assets/images/downdrop_arrow.png" alt="prev" />
+    </span>
+    <span class="date_title"
+      >{{ this.month | hebrewMonth }} {{ this.year }}</span
+    >
+    <span class="next" (click)="nextMonth()">
+      <img src="../../../../assets/images/downdrop_arrow.png" alt="next" />
+    </span>
+  </header>
+  <div class="calendar">
+    <span class="cell day_header">א</span>
+    <span class="cell day_header">ב</span>
+    <span class="cell day_header">ג</span>
+    <span class="cell day_header">ד</span>
+    <span class="cell day_header">ה</span>
+    <span class="cell day_header">ו</span>
+    <span class="cell day_header">ש</span>
+    <span class="cell" *ngFor="let blank of getBlankDaysArray()"></span>
+    <span
+      (click)="selectDate(calendarDate)"
+      class="cell"
+      [ngClass]="{
+        cells_disabled: isDateUntilToday(calendarDate.date),
+        'cells-active': calendarDate.selected
+      }"
+      *ngFor="let calendarDate of monthDates"
+    >
+      {{ calendarDate.date.getDate() }}
+    </span>
+  </div>
+</div>

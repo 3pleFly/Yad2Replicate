@@ -1,0 +1,91 @@
+:host {
+  position: relative;
+}
+
+.calendar_wrapper {
+  background: #fff;
+  font-size: 14px;
+  border: 1px solid #ccc;
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    line-height: 20px;
+
+    span {
+      padding: 5px;
+      img {
+        object-fit: contain;
+        width: 15px;
+      }
+    }
+  }
+}
+
+.prev img {
+  transform: rotate(-90deg);
+}
+
+.next img {
+  transform: rotate(90deg);
+}
+
+.calendar {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 10px 10px;
+  text-align: right;
+}
+
+.cell {
+  cursor: pointer;
+  z-index: 1;
+  font-size: 12px;
+  height: auto;
+  margin-bottom: 5px;
+  padding: 0;
+  display: block;
+  padding: 0 5px;
+  width: 14.28571%;
+  text-align: center;
+  border: 1px solid transparent;
+  position: relative;
+
+}
+
+
+
+.cells-active {
+  color: #fff !important;
+}
+
+.cells-active::after {
+  display: inline-block;
+  content: "";
+  position: absolute;
+  background-color: #ff7100;
+  border-radius: 50%;
+  padding: 12px 11px 11px 13px;
+  // left: 12px;
+  // top: -2px;
+  left: 48%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  top: -3px;
+  z-index: -1;
+}
+
+.day_header {
+  font-size: 13px;
+}
+
+.cells_disabled {
+  color: #ddd !important  ;
+  cursor: default !important;
+}
+
+.img_disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}

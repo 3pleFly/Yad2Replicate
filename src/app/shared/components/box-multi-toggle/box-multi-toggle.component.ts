@@ -1,6 +1,6 @@
-import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
-import { CheckBoxItem, MultiToggleBox } from '../../models/inner.models';
-import { CheckboxService } from '../../services/checkbox.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { CheckBoxItem } from '../../models/checkboxItem.model';
+import { MultiToggleBox } from '../../models/inner.models';
 
 @Component({
   selector: 'app-box-multi-toggle',
@@ -10,26 +10,8 @@ import { CheckboxService } from '../../services/checkbox.service';
 export class BoxMultiToggleComponent implements OnInit {
   @Input() multiToggleBoxes!: MultiToggleBox[];
 
-  constructor(private checkboxService: CheckboxService) {}
+  constructor() {}
 
   ngOnInit(): void {}
 
-  selectItem(checkboxItem: CheckBoxItem) {
-    if(checkboxItem.checked) {
-      this.checkboxService.uncheckAll(checkboxItem);
-      return;
-    }
-    this.checkboxService.checkAll(checkboxItem);
-  }
-
-  getBoxDescriptionString(checkboxItem: CheckBoxItem) {
-    let markedLength =
-      this.checkboxService.getMarkedCheckboxesCount(checkboxItem);
-    if (!markedLength) return `${checkboxItem.subItems?.length} סוגי נכסים`;
-    return `${markedLength} סוגים נבחרו`;
-  }
-
-  isAnyCheckboxMarked(checkboxItem: CheckBoxItem): boolean {
-    return checkboxItem.checked ? true : false;
-  }
 }

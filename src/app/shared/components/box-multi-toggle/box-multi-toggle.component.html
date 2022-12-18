@@ -1,21 +1,31 @@
 <div class="wrapper">
   <ul>
-    <li *ngFor="let item of multiToggleBoxes">
+    <li *ngFor="let box of multiToggleBoxes">
       <div class="group_type">
         <button
           [ngClass]="{
-            box_button_active: this.isAnyCheckboxMarked(item.checkBoxItem)
+            box_button_active: box.checkboxItem.checked
           }"
-          (click)="this.selectItem(item.checkBoxItem)"
+          (click)="box.checkboxItem.toggleAllChildren()"
         >
-          <img src="{{ item.imgSrc }}" />
-          <strong>{{ item.checkBoxItem.value }}</strong>
+
+          <img src="{{ box.imgSrc }}" />
+          <strong>{{ box.checkboxItem.value }}</strong>
           <span
-            [ngClass]="{
-              box_span_active: this.isAnyCheckboxMarked(item.checkBoxItem)
-            }"
-            >{{ this.getBoxDescriptionString(item.checkBoxItem) }}</span
-          >
+            *ngIf="
+              box.checkboxItem.checked;
+              then boxIsSelected;
+              else boxIsNotSelected
+            "
+          ></span>
+          <ng-template #boxIsSelected>
+            <span class="box_span_active">
+              {{ box.checkboxItem.countOfCheckedItems }} סוגים נבחרו
+            </span>
+          </ng-template>
+          <ng-template #boxIsNotSelected class="">
+            <span> {{ box.checkboxItem.subItems?.length }} סוגי נכסים </span>
+          </ng-template>
         </button>
       </div>
     </li>

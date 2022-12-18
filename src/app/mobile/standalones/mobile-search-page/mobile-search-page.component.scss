@@ -25,6 +25,10 @@
     padding: 17px 0;
     border-bottom: 1px solid #ebebeb;
   }
+
+  li:last-child {
+    border: none;
+  }
 }
 
 .mode_switcher_header {
@@ -40,20 +44,22 @@
     font-weight: 500;
     margin: 0;
     padding: 0;
+    width: 90px;
   }
 
-  span {
-    background: none;
-    border: none;
-    font-size: 14px;
-    padding-top: 0;
-    color: #ccc;
+  button {
+    width: 100px;
+    padding: 0;
+
+    span {
+      font-size: 14px;
+    }
   }
 }
 
 .search_column {
   padding: 17px 0;
-  border-bottom: 1px solid #ebebeb;
+  // border-bottom: 1px solid #ebebeb;
 }
 
 .show_all_btn {
@@ -64,4 +70,122 @@
     text-decoration: underline;
     color: #363636;
   }
+}
+
+.range_select_wrapper {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+}
+
+.range_select_wrapper > li {
+  width: 100%;
+  margin: auto;
+  padding: 0;
+  border: none;
+}
+
+.underline_seperator:after {
+  content: "_";
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 2rem;
+  font-weight: 200;
+  color: #ccc;
+  position: relative;
+  top: 9px;
+  padding: 0 5px;
+}
+
+.pre_choice_list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 15px 0;
+
+  li {
+    padding: 0;
+    border: none;
+
+    button {
+      font-size: 0.875rem;
+      line-height: 1.0625rem;
+      margin: 0 0 15px 15px;
+      white-space: nowrap;
+    }
+  }
+}
+
+.advanced_search_btn {
+  position: relative;
+  color: #ff7100;
+  font-size: 16px;
+}
+
+.advanced_search_btn:before {
+  content: "+ ";
+  font-size: 10px;
+  position: relative;
+  top: -1px;
+  right: -5px;
+}
+
+.advanced_search_col {
+  padding: 5px 0 !important;
+  width: 50%;
+  display: inline-block;
+  border: none !important;
+}
+
+.advanced_search_row {
+  padding: 20px 0;
+  // border-bottom: 1px solid #ebebeb;
+  position: relative;
+
+  app-calendar {
+    position: absolute;
+    width: 100%;
+    right: 0;
+    bottom: 67px;
+  }
+
+  app-checkbox {
+    margin-top: 20px;
+  }
+}
+
+.calendar-img {
+  object-fit: contain;
+  width: 25px;
+  position: absolute;
+  bottom: 46%;
+  left: 10px;
+}
+
+.calendar-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.last_item_border {
+  border-top: 1px solid #eee;
+}
+
+.button_wrapper {
+  position: fixed;
+  display: block;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  padding: 15px;
+  z-index: 400;
+  background-color: #fff;
+}
+
+.search-btn {
+  cursor: pointer;
+  border: none;
+  font-size: 1.25rem;
+  padding: 0.65rem 1rem;
+  width: 100%;
+  border-radius: 50px;
 }

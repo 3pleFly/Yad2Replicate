@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { map, Observable, of, switchMap } from 'rxjs';
 import { areasInIsraelUrl } from 'src/assets/api/api.url';
 import {
-  GovtApiAreaModel,
   GovtApiModel,
 } from '../models/govtApiAreaModel.model';
 @Injectable({
@@ -12,9 +11,11 @@ import {
 export class GovtAPIService {
   constructor(private http: HttpClient) {}
 
-  getIsraeliAreasOfLiving(): Observable<GovtApiAreaModel[]> {
+  getIsraeliAreasOfLiving(): Observable<string[]> {
     return this.http
       .get<GovtApiModel>(areasInIsraelUrl)
-      .pipe(switchMap((resp) => of(resp.data.area)));
+      .pipe(switchMap((resp) => of(resp.data.area))).pipe(
+        map(areaData => areaData.map(item => item.text))
+      )
   }
 }

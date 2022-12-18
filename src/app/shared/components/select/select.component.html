@@ -1,8 +1,15 @@
-<select>
-  <option selected>
-    <span>הכל</span>
-  </option>
-  <option *ngFor="let area of data | async">
-    <span>{{ area.text }}</span>
-  </option>
-</select>
+<label>
+  <span>{{labelName}}</span>
+  <img src="../../../../assets/images/downdrop_arrow.png" alt="">
+  <select [ngStyle]="{'width': width}">
+    <option selected>
+      <span>הכל</span>
+    </option>
+    <option *ngFor="let info of data$ | async">
+      <span>{{ info }}</span>
+    </option>
+    <option *ngFor="let info of data">
+      <span>{{ info }}</span>
+    </option>
+  </select>
+</label>
