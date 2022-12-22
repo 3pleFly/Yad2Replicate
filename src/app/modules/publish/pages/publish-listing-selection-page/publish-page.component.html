@@ -1,0 +1,25 @@
+<app-publish-navbar></app-publish-navbar>
+<div class="wrapper">
+  <div class="category-rows">
+    <h2>אני רוצה לפרסם מודעה בלוח...</h2>
+    <ng-container ></ng-container>
+
+
+    <ng-template *ngIf="categories$ | async as categories">
+      <app-publish-page-content
+        *ngIf="!isMobileUser"
+        [categories]="categories"
+        (onClickedCategoryEvent)="handleClickedCategoryEvent($event)"
+      ></app-publish-page-content>
+
+      <app-publish-page-content-mobile
+        *ngIf="isMobileUser"
+        [categories]="categories"
+        (onClickedCategoryEvent)="handleClickedCategoryEvent($event)"
+      ></app-publish-page-content-mobile>
+    </ng-template>
+  </div>
+</div>
+<app-publish-page-modal
+  [(showPublishSelectionModal)]="showPublishPageModal"
+></app-publish-page-modal>
