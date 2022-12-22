@@ -20,7 +20,10 @@
 
   <ng-template #buttonsTemplate>
     <div class="dialog-btns">
-      <button class="secondary-btn btn" [routerLink]="'/publish'" [queryParams]="{prop: 'cat2'}">
+      <button
+        class="secondary-btn btn"
+        (click)="navigate()"
+      >
         פרטי
       </button>
       <button class="secondary-btn btn">מתווך</button>

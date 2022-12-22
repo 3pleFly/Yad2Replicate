@@ -13,9 +13,11 @@ export class MockDataService {
   constructor() {}
 
   getCategoryBoxTypes(): Observable<CategoryBoxModel[]> {
+    let index = 1;
     let boxModel = categoryListings.map(
       (c) =>
         <CategoryBoxModel>{
+          id: index++,
           iconImgSrc: c.iconImgSrc,
           titleText: c.title,
           subtitleText: c.subtitle,
