@@ -2,9 +2,10 @@
 @use "./styles/icons.scss";
 @use "./styles/buttons.scss";
 @use "./styles/checkbox.scss";
+@use "./styles/modals.scss";
 
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;800;900&display=swap');
+
 
 * {
   box-sizing: border-box;
@@ -20,7 +21,7 @@ body {
   margin: 0;
   z-index: 800;
 
-  padding-top: var(--body-padding-top);
+  // padding-top: var(--body-padding-top);
 }
 
 li {
@@ -38,4 +39,12 @@ ul {
   font-weight: 400;
   padding: 0;
   margin: 0;
+}
+
+.title-medium {
+  text-align: center;
+  display: block;
+  padding-top: 5px;
+  width: 100%;
+  font-size: 1.45rem;
 }

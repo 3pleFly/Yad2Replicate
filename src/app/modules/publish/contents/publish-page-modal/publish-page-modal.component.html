@@ -1,0 +1,29 @@
+<app-modal
+  [(showModal)]="showPublishSelectionModal"
+  (showModalChange)="closePublishSelectionModal()"
+>
+  <ng-template #closeBtnTemplate>
+    <span class="close-btn" (click)="closePublishSelectionModal()">
+      <img src="../../../../assets/images/close-btn-black.png" alt="close" />
+    </span>
+  </ng-template>
+
+  <ng-template #iconTemplate>
+    <span class="home-icon">
+      <img src="../../../assets/images/icons/home-icon.png" alt="icon" />
+    </span>
+  </ng-template>
+
+  <ng-template #dialogMessageTemplate>
+    <p class="dialog-paragraph">איזה סוג מודעה תרצו לפרסם?</p>
+  </ng-template>
+
+  <ng-template #buttonsTemplate>
+    <div class="dialog-btns">
+      <button class="secondary-btn btn" [routerLink]="'/publish'" [queryParams]="{prop: 'cat2'}">
+        פרטי
+      </button>
+      <button class="secondary-btn btn">מתווך</button>
+    </div>
+  </ng-template>
+</app-modal>

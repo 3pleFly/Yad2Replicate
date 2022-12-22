@@ -1,21 +1,29 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ButtonModel } from '../../models/inner.models';
+import {
+  AfterViewInit,
+  Component,
+  ContentChild,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  TemplateRef,
+} from '@angular/core';
+
+
 
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss'],
 })
-export class ModalComponent implements OnInit {
-  @Input() isVisible: boolean = false;
-  @Input() promptMessage!: string;
-  @Input() primaryButtonFunc!: ButtonModel;
-  @Input() secondaryButtonFunc!: ButtonModel;
+export class ModalComponent  {
   @Input() showModal!: boolean;
   @Output() showModalChange = new EventEmitter<boolean>();
 
-  ngOnInit(): void {
-  }
+  @ContentChild('closeBtnTemplate') closeBtnTemplate!: TemplateRef<any>;
+  @ContentChild('iconTemplate') iconTemplate!: TemplateRef<any>;
+  @ContentChild('buttonsTemplate') buttonsTemplate!: TemplateRef<any>;
+  @ContentChild('dialogMessageTemplate') messageTemplate!: TemplateRef<any>;
 
   closeModal(): void {
     this.showModalChange.emit(false);

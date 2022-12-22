@@ -145,7 +145,7 @@
     position: absolute;
     width: 100%;
     right: 0;
-    bottom: 67px;
+    bottom: 104px;
   }
 
   app-checkbox {
@@ -177,7 +177,7 @@
   bottom: 0;
   left: 0;
   padding: 15px;
-  z-index: 400;
+  z-index: 99;
   background-color: #fff;
 }
 
@@ -188,4 +188,59 @@
   padding: 0.65rem 1rem;
   width: 100%;
   border-radius: 50px;
+}
+
+.dialog-box {
+  position: relative;
+
+  p {
+    margin: 0;
+    margin-bottom: 30px;
+  }
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+
+  img {
+    object-fit: contain;
+    width: 15px;
+  }
+}
+
+.dialog-btns {
+  display: flex;
+
+  button:first-child {
+    flex: 2;
+    line-height: 1.1875rem;
+    font-size: 1rem;
+    border: none;
+  }
+
+  button:last-child {
+    flex: 2;
+    padding: 0.55em 1em;
+    margin-right: 10px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.1875rem;
+    border: 1px solid #ff7100;
+  }
+}
+
+.dialog_message {
+  margin: 0;
+  margin-bottom: 30px;
+}
+
+app-modal {
+  --backdrop-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  // --dialog-box-opacity: 0;
+  // --dialog-box-opacity-active: 1;
+  --dialog-box-transition: all 0.2s ease-in-out;
+  --dialog-box-transform: scale(0.9, 0.85);
 }

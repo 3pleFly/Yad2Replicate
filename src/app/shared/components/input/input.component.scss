@@ -4,6 +4,7 @@ label {
   display: inline-block;
   color: #363636;
   text-align: right;
+  position: relative;
 
   input {
     margin-top: 5px;
@@ -13,6 +14,7 @@ label {
     padding: 10px;
     width: 100%;
     border: 1px solid #ccc;
+    outline: none;
   }
   input::placeholder {
     font-size: 1rem;
@@ -23,8 +25,37 @@ label {
     border-color: #ccc;
     color: #ccc;
   }
+
+  input::placeholder {
+    font-weight: 300;
+  }
+
+  input:focus-visible {
+    border-color: rgb(56, 56, 56);
+  }
+  input:hover {
+    border-color: rgb(56, 56, 56);
+  }
 }
 
 .disabled {
   color: #ccc;
+}
+
+.password-visibility {
+  display: relative;
+  img {
+    cursor: pointer;
+
+    position: absolute;
+    left: 10px;
+    bottom: 30%;
+    object-fit: contain;
+    width: 22px;
+    opacity: 0.6;
+  }
+
+  img:hover {
+    opacity: 1;
+  }
 }

@@ -1,0 +1,59 @@
+app-modal {
+  --backdrop-background-color: rgba(0, 0, 0, 0.6);
+  --backdrop-transition: 0.6s background ease-out, 0.6s opacity ease-in;
+  --dialog-box-transition: 0.5s background ease-out, 0.5s opacity ease-in;
+  --dialog-box-width: 290px;
+  --dialog-box-height: 227px;
+}
+
+.dialog-btns {
+  display: flex;
+  button {
+    padding: 0;
+    height: 79px;
+    width: 110px;
+    font-size: 24px;
+    margin: 0.6em 10px 0 10px;
+  }
+}
+
+.home-icon {
+  position: absolute;
+  left: 40%;
+  top: -11%;
+
+  height: 60px;
+  width: 60px;
+  background-color: #fff;
+  box-shadow: 0 2px 6px 0 rgb(0 0 0 / 10%);
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    object-fit: contain;
+    width: 36px;
+  }
+}
+
+.dialog-paragraph {
+  text-align: center;
+  margin: 0;
+  margin-top: 38px;
+  margin-bottom: 21px;
+  font-size: 18px;
+}
+
+.close-btn {
+  cursor: pointer;
+  position: absolute;
+  left: 8px;
+  top: 8px;
+
+  img {
+    object-fit: contain;
+    width: 44px;
+  }
+}

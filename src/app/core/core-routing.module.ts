@@ -24,8 +24,55 @@ const routes: Routes = [
       },
     ],
   },
+  {
+    path: 'auth/login',
+    loadComponent: () => {
+      if (isMobileVersion()) {
+        return import(
+          '../mobile/standalones/mobile-authentication-page/mobile-authentication-page.component'
+        ).then((c) => c.MobileAuthenticationPageComponent);
+      }
+      return import(
+        '../modules/authentication-page/authentication-page.component'
+      ).then((c) => c.AuthenticationPageComponent);
+    },
+  },
+  {
+    path: 'auth/register',
+    loadComponent: () => {
+      if (isMobileVersion()) {
+        return import(
+          '../mobile/standalones/mobile-authentication-page/mobile-authentication-page.component'
+        ).then((c) => c.MobileAuthenticationPageComponent);
+      }
+      return import(
+        '../modules/authentication-page/authentication-page.component'
+      ).then((c) => c.AuthenticationPageComponent);
+    },
+  },
+  {
+    path: 'publish',
+    loadChildren: () => {
+      return import('../modules/publish/publish-page.module').then(
+        (m) => m.PublishPageModule
+      );
+    },
+  },
+
+  {
+    path: 'auth',
+    redirectTo: 'auth/login',
+    pathMatch: 'full',
+  },
   { path: '**', redirectTo: 'realestate/forsale', pathMatch: 'full' },
 ];
+
+function isMobileVersion(): boolean {
+  if (window.innerWidth > 1100) {
+    return false;
+  }
+  return true;
+}
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

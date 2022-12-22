@@ -10,7 +10,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [SharedModule, RouterModule]
 })
 export class RealEstateListingPageComponent {
-
+somebool = true;
   breadcrumbRoutes = ["נדל״ן למכירה"];
 
 }

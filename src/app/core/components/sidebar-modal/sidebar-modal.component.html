@@ -4,14 +4,16 @@
     'active-sidemenu-container': (this.modal | async)
   }"
   (click)="closeSidemenu($event)"
+>
+  <nav
+    (click)="stopPropogation($event)"
+    [ngClass]="{ sidemenu: true, 'active-sidemenu': (this.modal | async) }"
   >
-  <nav (click)="stopPropogation($event)"
-   [ngClass]="{ sidemenu: true, 'active-sidemenu': (this.modal | async) }">
     <span class="close_btn" (click)="closeSidemenu($event)">
       <i class="close_icon"></i>
     </span>
     <div class="mobile_menu_top_section">
-      <div class="login-container">
+      <div class="login-container" (click)="navigateTo('/auth/login', $event)">
         <img
           src="../../../../assets/images/additonal_links/user.png"
           width="55px"
@@ -20,7 +22,12 @@
         />
         <button class="naked-btn">התחברות</button>
       </div>
-      <button class="new_listing_btn naked-btn new_post">פרסום מודעה</button>
+      <button
+        class="new_listing_btn naked-btn new_post"
+        (click)="navigateTo('/publish', $event)"
+      >
+        פרסום מודעה
+      </button>
       <div class="link-container_additions">
         <a class="link">
           <i class="chat-link_icon"></i>
@@ -261,4 +268,3 @@
     </div>
   </nav>
 </div>
-

@@ -39,7 +39,7 @@ export class MobileSearchPageComponent {
   selectedSubCategory!: string;
   cityInput!: string;
   toggleSelectPropertyModal: boolean = false;
-  toggleClearAllModal: boolean = false;
+  showClearAllModal: boolean = false;
   toggleClearAllModalPromptMessage = 'האם לאפס את החיפוש?';
   toggleClearAllModalPrimaryFunc!: ButtonModel;
   toggleClearAllModalSecondaryFunc!: ButtonModel;
@@ -54,7 +54,10 @@ export class MobileSearchPageComponent {
   calendarSelectedDate!: CalendarDate;
   calendarComponentVisible: boolean = false;
   boundToggleCalendarComponentViewOnFocus!: Function;
-  immidiateEntryCheckboxItem: CheckBoxItem =  new CheckBoxItem("9","כניסה מיידית");
+  immidiateEntryCheckboxItem: CheckBoxItem = new CheckBoxItem(
+    '9',
+    'כניסה מיידית'
+  );
 
   constructor(
     private route: ActivatedRoute,
@@ -71,16 +74,6 @@ export class MobileSearchPageComponent {
       (item) => item.checkboxItem
     );
 
-    let boundClearAll = this.clearAll.bind(this);
-
-    this.toggleClearAllModalPrimaryFunc = new ButtonModel(
-      boundClearAll,
-      'אישור'
-    );
-    this.toggleClearAllModalSecondaryFunc = new ButtonModel(() => {
-      this.toggleClearAllModal = false;
-    }, 'ביטול');
-
     this.selectLivingAreaData$ = this.govtApiService.getIsraeliAreasOfLiving();
   }
 
@@ -90,7 +83,7 @@ export class MobileSearchPageComponent {
 
   clearAll(): void {
     this.checkBoxItems.forEach((item) => item.clear());
-    this.toggleClearAllModal = false;
+    this.showClearAllModal = false;
   }
 
   get isAnyInputActive(): boolean {
@@ -118,6 +111,10 @@ export class MobileSearchPageComponent {
   closeCalendarComponentViewOnFocus(e: Event) {
     this.calendarComponentVisible = false;
     e.stopPropagation();
+  }
+
+  closeClearAllModal() {
+    this.showClearAllModal = false;
   }
 
   stopPropogation(e: Event) {

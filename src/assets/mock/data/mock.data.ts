@@ -1,3 +1,4 @@
+import { CategoryListing } from 'src/app/shared/models/categoryListing.model';
 import { CheckBoxItem } from 'src/app/shared/models/checkboxItem.model';
 import { Item, MultiToggleBox } from 'src/app/shared/models/inner.models';
 
@@ -119,4 +120,91 @@ export const advancedSearchNumberOfFloorsSelectOptions: string[] = [
   '15',
   '16',
   '17',
+];
+
+export const categoryListings: CategoryListing[] = [
+  {
+    title: 'נדל״ן',
+    subtitle: 'מכירה, השכרה, מסחרי',
+    iconImgSrc:
+      'https://assets.yad2.co.il/personal/svg/subCategories_publish_icons/mainCategoriesIcons/newIcons/nadlan.svg',
+  },
+  {
+    title: 'כלי רכב',
+    subtitle: 'כלי רכב, דו גלגלי, כלי שיט, מיוחדים',
+    iconImgSrc:
+      'https://assets.yad2.co.il/personal/svg/subCategories_publish_icons/mainCategoriesIcons/newIcons/vehicle.svg',
+  },
+  {
+    title: 'יד שניה',
+    subtitle: 'לבית לגינה ולמשרד, חשמל, ספורט, פנאי ושונות',
+    iconImgSrc:
+      'https://assets.yad2.co.il/personal/svg/subCategories_publish_icons/mainCategoriesIcons/newIcons/second_hand.svg',
+  },
+  {
+    title: 'עסקים למכירה',
+    subtitle: 'הייטק, בתי קפה ועוד',
+    iconImgSrc:
+      'https://assets.yad2.co.il/personal/svg/subCategories_publish_icons/mainCategoriesIcons/newIcons/business.svg',
+  },
+  {
+    title: 'בעלי מקצוע',
+    subtitle: 'הובלות, מוסכים, שיפוצים',
+    iconImgSrc:
+      'https://assets.yad2.co.il/personal/svg/subCategories_publish_icons/mainCategoriesIcons/newIcons/profession.svg',
+  },
+  {
+    title: 'נדל״ן מסחרי',
+    subtitle: 'מחסנים, קליניקות, משרדים',
+    iconImgSrc:
+      'https://assets.yad2.co.il/personal/svg/subCategories_publish_icons/mainCategoriesIcons/newIcons/commercial.svg',
+  },
+  {
+    title: 'סלולר',
+    subtitle: 'מכשירים, אביזרים, ושעונים חכמים',
+    iconImgSrc:
+      'https://assets.yad2.co.il/personal/svg/subCategories_publish_icons/mainCategoriesIcons/newIcons/tech.svg',
+  },
+  {
+    title: 'ריהוט',
+    subtitle: '',
+    iconImgSrc:
+      'https://assets.yad2.co.il/personal/svg/subCategories_publish_icons/mainCategoriesIcons/newIcons/furniture.svg',
+  },
+  {
+    title: 'תיירות ונופש',
+    subtitle: '',
+    iconImgSrc:
+      'https://assets.yad2.co.il/personal/svg/subCategories_publish_icons/mainCategoriesIcons/newIcons/vication.svg',
+  },
+  {
+    title: 'אופנה וטיפוח',
+    subtitle: '',
+    iconImgSrc:
+      'https://assets.yad2.co.il/personal/svg/subCategories_publish_icons/mainCategoriesIcons/newIcons/fashion.svg',
+  },
+  {
+    title: 'חיות מחמד',
+    subtitle: '',
+    iconImgSrc:
+      'https://assets.yad2.co.il/personal/svg/subCategories_publish_icons/mainCategoriesIcons/newIcons/pets.svg',
+  },
+  {
+    title: 'לתינוק ולילד',
+    subtitle: '',
+    iconImgSrc:
+      'https://assets.yad2.co.il/personal/svg/subCategories_publish_icons/mainCategoriesIcons/newIcons/kids.svg',
+  },
+  {
+    title: 'מורים פרטיים',
+    subtitle: '',
+    iconImgSrc:
+      'https://assets.yad2.co.il/personal/svg/subCategories_publish_icons/mainCategoriesIcons/newIcons/tech.svg',
+  },
+  {
+    title: 'דרושים',
+    subtitle: '',
+    iconImgSrc:
+      'https://assets.yad2.co.il/personal/svg/subCategories_publish_icons/mainCategoriesIcons/newIcons/drushim.svg',
+  },
 ];

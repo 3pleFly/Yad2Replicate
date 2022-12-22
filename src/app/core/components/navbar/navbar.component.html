@@ -2,7 +2,25 @@
   <span class="hamburger_icon" (click)="openSidebar()"></span>
   <i class="heart_icon"></i>
 </div>
-<img routerLink="/realestate/forsale" class="yad2_logo" src="{{ logoSvg }}" alt="" />
-<span class="chat-button">
-  <i class="chat_icon"></i>
-</span>
+<img
+  routerLink="/realestate/forsale"
+  class="yad2_logo"
+  src="{{ logoSvg }}"
+  alt=""
+/>
+
+<div
+  *ngIf="isBackArrowActive; then backIconElement; else chatIconElement"
+></div>
+
+<ng-template #chatIconElement>
+  <span class="chat-button">
+    <i class="chat_icon"></i>
+  </span>
+</ng-template>
+
+<ng-template #backIconElement>
+  <span class="back_btn" routerLink="/">
+    <img src="../../../../assets/images/back_arrow.png" alt="" />
+  </span>
+</ng-template>

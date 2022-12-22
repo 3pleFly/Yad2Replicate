@@ -1,0 +1,37 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 4.25rem 0;
+
+  h2 {
+    margin-bottom: 40px;
+    font-weight: 400;
+    text-align: center;
+  }
+}
+
+.category-rows {
+  max-width: 63.75rem;
+}
+
+.category-rows > app-publish-page-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+@media only screen and (max-width: 1100px) {
+  .wrapper {
+    display: block;
+    padding: 0;
+    text-align: center;
+    width: 88%;
+    margin: 0 auto;
+    padding-bottom: 40px;
+
+    h2 {
+      margin: 40px 0;
+      font-weight: 400;
+    }
+  }
+}

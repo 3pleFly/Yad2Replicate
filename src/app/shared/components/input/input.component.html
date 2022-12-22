@@ -8,4 +8,18 @@
     [type]="inputType"
     [placeholder]="placeHolder"
   />
+  <span
+    (click)="togglePasswordInputElementVisibility()"
+    *ngIf="passwordIcon"
+    class="password-visibility"
+  >
+    <img
+      src="../../../../assets/images/password-icon.png"
+      *ngIf="inputType==='text'"
+    />
+    <img
+      src="../../../../assets/images/password_visible.png"
+      *ngIf="inputType==='password'"
+    />
+  </span>
 </label>

@@ -3,16 +3,32 @@
   --navbar-main-height: 45px;
   --navbar-logo-height: 25px;
   --navbar-logo-width: 90px;
-  --body-padding-top: 45px;
+  --padding-top: 45px;
   --btn-cta-color: #0fca80;
   --font-size-standard: 1rem;
   --btn-primary-color: #ff7100;
 
 }
 
-// @media only screen and (max-width: 745px) {
-//   :root {
-//     --chart-width-size: 90%;
-//     --chart-width-half-size: 90%;
-//   }
-// }
+app-category-box {
+  --font-size: 1rem;
+  --box-img-width: initial;
+  --box-img-height: initial;
+  --box-width: inherit;
+  --box-title-margin-bottom: initial;
+}
+
+app-modal {
+  --backdrop-transition: all .4s cubic-bezier(.25,.8,.25,1);
+  --backdrop-background-color: rgba(11,11,11,.3);
+
+  --dialog-box-width: 80vw;
+  --dialog-box-height: inherited;
+  --dialog-box-padding: 20px;
+  --dialog-box-background: #fff;
+  --dialog-box-transition: opacity .4s cubic-bezier(.25,.8,.25,1);
+  --dialog-box-transform: scale(1);
+  --dialog-box-transform-active: scale(1);
+  --dialog-box-opacity: 0;
+  --dialog-box-opacity-active: 1;
+}

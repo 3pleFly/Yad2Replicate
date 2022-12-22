@@ -1,35 +1,16 @@
 <div
-  [ngClass]="{
-    'modal-container': true,
-    'modal-container-active': isVisible
-  }"
+  [ngClass]="{ backdrop: true, 'backdrop-visible': showModal }"
   (click)="closeModal()"
 >
-  <section
-    [ngClass]="{ 'modal-content': true, 'modal-content-active': isVisible }"
+  <div
+    [ngClass]="{ 'modal-box': true, 'modal-box-active': showModal }"
+    (click)="stopPropogation($event)"
   >
-    <div class="clear_search_popup" (click)="stopPropogation($event)">
-      <button class="close-btn naked-btn" (click)="closeModal()">
-        <img src="../../../../assets/images/close.png" alt="close" />
-      </button>
-      <div class="top">
-        <span>{{ promptMessage }}</span>
-      </div>
-      <div class="bottom">
-        <button
-          class="second-btn primary-btn btn"
-          (click)="secondaryButtonFunc.invoke()"
-        >
-          <span>
-            {{ secondaryButtonFunc.name }}
-          </span>
-        </button>
-        <button class="first-btn primary-btn btn" (click)="primaryButtonFunc.invoke()">
-          <span>
-            {{ primaryButtonFunc.name }}
-          </span>
-        </button>
-      </div>
+    <div class="content">
+      <ng-container [ngTemplateOutlet]="closeBtnTemplate"></ng-container>
+      <ng-container [ngTemplateOutlet]="iconTemplate"></ng-container>
+      <ng-container [ngTemplateOutlet]="messageTemplate"></ng-container>
+      <ng-container [ngTemplateOutlet]="buttonsTemplate"></ng-container>
     </div>
-  </section>
+  </div>
 </div>

@@ -1,7 +1,4 @@
-<div
-  class="mobile_search_container"
-  (click)="closeCalendarComponentViewOnFocus($event)"
->
+<div class="mobile_search_container">
   <ul class="mobile_sub_cat_select">
     <app-single-switch
       [items]="subCategories"
@@ -18,7 +15,7 @@
             'reset-btn': true,
             'active-reset': isAnyInputActive
           }"
-          (click)="toggleClearAllModal = true"
+          (click)="showClearAllModal = true"
         >
           <span>נקה הכל</span>
         </button>
@@ -175,10 +172,11 @@
               </li>
             </ul>
           </li>
-          <li class="advanced_search_row" (click)="stopPropogation($event)">
+          <li class="advanced_search_row">
             <div class="calendar-col">
               <label>תאריך כניסה</label>
               <app-calendar
+                (click)="stopPropogation($event)"
                 *ngIf="calendarComponentVisible"
                 (selectedDateEvent)="setCalendarSelectedDate($event)"
               ></app-calendar>
@@ -197,14 +195,14 @@
               />
               <app-checkbox
                 [checkboxItem]="immidiateEntryCheckboxItem"
-                ></app-checkbox>
-              </div>
-            </li>
-            <li class="advanced_search_row">
-              <label>חיפוש חופשי</label>
-              <app-input></app-input>
-            </li>
-            <span class="last_item_border"></span>
+              ></app-checkbox>
+            </div>
+          </li>
+          <li class="advanced_search_row">
+            <label>חיפוש חופשי</label>
+            <app-input></app-input>
+          </li>
+          <span class="last_item_border"></span>
         </ul>
       </li>
     </ul>
@@ -220,10 +218,24 @@
   [(showModal)]="toggleSelectPropertyModal"
   [checkBoxItems]="this.checkBoxItems"
 ></app-mobile-property-select-modal>
-<app-modal
-  [(showModal)]="toggleClearAllModal"
-  [isVisible]="toggleClearAllModal"
-  [promptMessage]="toggleClearAllModalPromptMessage"
-  [primaryButtonFunc]="toggleClearAllModalPrimaryFunc"
-  [secondaryButtonFunc]="toggleClearAllModalSecondaryFunc"
-></app-modal>
+
+<app-modal [(showModal)]="showClearAllModal">
+  <ng-template #closeBtnTemplate>
+    <span class="close-btn" (click)="closeClearAllModal()">
+      <img src="../../../../assets/images/close.png" alt="close" />
+    </span>
+  </ng-template>
+
+  <ng-template #dialogMessageTemplate>
+    <p class="dialog_message">האם לאפס את החיפוש?</p>
+  </ng-template>
+
+  <ng-template #buttonsTemplate>
+    <div class="dialog-btns">
+      <button class="secondary-btn btn" (click)="closeClearAllModal()">
+        ביטול
+      </button>
+      <button class="primary-btn btn" (click)="clearAll()">אישור</button>
+    </div>
+  </ng-template>
+</app-modal>

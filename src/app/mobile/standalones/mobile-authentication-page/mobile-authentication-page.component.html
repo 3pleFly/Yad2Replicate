@@ -1,0 +1,27 @@
+<span class="back-btn" (click)="goBack()">
+  <img class="back-icon" src="../../../../assets/images/back-button-thin.png" alt="">
+</span>
+<div class="authentication">
+  <div class="login-wrapper">
+    <div class="login-box-main">
+      <div class="login-box-img">
+        <img
+          *ngIf="!registrationMode"
+          src="https://assets.yad2.co.il/login/icon_login.svg"
+          alt="login image"
+        />
+        <img
+          *ngIf="registrationMode"
+          src="https://assets.yad2.co.il/login/icon_signup.svg"
+          alt="login image"
+        />
+      </div>
+      <app-authentication
+        [registrationMode]="registrationMode"
+      ></app-authentication>
+    </div>
+    <div class="realtor-login" *ngIf="!registrationMode">
+      <a> כניסה למתווכים </a>
+    </div>
+  </div>
+</div>

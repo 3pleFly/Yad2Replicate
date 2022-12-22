@@ -4,6 +4,8 @@ import { CheckBoxItem } from "./checkboxItem.model";
 export class ButtonModel {
   id?: number;
   cbFunc: Function;
+  _buttonStyles?: string;
+  _buttonClass?: string;
   name: string;
 
   constructor(cbFunc: Function, name: string, id?:number ) {
@@ -16,6 +18,23 @@ export class ButtonModel {
     if(arguments.length === 0) this.cbFunc();
     this.cbFunc(...value);
   }
+
+  set buttonStyles(value: string) {
+    this._buttonStyles = value;
+  }
+
+  set buttonClass(value: string) {
+    this._buttonClass = value;
+  }
+
+  get buttonClass() {
+    return this._buttonClass ?? "";
+  }
+
+  get buttonStyles(): string {
+    return this._buttonStyles ?? "";
+  }
+
 }
 
 export interface MultiToggleBox {
