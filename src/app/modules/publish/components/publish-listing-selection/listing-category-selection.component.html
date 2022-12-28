@@ -1,0 +1,15 @@
+<div class="wrapper">
+  <div class="category-rows">
+    <h2>אני רוצה לפרסם מודעה בלוח...</h2>
+    <ng-container>
+      <app-categories-listing
+        [categories]="categories$ | async"
+        (onClickedCategoryEvent)="handleClickedCategoryEvent($event)"
+      ></app-categories-listing>
+    </ng-container>
+  </div>
+</div>
+<app-publish-page-modal
+  [(showPublishSelectionModal)]="showPublishPageModal"
+  [clickedCategory]="clickedCategory"
+></app-publish-page-modal>

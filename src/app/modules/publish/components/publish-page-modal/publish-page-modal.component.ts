@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { CategoryBoxModel } from 'src/app/shared/models/viewmodels/category-box.model';
+import { CategoryBoxModel } from 'src/app/shared/models/category-box.model';
 
 @Component({
   selector: 'app-publish-page-modal',
@@ -14,13 +14,13 @@ export class PublishPageModal implements OnInit {
 
   constructor(private router: Router) {}
 
-  ngOnInit(): void {
-    console.log(this.clickedCategory);
-
-  }
+  ngOnInit(): void {}
 
   navigate() {
-    this.router.navigate(['/publish'], { queryParams: { cat: this.clickedCategory.id } });
+    switch (this.clickedCategory.id) {
+      default:
+        this.router.navigate(['/publish/forsale']);
+    }
     this.closePublishSelectionModal();
   }
 

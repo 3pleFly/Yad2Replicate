@@ -1,0 +1,20 @@
+<div class="wrapper" [ngClass]="{ clickable: isStepComplete }" (click)="this.expandStep()">
+  <section class="title-and-icon">
+    <span class="step-checked-icon" *ngIf="isStepComplete">
+      <img
+        src="assets/images/publish/step-checked-icon.png"
+        alt="step_checked"
+      />
+    </span>
+    <span class="num-icon" *ngIf="!isStepComplete">
+      <span class="number">{{ number }}</span>
+    </span>
+    <h2 class="title">{{ title }}</h2>
+  </section>
+  <img
+    *ngIf="isStepComplete"
+    class="edit-icon"
+    src="assets/images/publish/edit-icon-gray.png"
+    alt="edit"
+  />
+</div>

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { CategoryBoxModel } from '../models/viewmodels/category-box.model';
+import { CategoryBoxModel } from '../models/category-box.model';
 
 @Injectable({
   providedIn: 'root'

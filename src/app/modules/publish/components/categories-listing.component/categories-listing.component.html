@@ -1,0 +1,51 @@
+<ng-container [ngTemplateOutlet]="categories ? categoriesView : loading"> </ng-container>
+
+<ng-template #categoriesView>
+  <ng-container
+    [ngTemplateOutlet]="isMobileUser ? mobileView : desktopView"
+  ></ng-container>
+</ng-template>
+
+<ng-template #loading> loading... </ng-template>
+
+<ng-template #desktopView>
+  <ng-template [ngIf]="categories">
+    <div class="large_box_row row">
+      <app-category-box
+        *ngFor="let category of categories.slice(0, 3)"
+        [categoryBoxModel]="category"
+        [boxDisplay]="BoxDisplay.All"
+        (click)="emitSelection(category)"
+      ></app-category-box>
+    </div>
+
+    <div class="medium_box_row row">
+      <app-category-box
+        *ngFor="let category of categories.slice(3, 7)"
+        [categoryBoxModel]="category"
+        [boxDisplay]="BoxDisplay.All"
+        (click)="emitSelection(category)"
+      ></app-category-box>
+    </div>
+
+    <div class="small_box_row row">
+      <app-category-box
+        *ngFor="let category of categories.slice(7)"
+        [categoryBoxModel]="category"
+        [boxDisplay]="BoxDisplay.Title"
+        (click)="emitSelection(category)"
+      ></app-category-box>
+    </div>
+  </ng-template>
+</ng-template>
+
+<ng-template #mobileView>
+  <div class="dual-rows">
+    <app-category-box
+      *ngFor="let category of categories"
+      (click)="emitSelection(category)"
+      [categoryBoxModel]="category"
+      [boxDisplay]="BoxDisplay.ImageAndTitle"
+    ></app-category-box>
+  </div>
+</ng-template>

@@ -40,7 +40,6 @@
         <app-select
           [data$]="selectLivingAreaData$"
           [labelName]="selectLivingAreaLabelName"
-          [width]="'100%'"
         ></app-select>
       </li>
       <li>
@@ -63,14 +62,12 @@
           <li>
             <app-select
               [data]="numberOfRoomsSelectOptions"
-              [width]="'100%'"
             ></app-select>
           </li>
           <span class="underline_seperator"></span>
           <li>
             <app-select
               [data]="numberOfRoomsSelectOptions"
-              [width]="'100%'"
             ></app-select>
           </li>
         </ul>
@@ -148,14 +145,12 @@
               <li>
                 <app-select
                   [data]="numberOfRoomsSelectOptions"
-                  [width]="'100%'"
                 ></app-select>
               </li>
               <span class="underline_seperator"></span>
               <li>
                 <app-select
                   [data]="numberOfRoomsSelectOptions"
-                  [width]="'100%'"
                 ></app-select>
               </li>
             </ul>
@@ -182,7 +177,6 @@
               ></app-calendar>
               <app-input
                 (click)="openCalendarComponentViewOnFocus($event)"
-                [textColor]="'#363636'"
                 [readonly]="'readonly'"
                 [inputType]="'text'"
                 [placeHolder]="'החל מ-הזינו תאריך'"

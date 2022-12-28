@@ -1,23 +1,25 @@
 label {
   position: relative;
+  font-size: var(--select-font-size);
 
   select {
-    font-size: 1rem;
-    height: 50px;
+    width: var(--select-width);
+    height: var(--select-height);
+    font-size: var(--select-font-size);
     padding: 0 10px 0 30px;
     margin-top: 5px;
     background-color: #fff;
     border: 1px solid #ccc;
-    border-radius: 2px;
+    border-radius: var(--select-border-radius);
     -moz-appearance: none;
     -webkit-appearance: none;
   }
 
   img {
     object-fit: contain;
-    width: 16px;
     position: absolute;
-    bottom: 0;
+    width: var(--select-dropdown-icon-width);
+    bottom: var(--select-dropdown-icon-bottom);
     left: 10px;
   }
 

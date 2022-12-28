@@ -1,0 +1,63 @@
+:host {
+  flex-direction: column;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.dual-rows {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.dual-rows app-category-box {
+  --box-background-color: #fff;
+  --box-border-radius: 5px;
+  --box-width: 42%;
+  --box-height: 152px;
+  --box-img-width: 104px;
+  --box-img-height: 104px;
+  --box-title-margin-bottom: 24px;
+  --box-shadow: 0 3px 9px rgb(0 0 0 / 9%);
+  --box-title-font-weight: 500;
+}
+
+.row app-category-box {
+  --box-background-color: #fff;
+  --box-shadow: 0 3px 9px rgb(0 0 0 / 9%);
+  --box-border-radius: 5px;
+
+}
+
+.row {
+  display: flex;
+  gap: 1.6rem;
+}
+
+.large_box_row {
+  height: 225px;
+}
+
+.medium_box_row {
+  height: 225px;
+}
+
+.small_box_row {
+  height: 50px;
+}
+
+.large_box_row > app-category-box {
+  --font-size: 20px;
+  --box-width: 33%;
+}
+
+.medium_box_row > app-category-box {
+  --font-size: 20px;
+  --box-width: 25%;
+}
+
+.small_box_row > app-category-box {
+  --font-size: 18px;
+  --box-width: 12.5%;
+}

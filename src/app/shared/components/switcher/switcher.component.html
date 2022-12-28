@@ -1,0 +1,32 @@
+<ng-container>
+  <label>{{ labelName }} </label>
+
+  <ng-template [ngIf]="type === SwitcherTypes.SINGLE_RECTANGLES">
+    <ul class="switch_list_rectangles">
+      <li
+        class="item"
+        [ngClass]="{ active: switchedSingleRectangle === value }"
+        [ngStyle]="{ width: itemWidthPerDataLength }"
+        *ngFor="let value of data"
+        (click)="switchRectangle(value)"
+      >
+        <span>{{ value }}</span>
+      </li>
+    </ul>
+  </ng-template>
+
+  <ng-template [ngIf]="type === SwitcherTypes.MULTI_ROUND">
+    <ul class="switch_list_rounded">
+      <li class="item" *ngFor="let value of data">
+        <div
+          class="content"
+          [ngClass]="{ active: switchedMultiRounded.includes(value) }"
+          (click)="toggleSwitchRounded(value)"
+        >
+          <img src="{{ value.imgSrc }}" />
+          <span>{{ value.name }}</span>
+        </div>
+      </li>
+    </ul>
+  </ng-template>
+</ng-container>

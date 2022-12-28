@@ -1,0 +1,99 @@
+:host {
+  display: block;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px 0 rgb(12 0 51 / 10%);
+}
+
+.expanded {
+  padding: 30px 0 23px 0;
+}
+
+.checked {
+  background-color: #f9f9f9;
+  height: 60px;
+}
+
+.title-and-icons {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  padding-right: 10px;
+}
+
+.num-icons {
+  height: 24px;
+  width: 24px;
+  font-size: 17px;
+  border-radius: 50px;
+  color: #0fca80;
+  text-align: center;
+  border: 2px solid #0fca80;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.number {
+  font-weight: 500;
+}
+
+._title {
+  font-size: 18px;
+  font-family: Rubik;
+  color: #000;
+  font-weight: 300;
+  padding-right: 10px;
+  margin: 0;
+}
+
+.category_radio_group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.category_radio_group app-category-box {
+  --box-width: 45%;
+  --box-height: 140px;
+  --box-margin: 5px 2% 10px 2%;
+  --box-img-width: 85px;
+  --box-img-height: 85px;
+  --box-border: 1px solid #ccc;
+  --box-border-radius: 5px;
+  --box-title-margin: 10px 0 15px 0;
+  --box-title-font-weight: 400;
+  --box-shadow: none;
+}
+
+@media only screen and (min-width: 880px) {
+  .category_radio_group app-category-box {
+    --box-width: 162px;
+    --box-height: 152px;
+    --box-margin: 0 auto;
+    --box-shadow: 1px 2px 4px 0 rgb(0 0 0 / 10%);
+  }
+
+  .num-icons {
+    height: 28px;
+    width: 28px;
+  }
+
+  .edit-icon {
+    width: 45px;
+    top: 9px;
+    left: 2px;
+  }
+
+  ._title {
+    font-size: 24px;
+  }
+
+  .category_radio_group {
+    padding: 18px 0;
+  }
+
+  .title-and-icons {
+    margin-bottom: 20px;
+  }
+}

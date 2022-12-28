@@ -1,5 +1,4 @@
 :root {
-  //Any global scss variable to share with components
   --navbar-main-height: 45px;
   --navbar-logo-height: 25px;
   --navbar-logo-width: 90px;
@@ -7,28 +6,67 @@
   --btn-cta-color: #0fca80;
   --font-size-standard: 1rem;
   --btn-primary-color: #ff7100;
-
 }
 
 app-category-box {
   --font-size: 1rem;
   --box-img-width: initial;
   --box-img-height: initial;
+  --box-height: initial;
   --box-width: inherit;
-  --box-title-margin-bottom: initial;
+  --box-title-margin: initial;
+  --box-border: none;
+  --box-border-radius: 0;
+  --box-title-font-weight: 400;
+  --box-padding: initial;
+  --box-margin: initial;
 }
 
 app-modal {
-  --backdrop-transition: all .4s cubic-bezier(.25,.8,.25,1);
-  --backdrop-background-color: rgba(11,11,11,.3);
+  --backdrop-transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --backdrop-background-color: rgba(11, 11, 11, 0.3);
 
   --dialog-box-width: 80vw;
   --dialog-box-height: inherited;
   --dialog-box-padding: 20px;
   --dialog-box-background: #fff;
-  --dialog-box-transition: opacity .4s cubic-bezier(.25,.8,.25,1);
+  --dialog-box-transition: opacity 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   --dialog-box-transform: scale(1);
   --dialog-box-transform-active: scale(1);
   --dialog-box-opacity: 0;
   --dialog-box-opacity-active: 1;
+}
+
+app-checkbox {
+  --checkbox-font-size: 1rem;
+}
+
+app-select {
+  --select-width: 100%;
+  --select-height: 60px;
+  --select-border-radius: 2px;
+  --select-dropdown-icon-width: 16px;
+  --select-dropdown-icon-bottom: 0;
+  --select-font-size: 1rem;
+}
+
+app-input {
+  --input-width: 100%;
+  --input-height: 60px;
+  --input-font-size: 1rem;
+  --input-border-radius: 2px;
+  --input-placeholder-font-weight: 300;
+}
+
+app-textarea {
+  --textarea-width: inital;
+  --textarea-height: initial;
+  --textarea-box-width: inital;
+  --textarea-box-height: initial;
+  --textarea-resize: both;
+}
+
+app-progress-bar {
+  --progressBar-width: inital;
+  --progressBar-height: initial;
 }

@@ -1,6 +1,7 @@
 <div class="checkbox_wrapper" *ngIf="checkboxItem">
   <div
     [ngClass]="{ checkbox_multi_layer_wrapper: checkboxItem.subItems?.length }"
+    [ngStyle]="checkboxItem.disabled ? { opacity: .3 } : {}"
   >
     <label
       [ngClass]="{ checkbox_label: checkboxItem.subItems?.length }"

@@ -1,9 +1,9 @@
 <label>
   <span>{{labelName}}</span>
   <img src="../../../../assets/images/downdrop_arrow.png" alt="">
-  <select [ngStyle]="{'width': width}">
-    <option selected>
-      <span>הכל</span>
+  <select [ngModel]="selectValue" (ngModelChange)="emitSelection($event)">
+    <option selected value="undefined" disabled hidden>
+      <span>{{placeholder}}</span>
     </option>
     <option *ngFor="let info of data$ | async">
       <span>{{ info }}</span>

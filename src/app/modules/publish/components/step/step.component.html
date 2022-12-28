@@ -1,0 +1,23 @@
+<ng-container
+  [ngTemplateOutlet]="isExpandedView ? expandedView : collapsedView"
+></ng-container>
+
+<ng-template #expandedView>
+  <div class="expanded">
+    <section class="title-and-icons">
+      <span class="num-icons">
+        <span class="number">{{ stepStage }}</span>
+      </span>
+      <h2 class="_title">{{ title }}</h2>
+    </section>
+    <ng-content></ng-content>
+  </div>
+</ng-template>
+
+<ng-template #collapsedView>
+  <app-collapsed-step
+    [number]="stepStage"
+    [title]="collapsedTitle"
+    [isStepComplete]="isStepCompleted"
+  ></app-collapsed-step>
+</ng-template>

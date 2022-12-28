@@ -1,6 +1,8 @@
 import { CategoryListing } from 'src/app/shared/models/categoryListing.model';
 import { CheckBoxItem } from 'src/app/shared/models/checkboxItem.model';
 import { Item, MultiToggleBox } from 'src/app/shared/models/inner.models';
+import { Yad2Assets } from 'src/app/shared/models/Yad2Assets.enum';
+import { Yad2Properties } from 'src/app/shared/models/yad2Properties.model';
 
 export const subCategories: Item[] = [
   { id: 'forsale', value: 'מכירה' },
@@ -206,5 +208,78 @@ export const categoryListings: CategoryListing[] = [
     subtitle: '',
     iconImgSrc:
       'https://assets.yad2.co.il/personal/svg/subCategories_publish_icons/mainCategoriesIcons/newIcons/drushim.svg',
+  },
+];
+
+export const forsaleListingSubCategories: CategoryListing[] = [
+  {
+    title: 'מכירה',
+    subtitle: '',
+    iconImgSrc: 'assets/images/publish/house-forsale.png',
+  },
+  {
+    title: 'השכרה',
+    subtitle: '',
+    iconImgSrc: 'assets/images/publish/house-forrent.png',
+  },
+  {
+    title: 'שותפים',
+    subtitle: '',
+    iconImgSrc: 'assets/images/publish/roommates.png',
+  },
+  {
+    title: 'מסחרי',
+    subtitle: '',
+    iconImgSrc: 'assets/images/publish/commercial.png',
+  },
+];
+
+export const onColumnsCheckboxItem: CheckBoxItem = new CheckBoxItem(
+  'columns',
+  'על עמודים'
+);
+export const receiveEmailCommericalsCheckboxItem: CheckBoxItem =
+  new CheckBoxItem(
+    'email-me',
+    'אני רוצה לקבל עדכון חודשי במייל עם הערכת שווי מעודכנת עבור הנכס, עסקאות באזור והצעות מקצועיות מיועצי נדל״ן'
+  );
+
+export const yad2AssetsArray = Object.values(Yad2Assets);
+
+export const yad2Properties: Yad2Properties[] = [
+  { name: 'מיזוג', imgSrc: 'assets/images/publish/asset_properties/ac.png' },
+  { name: 'ממ״ד', imgSrc: 'assets/images/publish/asset_properties/mamad.png' },
+  {
+    name: 'מחסן',
+    imgSrc: 'assets/images/publish/asset_properties/storage.png',
+  },
+  {
+    name: 'ריהוט',
+    imgSrc: 'assets/images/publish/asset_properties/furniture.png',
+  },
+  {
+    name: 'גישה לנכים',
+    imgSrc: 'assets/images/publish/asset_properties/disabled.png',
+  },
+  { name: 'מעלית', imgSrc: 'assets/images/publish/asset_properties/lift.png' },
+  {
+    name: 'מזגן תדירן',
+    imgSrc: 'assets/images/publish/asset_properties/ac.png',
+  },
+  {
+    name: 'משופצת',
+    imgSrc: 'assets/images/publish/asset_properties/renovated.png',
+  },
+  {
+    name: 'מטבח כשר',
+    imgSrc: 'assets/images/publish/asset_properties/kosher_kitchen.png',
+  },
+  {
+    name: 'דוד שמש',
+    imgSrc: 'assets/images/publish/asset_properties/water_heater.png',
+  },
+  {
+    name: 'סורגים',
+    imgSrc: 'assets/images/publish/asset_properties/window_bars.png',
   },
 ];

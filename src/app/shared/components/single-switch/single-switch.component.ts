@@ -7,13 +7,18 @@ import { Item } from '../../models/inner.models';
   styleUrls: ['./single-switch.component.scss']
 })
 export class SingleSwitchComponent {
-  @Input() items!: Item[]
-  @Input() selectedItem!: Item;
+  @Input() items?: Item[];
+  @Input() selectedItem?: Item;
 
+  @Input() data?: string[];
 
 
   selectItem(item: Item) {
     this.selectedItem = item;
+  }
+
+  selectData(value: string) {
+
   }
 
 }

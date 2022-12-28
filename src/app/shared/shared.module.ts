@@ -17,6 +17,10 @@ import { RouterModule } from '@angular/router';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
 import { CategoryBoxComponent } from './components/category-box/category-box.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { FormsModule } from '@angular/forms';
+import { SwitcherComponent } from './components/switcher/switcher.component';
+import { TextareaComponent } from './components/textarea/textarea.component';
+import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
 
 @NgModule({
   declarations: [
@@ -35,8 +39,12 @@ import { ModalComponent } from './components/modal/modal.component';
     AuthenticationComponent,
     CategoryBoxComponent,
     ModalComponent,
+    SwitcherComponent,
+    TextareaComponent,
+    ProgressBarComponent,
+
   ],
-  imports: [CommonModule, HttpClientModule, RouterModule],
+  imports: [CommonModule, HttpClientModule, RouterModule, FormsModule],
   exports: [
     SliderSwitchComponent,
     SearchBarComponent,
@@ -52,6 +60,9 @@ import { ModalComponent } from './components/modal/modal.component';
     AuthenticationComponent,
     CategoryBoxComponent,
     ModalComponent,
+    SwitcherComponent,
+    TextareaComponent,
+    ProgressBarComponent
   ],
 })
 export class SharedModule {}

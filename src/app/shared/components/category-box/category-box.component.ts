@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import {
   CategoryBoxModel,
   BoxDisplays,
-} from '../../models/viewmodels/category-box.model';
+} from '../../models/category-box.model';
 
 @Component({
   selector: 'app-category-box',

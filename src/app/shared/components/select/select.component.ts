@@ -1,7 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
-import { GovtApiAreaModel } from '../../models/govtApiAreaModel.model';
-import { GovtAPIService } from '../../services/govt-api.service';
+import { Yad2Assets } from '../../models/Yad2Assets.enum';
+
 
 @Component({
   selector: 'app-select',
@@ -10,10 +10,18 @@ import { GovtAPIService } from '../../services/govt-api.service';
 })
 export class SelectComponent  {
 
-  @Input() data$!: Observable<string[]>;
-  @Input() data!: string[];
+  @Input() data$?: Observable<string[]>;
+  @Input() data?: string[];
   @Input() labelName!: string;
-  @Input() width!: string;
+  @Input() placeholder!: string;
+  @Output() selectedValue = new EventEmitter<Yad2Assets>();
+
+  selectValue?: string;
+
+  emitSelection(value: Yad2Assets) {
+    this.selectedValue.emit(value)
+  }
+
 
 
 }

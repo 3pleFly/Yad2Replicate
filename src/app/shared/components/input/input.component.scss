@@ -1,18 +1,27 @@
+:host {
+  margin: var(--input-margin);
+  width: var(--input-width);
+}
+
 label {
-  font-size: 1rem;
+  font-size: var(--input-font-size);
   min-width: 100%;
   display: inline-block;
   color: #363636;
   text-align: right;
   position: relative;
 
+  span {
+    display: block;
+  }
+
   input {
-    margin-top: 5px;
-    height: 50px;
-    border-radius: 2px;
-    font-size: 1rem;
-    padding: 10px;
     width: 100%;
+    height: var(--input-height);
+    border-radius: var(--input-border-radius);
+    font-size: (--input-font-size);
+    margin-top: 5px;
+    padding: 10px;
     border: 1px solid #ccc;
     outline: none;
   }
@@ -24,10 +33,17 @@ label {
     background-color: #fff;
     border-color: #ccc;
     color: #ccc;
+    opacity: 0.4;
+  }
+
+  input[disabled]:hover {
+    border-color: #ccc;
+    opacity: 0.4;
   }
 
   input::placeholder {
-    font-weight: 300;
+    font-weight: var(--input-placeholder-font-weight);
+    font-size: var(--input-font-size);
   }
 
   input:focus-visible {

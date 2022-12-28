@@ -2,9 +2,14 @@
   <li *ngFor="let item of items">
     <button
       (click)="selectItem(item)"
-      [ngClass]="{ selected: this.selectedItem.id === item.id }"
+      [ngClass]="{ selected: this.selectedItem?.id === item.id }"
     >
       {{ item.value }}
+    </button>
+  </li>
+  <li *ngFor="let value of data">
+    <button (click)="selectData(value)" [ngClass]="{ selected: true }">
+      {{ value }}
     </button>
   </li>
 </ul>

@@ -10,12 +10,9 @@ export class InputComponent implements OnInit {
   @Input() disabled: boolean = false;
   @Input() readonly: string = '';
   @Input() inputType: string = 'text';
-  @Input() width: string = '100%';
   @Input() placeHolder: string = '';
   @Input() value: string = '';
-  @Input() textColor: string = '';
   @Input() passwordIcon: boolean = false;
-  // passwordIconVisiblie: boolean = false;
 
   constructor() {}
 

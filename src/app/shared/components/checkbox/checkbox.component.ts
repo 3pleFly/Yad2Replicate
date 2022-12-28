@@ -25,7 +25,7 @@ export class CheckboxComponent {
   }
 
   toggle(childid: number | string) {
-    this.checkboxItem.toggleChildChecked(childid);
+    this.checkboxItem.toggleChild(childid);
   }
 
   get isAllChecked(): boolean {
