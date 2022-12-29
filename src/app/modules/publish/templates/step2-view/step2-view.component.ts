@@ -29,12 +29,15 @@ export class Step2ViewComponent implements OnInit {
   }
 
   nextStep() {
-    let formfield = { fieldName: 'a', fieldValue: '12' };
-    this.stepsService.nextStep([formfield]);
+    this.stepsService.activeStage += 1;
   }
 
   prevStep() {
-    this.stepsService.popStep();
+    this.stepsService.activeStage -= 1;
+  }
+
+  get isMobileUser(): boolean {
+    return screen.width < 880;
   }
 
   selectAsset(asset: Yad2Assets) {
@@ -49,9 +52,7 @@ export class Step2ViewComponent implements OnInit {
     return this.stepsService.currentStage === this.stepStage - 1;
   }
 
-  get isMobileUser(): boolean {
-    return screen.width < 880;
-  }
+
 
   get showOnColumsCheckbox(): boolean {
     let typeOfAsset = this.stepsService.selectedAsset;

@@ -1,6 +1,7 @@
 import { CategoryListing } from 'src/app/shared/models/categoryListing.model';
 import { CheckBoxItem } from 'src/app/shared/models/checkboxItem.model';
 import { Item, MultiToggleBox } from 'src/app/shared/models/inner.models';
+import { SevenStepViewModel } from 'src/app/shared/models/viewmodels/vm.model';
 import { Yad2Assets } from 'src/app/shared/models/Yad2Assets.enum';
 import { Yad2Properties } from 'src/app/shared/models/yad2Properties.model';
 
@@ -282,4 +283,18 @@ export const yad2Properties: Yad2Properties[] = [
     name: 'סורגים',
     imgSrc: 'assets/images/publish/asset_properties/window_bars.png',
   },
+];
+
+export const sevenStepsModelData: SevenStepViewModel[] = [
+  {
+    title: 'באיזו קטגוריה נפרסם היום?',
+    collapasedTitle: 'אני רוצה למכור נכס',
+    stepStage: 0,
+  },
+  { title: 'כתובת הנכס', collapasedTitle: '', stepStage: 1 },
+  { title: 'על הנכס', collapasedTitle: '', stepStage: 2 },
+  { title: 'תשלומים, תאריכים ועוד', collapasedTitle: '', stepStage: 3 },
+  { title: 'תמונות וסרטונים', collapasedTitle: '', stepStage: 4 },
+  { title: 'פרטים ליצירת קשר', collapasedTitle: '', stepStage: 5 },
+  { title: 'בחירת מסלול', collapasedTitle: '', stepStage: 6 },
 ];

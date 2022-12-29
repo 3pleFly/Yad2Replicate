@@ -1,31 +1,5 @@
-<div class="tooltip_wrapper">
-  <img src="assets/images/publish/time_is_money.png" />
-  <div class="tooltip_content">
-    <h5>הזמן שלך יקר לנו!</h5>
-    <span>על פי מחקר אונ' ת"א עם מודעה משודרגת מוכרים מהר יותר </span>
-  </div>
-</div>
-
 <h4 class="outerSubTitle">סימנו עבורך את שדות החובה. שלא נפספס פרט חשוב</h4>
-
 <section class="wrapper">
-  <ng-container [ngTemplateOutlet]="view"></ng-container>
-  <div class="buttons-wrapper">
-    <button class="nav-btn" (click)="prevStep()">חזרה</button>
-    <button *ngIf="isMobileUser" class="nav-btn" (click)="nextStep()">
-      המשך
-    </button>
-    <button
-      *ngIf="!isMobileUser"
-      class="nav-btn bigger_width"
-      (click)="nextStep()"
-    >
-      להמשיך לשלב הבא
-    </button>
-  </div>
-</section>
-
-<ng-template #view>
   <app-select
     (selectedValue)="selectAsset($event)"
     [data]="Yad2AssetsArray"
@@ -50,7 +24,7 @@
     <p>
       המידע מגיע מגוף ממשלתי. אם הרחוב שלך לא מופיע, מומלץ לבחור רחוב קרוב אליך
     </p>
-    <span [ngClass]="{'grayed': true}">לא מצאת את הרחוב?</span>
+    <span [ngClass]="{ grayed: true }">לא מצאת את הרחוב?</span>
   </div>
   <span class="address_number">
     <app-input [disabled]="true" labelName="מס' בית"></app-input>
@@ -106,4 +80,4 @@
     class="commercial_checkbox"
     [checkboxItem]="receiveEmailCommericalsCheckboxItem"
   ></app-checkbox>
-</ng-template>
+</section>

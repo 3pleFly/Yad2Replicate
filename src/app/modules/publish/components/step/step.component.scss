@@ -7,6 +7,7 @@
 
 .expanded {
   padding: 30px 0 23px 0;
+  position: relative;
 }
 
 .checked {
@@ -53,6 +54,68 @@
   justify-content: center;
 }
 
+.nav-btn {
+  cursor: pointer;
+  font-size: 14px;
+  color: #363636;
+  text-align: center;
+  box-sizing: border-box;
+  height: 35px;
+  width: 90px;
+  border: 1px solid #ccc;
+  border-radius: 17.5px;
+  background-color: #fff;
+}
+
+.nav-btn:hover {
+  color: #fff !important;
+  background: var(--btn-primary-color);
+}
+
+.nav-btn:last-child {
+  color: var(--btn-primary-color);
+  border-color: var(--btn-primary-color);
+  font-weight: 500;
+}
+
+.buttons-wrapper {
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  width: 90%;
+  margin: 20px auto 0 auto;
+}
+
+.tooltip_wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 76px;
+  border: 1px solid #c6e1ff;
+  border-radius: 3px;
+  background-color: #f3f8ff;
+  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 8%);
+  padding: 8px;
+
+  img {
+    object-fit: contain;
+    width: 58px;
+  }
+}
+
+.tooltip_content {
+  h5 {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 2px;
+  }
+  span {
+    display: block;
+    width: 80%;
+    font-size: 14px;
+  }
+}
+
 .category_radio_group app-category-box {
   --box-width: 45%;
   --box-height: 140px;
@@ -96,4 +159,23 @@
   .title-and-icons {
     margin-bottom: 20px;
   }
+
+  .tooltip_wrapper {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    width: 521px;
+    height: 54px;
+
+    img {
+      width: 48px;
+    }
+  }
+
+  .tooltip_content {
+    span {
+      width: 100%;
+    }
+  }
+
 }

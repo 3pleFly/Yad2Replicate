@@ -48,12 +48,11 @@ export class Step3ViewComponent {
   }
 
   nextStep() {
-    let formfield = { fieldName: 'a', fieldValue: '12' };
-    this.stepsService.nextStep([formfield]);
+    this.stepsService.activeStage += 1;
   }
 
   prevStep() {
-    this.stepsService.popStep();
+    this.stepsService.activeStage -= 1;
   }
 
   get isMobileUser(): boolean {

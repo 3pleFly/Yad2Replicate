@@ -1,10 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Observable } from 'rxjs';
-import {
-  CategoryBoxModel,
-  BoxDisplays,
-} from 'src/app/shared/models/category-box.model';
-import { MockDataService } from 'src/app/shared/services/mock-data.service';
+import { SevenStepViewModel } from 'src/app/shared/models/viewmodels/vm.model';
 import { SevenstepService } from '../../services/sevenstep.service';
 
 @Component({
@@ -13,19 +8,39 @@ import { SevenstepService } from '../../services/sevenstep.service';
   styleUrls: ['./step.component.scss'],
 })
 export class StepComponent {
-  @Input() stepStage!: number;
-  @Input() title!: string;
-  @Input() collapsedTitle!: string;
+  @Input() stepViewModel!: SevenStepViewModel;
 
-  constructor(private sevenStepsService: SevenstepService) {}
+  constructor(private stepsService: SevenstepService) {}
 
   ngOnInit(): void {}
 
-  get isExpandedView() {
-    return this.sevenStepsService.currentStage === this.stepStage - 1;
+  nextStep(): void {
+    this.stepsService.activeStage += 1;
   }
 
-  get isStepCompleted() {
-    return this.sevenStepsService.currentStage > this.stepStage - 1;
+  prevStep(): void {
+    this.stepsService.activeStage -= 1;
+  }
+
+  get isNotFirstStep(): boolean {
+    return this.stepViewModel.stepStage !== 0;
+  }
+
+  get isMobileUser(): boolean {
+    return screen.width < 880;
+  }
+
+  get activeStage(): number {
+    return this.stepsService.activeStage;
+  }
+
+  get isExpandedView(): boolean {
+    return this.stepsService.activeStage === this.stepViewModel.stepStage;
+  }
+
+  get showToolTipView(): boolean {
+    return (
+      this.activeStage === 1 || this.activeStage === 3 || this.activeStage === 5
+    );
   }
 }

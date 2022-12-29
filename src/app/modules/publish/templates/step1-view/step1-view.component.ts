@@ -17,7 +17,7 @@ export class Step1ViewComponent {
 
   constructor(
     private mockDataService: MockDataService,
-    private sevenStepsService: SevenstepService
+    private stepsService: SevenstepService
   ) {}
 
   ngOnInit(): void {
@@ -29,8 +29,7 @@ export class Step1ViewComponent {
   }
 
   nextStep() {
-    let formfield = { fieldName: 'a', fieldValue: '12' };
-    this.sevenStepsService.nextStep([formfield]);
+    this.stepsService.activeStage += 1;
   }
 
   get isMobileUser(): boolean {

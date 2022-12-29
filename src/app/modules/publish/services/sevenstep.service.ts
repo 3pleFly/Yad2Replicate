@@ -1,39 +1,27 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { FormField, StepData } from '../models/step-data.model';
 import { Yad2Assets } from 'src/app/shared/models/Yad2Assets.enum';
-
-const field = { fieldName: '', fieldValue: '' };
-
-const data = new StepData([field]);
+import { Step } from '../models/step.model';
 
 @Injectable()
 export class SevenstepService {
-  private _steps: StepData[] = [data, data, data];
+  private _steps!: Step[];
   private _selectedAsset: Yad2Assets = Yad2Assets.GENERAL;
+  private _activeStage: number = 0;
 
-
-  nextStep(data: FormField[]) {
-    let newStep = new StepData(data);
-    this._steps.push(newStep);
+  constructor() {
+    this.initializeSteps();
   }
 
-  popStep() {
-    this._steps.pop();
+  resetSteps() {
+    this.initializeSteps();
   }
 
-  resetToStep(stepStage: number) {
-    this.removeAfter(stepStage);
+  get activeStage(): number {
+    return this._activeStage;
   }
 
-  removeAfter(index: number) {
-    while (this._steps.length != index) {
-      this._steps.pop();
-    }
-  }
-
-  clearAll() {
-    this._steps = new Array();
+  set activeStage(value: number) {
+    this._activeStage = value;
   }
 
   get currentStage(): number {
@@ -46,5 +34,19 @@ export class SevenstepService {
 
   set selectedAsset(asset: Yad2Assets) {
     this._selectedAsset = asset;
+  }
+
+  private initializeSteps() {
+    this._steps = [
+      new Step(),
+      new Step(),
+      new Step(),
+      new Step(),
+      new Step(),
+      new Step(),
+      new Step(),
+    ];
+    this._steps[0].fields = [];
+    this._activeStage = 0;
   }
 }

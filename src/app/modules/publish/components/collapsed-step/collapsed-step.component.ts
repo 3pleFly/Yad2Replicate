@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { SevenstepService } from 'src/app/modules/publish/services/sevenstep.service';
+import { SevenStepViewModel } from 'src/app/shared/models/viewmodels/vm.model';
 
 @Component({
   selector: 'app-collapsed-step',
@@ -7,13 +8,22 @@ import { SevenstepService } from 'src/app/modules/publish/services/sevenstep.ser
   styleUrls: ['./collapsed-step.component.scss'],
 })
 export class CollapsedStepComponent {
-  @Input() title!: string;
-  @Input() number!: number;
-  @Input() isStepComplete!: boolean;
+  @Input() stepViewModel!: SevenStepViewModel;
 
-  constructor(private stepService: SevenstepService) {}
+  constructor(private stepsService: SevenstepService) {}
 
   expandStep() {
-    if (this.isStepComplete) this.stepService.removeAfter(this.number - 1);
+    if (this.stepViewModel.stepStage === 0) {
+      this.stepsService.resetSteps();
+      return;
+    }
+
+    if (this.stepViewModel.stepStage < this.stepsService.activeStage) {
+      this.stepsService.activeStage = this.stepViewModel.stepStage;
+    }
+  }
+
+  get isStepCompleted(): boolean {
+    return this.stepsService.activeStage > this.stepViewModel.stepStage;
   }
 }

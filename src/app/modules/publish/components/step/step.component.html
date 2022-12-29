@@ -6,18 +6,57 @@
   <div class="expanded">
     <section class="title-and-icons">
       <span class="num-icons">
-        <span class="number">{{ stepStage }}</span>
+        <span class="number">{{ stepViewModel.stepStage + 1 }}</span>
       </span>
-      <h2 class="_title">{{ title }}</h2>
+      <h2 class="_title">{{ stepViewModel.title }}</h2>
     </section>
-    <ng-content></ng-content>
+    <ng-container [ngTemplateOutlet]="stepContentView"></ng-container>
+    <ng-container [ngTemplateOutlet]="tooltipView"></ng-container>
   </div>
+  <ng-container [ngTemplateOutlet]="navButtonsView"></ng-container>
 </ng-template>
 
 <ng-template #collapsedView>
-  <app-collapsed-step
-    [number]="stepStage"
-    [title]="collapsedTitle"
-    [isStepComplete]="isStepCompleted"
-  ></app-collapsed-step>
+  <app-collapsed-step [stepViewModel]="stepViewModel"></app-collapsed-step>
+</ng-template>
+
+<ng-template #navButtonsView>
+  <ng-template [ngIf]="isNotFirstStep">
+    <div class="buttons-wrapper">
+      <button class="nav-btn" (click)="prevStep()">חזרה</button>
+      <button *ngIf="isMobileUser" class="nav-btn" (click)="nextStep()">
+        המשך
+      </button>
+      <button
+        *ngIf="!isMobileUser"
+        class="nav-btn bigger_width"
+        (click)="nextStep()"
+      >
+        להמשיך לשלב הבא
+      </button>
+    </div>
+  </ng-template>
+</ng-template>
+
+<ng-template #stepContentView [ngSwitch]="activeStage">
+  <app-step1-view *ngSwitchCase="0"></app-step1-view>
+  <app-step2-view *ngSwitchCase="1"></app-step2-view>
+  <app-step3-view *ngSwitchCase="2"></app-step3-view>
+  <app-step4-view *ngSwitchCase="3"></app-step4-view>
+</ng-template>
+
+<ng-template #tooltipView>
+  <ng-template [ngIf]="showToolTipView">
+    <div class="tooltip_wrapper">
+      <ng-container [ngSwitch]="activeStage">
+        <img *ngSwitchCase="1" src="assets/images/publish/time_is_money.png" />
+        <img *ngSwitchCase="3" src="assets/images/publish/megaphone.png" />
+        <img *ngSwitchCase="5" src="assets/images/publish/lightbulb.png" />
+      </ng-container>
+      <div class="tooltip_content">
+        <h5>הזמן שלך יקר לנו!</h5>
+        <span>על פי מחקר אונ' ת"א עם מודעה משודרגת מוכרים מהר יותר </span>
+      </div>
+    </div>
+  </ng-template>
 </ng-template>

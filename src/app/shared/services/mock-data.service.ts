@@ -3,8 +3,10 @@ import { delay, Observable, of } from 'rxjs';
 import {
   categoryListings,
   forsaleListingSubCategories,
+  sevenStepsModelData,
 } from 'src/assets/mock/data/mock.data';
 import { CategoryBoxModel } from '../models/category-box.model';
+import { SevenStepViewModel } from '../models/viewmodels/vm.model';
 
 @Injectable({
   providedIn: 'root',
@@ -36,5 +38,9 @@ export class MockDataService {
         }
     );
     return of(boxModel);
+  }
+
+  getSevenStepsDataViewModel(): Observable<SevenStepViewModel[]> {
+    return of(sevenStepsModelData);
   }
 }

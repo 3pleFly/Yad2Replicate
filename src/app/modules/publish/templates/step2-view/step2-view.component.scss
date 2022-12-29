@@ -17,37 +17,6 @@
   color: #ccc !important;
 }
 
-
-.tooltip_wrapper {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  height: 76px;
-  border: 1px solid #c6e1ff;
-  border-radius: 3px;
-  background-color: #f3f8ff;
-  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 8%);
-  padding: 8px;
-
-  img {
-    object-fit: contain;
-    width: 58px;
-  }
-}
-
-.tooltip_content {
-  h5 {
-    font-size: 14px;
-    font-weight: 600;
-    margin: 2px;
-  }
-  span {
-    display: block;
-    width: 80%;
-    font-size: 14px;
-  }
-}
-
 .street {
   span {
     cursor: pointer;
@@ -125,36 +94,6 @@
   --checkbox-font-size: 14px;
 }
 
-.nav-btn {
-  cursor: pointer;
-  font-size: 14px;
-  color: #363636;
-  text-align: center;
-  box-sizing: border-box;
-  height: 35px;
-  width: 90px;
-  border: 1px solid #ccc;
-  border-radius: 17.5px;
-  background-color: #fff;
-}
-
-.nav-btn:hover {
-  color: #fff !important;
-  background: var(--btn-primary-color);
-}
-
-.nav-btn:last-child {
-  color: var(--btn-primary-color);
-  border-color: var(--btn-primary-color);
-  font-weight: 500;
-}
-
-.buttons-wrapper {
-  display: flex !important;
-  justify-content: space-between;
-  margin: 50px 0 35px 0!important;
-}
-
 @media only screen and (min-width: 880px) {
   .tooltip_wrapper {
     position: absolute;
@@ -186,10 +125,6 @@
 
   .address_number {
     width: 17%;
-  }
-
-  .bigger_width {
-    width: 155px !important;
   }
 
   .floor_inputs {

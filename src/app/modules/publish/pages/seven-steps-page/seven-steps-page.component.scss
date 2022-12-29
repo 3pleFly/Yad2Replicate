@@ -13,5 +13,36 @@
   margin-bottom: 15px;
 }
 
+.tooltip_wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 76px;
+  border: 1px solid #c6e1ff;
+  border-radius: 3px;
+  background-color: #f3f8ff;
+  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 8%);
+  padding: 8px;
+
+  img {
+    object-fit: contain;
+    width: 58px;
+  }
+}
+
+.tooltip_content {
+  h5 {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 2px;
+  }
+  span {
+    display: block;
+    width: 80%;
+    font-size: 14px;
+  }
+}
+
 @media only screen and (min-width: 880px) {
+
 }

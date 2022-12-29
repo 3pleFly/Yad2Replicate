@@ -1,46 +1,8 @@
 <app-step
-  [collapsedTitle]="'אני רוצה למכור נכס'"
-  [title]="'באיזו קטגוריה נפרסם היום?'"
-  [stepStage]="1"
->
-  <app-step1-view></app-step1-view>
-</app-step>
-
-<app-step
-  [collapsedTitle]="'כתובת הנכס'"
-  [title]="'כתובת הנכס'"
-  [stepStage]="2"
->
-  <app-step2-view></app-step2-view>
-</app-step>
-<app-step [title]="'על הנכס'" ס [collapsedTitle]="'על הנכס'" [stepStage]="3">
-  <app-step3-view></app-step3-view>
-</app-step>
-<app-step
-  [title]="'תשלומים, תאריכים ועוד'"
-  [collapsedTitle]="'תשלומים, תאריכים ועוד'"
-  [stepStage]="4"
->
-  <app-step4-view></app-step4-view>
-</app-step>
-
-<app-step
-  [title]="'תמונות וסרטונים'"
-  [collapsedTitle]="'תמונות וסרטונים'"
-  [stepStage]="5"
+  *ngFor="
+    let stepVm of this.mockdataService.getSevenStepsDataViewModel() | async
+  "
+  [stepViewModel]="stepVm"
 >
 </app-step>
 
-<app-step
-  [title]="'פרטים ליצירת קשר'"
-  [collapsedTitle]="'פרטים ליצירת קשר'"
-  [stepStage]="6"
->
-</app-step>
-
-<app-step
-  [title]="'בחירת מסלול'"
-  [collapsedTitle]="'בחירת מסלול'"
-  [stepStage]="7"
->
-</app-step>
