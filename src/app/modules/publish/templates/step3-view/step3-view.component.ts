@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { SwitcherTypes } from 'src/app/shared/components/switcher/switcher.component';
 import { Yad2Properties } from 'src/app/shared/models/yad2Properties.model';
 import { numberOfRoomsSelectOptions } from 'src/assets/mock/data/mock.data';
-import { yad2Properties } from 'src/assets/mock/data/mock.data';
+import { _yad2Properties } from 'src/assets/mock/data/mock.data';
 import { SevenstepService } from '../../services/sevenstep.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { SevenstepService } from '../../services/sevenstep.service';
 })
 export class Step3ViewComponent {
   numberOfRoomsSelectOptions = numberOfRoomsSelectOptions;
-  yad2Properties: Yad2Properties[] = yad2Properties;
+  yad2Properties: Yad2Properties[] = _yad2Properties;
   textAreaCountOfChars: number = 0;
   _progressBarText: string = 'ממליצים לך בחום להוסיף תיאור';
 

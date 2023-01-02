@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CalendarDate } from 'src/app/shared/models/calendar.model';
@@ -9,8 +9,9 @@ import {
   Item,
   MultiToggleBox,
 } from 'src/app/shared/models/inner.models';
+import { InputViewModel } from 'src/app/shared/models/viewmodels/input-component.model';
 import { HebrewMonthPipe } from 'src/app/shared/pipes/hebrew-month.pipe';
-import { GovtAPIService } from 'src/app/shared/services/govt-api.service';
+import { ApiService } from 'src/app/shared/services/api.service';
 
 import { SharedModule } from 'src/app/shared/shared.module';
 import {
@@ -61,7 +62,7 @@ export class MobileSearchPageComponent {
 
   constructor(
     private route: ActivatedRoute,
-    private govtApiService: GovtAPIService,
+    private govtApiService: ApiService,
     private hebrewMonthPipe: HebrewMonthPipe
   ) {}
 
@@ -119,5 +120,29 @@ export class MobileSearchPageComponent {
 
   stopPropogation(e: Event) {
     e.stopPropagation();
+  }
+
+  get cityInputModel(): InputViewModel {
+    return {
+      labelText: 'חפשו עיר',
+      placeholder: 'לדוגמה: ירושלים',
+    };
+  }
+
+  get neighborhoodInputModel(): InputViewModel {
+    return {
+      labelText: 'חפשו שכונה',
+      placeholder: 'הזינו שם של שכונה',
+      disabled: !!!this.cityInput,
+    };
+  }
+
+  get calendarInputModel(): InputViewModel {
+    return {
+      readonly: 'readonly',
+      inputType: 'text',
+      placeholder: 'החל מ-הזינו תאריך',
+      value: 'calendarSelectedDateValueString',
+    };
   }
 }

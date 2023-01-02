@@ -24,17 +24,10 @@
         [categories]="this.searchCategories"
       ></app-slider-switch>
       <li>
-        <app-input
-          labelName="חפשו עיר"
-          inputPlaceholder="לדוגמה: ירושלים"
-        ></app-input>
+        <app-input [inputModel]="cityInputModel"></app-input>
       </li>
       <li>
-        <app-input
-          labelName="חפשו שכונה"
-          inputPlaceholder="הזינו שם של שכונה"
-          [disabled]="!!!cityInput"
-        ></app-input>
+        <app-input [inputModel]="neighborhoodInputModel"></app-input>
       </li>
       <li>
         <app-select
@@ -60,15 +53,11 @@
         <label>חדרים</label>
         <ul class="range_select_wrapper">
           <li>
-            <app-select
-              [data]="numberOfRoomsSelectOptions"
-            ></app-select>
+            <app-select [data]="numberOfRoomsSelectOptions"></app-select>
           </li>
           <span class="underline_seperator"></span>
           <li>
-            <app-select
-              [data]="numberOfRoomsSelectOptions"
-            ></app-select>
+            <app-select [data]="numberOfRoomsSelectOptions"></app-select>
           </li>
         </ul>
         <ul class="pre_choice_list">
@@ -98,11 +87,11 @@
         <label>מחיר</label>
         <ul class="range_select_wrapper">
           <li>
-            <app-input [inputType]="'number'"></app-input>
+            <app-input [inputModel]="{'inputType':'number'}"></app-input>
           </li>
           <span class="underline_seperator"></span>
           <li>
-            <app-input [inputType]="'number'"></app-input>
+            <app-input [inputModel]="{'inputType':'number'}"></app-input>
           </li>
         </ul>
         <ul class="pre_choice_list">
@@ -143,15 +132,11 @@
             <label>קומה</label>
             <ul class="range_select_wrapper">
               <li>
-                <app-select
-                  [data]="numberOfRoomsSelectOptions"
-                ></app-select>
+                <app-select [data]="numberOfRoomsSelectOptions"></app-select>
               </li>
               <span class="underline_seperator"></span>
               <li>
-                <app-select
-                  [data]="numberOfRoomsSelectOptions"
-                ></app-select>
+                <app-select [data]="numberOfRoomsSelectOptions"></app-select>
               </li>
             </ul>
           </li>
@@ -159,11 +144,11 @@
             <label>גודל דירה (במ״ר)</label>
             <ul class="range_select_wrapper">
               <li>
-                <app-input [inputType]="'number'"></app-input>
+                <app-input [inputModel]="{'inputType':'number'}"></app-input>
               </li>
               <span class="underline_seperator"></span>
               <li>
-                <app-input [inputType]="'number'"></app-input>
+                <app-input [inputModel]="{'inputType':'number'}"></app-input>
               </li>
             </ul>
           </li>
@@ -177,10 +162,7 @@
               ></app-calendar>
               <app-input
                 (click)="openCalendarComponentViewOnFocus($event)"
-                [readonly]="'readonly'"
-                [inputType]="'text'"
-                [placeHolder]="'החל מ-הזינו תאריך'"
-                [value]="calendarSelectedDateValueString"
+                  [inputModel]="calendarInputModel"
               ></app-input>
               <img
                 class="calendar-img"

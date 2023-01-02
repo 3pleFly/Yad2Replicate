@@ -3,7 +3,7 @@
     *ngFor="let category of categories$ | async"
     [categoryBoxModel]="category"
     [boxDisplay]="BoxDisplays.ImageAndTitle"
-    (click)="nextStep()"
+    (click)="nextStep(category)"
   >
   </app-category-box>
 </div>

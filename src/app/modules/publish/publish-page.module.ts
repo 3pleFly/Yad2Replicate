@@ -15,6 +15,7 @@ import { StepComponent } from './components/step/step.component';
 import { Step1ViewComponent } from './templates/step1-view/step1-view.component';
 import { Step3ViewComponent } from './templates/step3-view/step3-view.component';
 import { Step4ViewComponent } from './templates/step4-view/step4-view.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { Step4ViewComponent } from './templates/step4-view/step4-view.component'
     Step3ViewComponent,
     Step4ViewComponent,
   ],
-  imports: [CommonModule, PublishPageRoutingModule, SharedModule],
+  imports: [CommonModule, PublishPageRoutingModule, SharedModule, FormsModule],
   providers: [SevenstepService],
 })
 export class PublishPageModule {}

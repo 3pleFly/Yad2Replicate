@@ -5,21 +5,21 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class SpinnerService {
-  private spinner$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
+  private globalSpinner$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
     false
   );
 
   constructor() {}
 
   get spinner(): Observable<boolean> {
-    return this.spinner$.asObservable();
+    return this.globalSpinner$.asObservable();
   }
 
-  activateSpinner() {
-    this.spinner$.next(true);
+  activateGlobalSpinner() {
+    this.globalSpinner$.next(true);
   }
 
-  deactivateSpinner() {
-    this.spinner$.next(false);
+  deactivateGlobalSpinner() {
+    this.globalSpinner$.next(false);
   }
 }

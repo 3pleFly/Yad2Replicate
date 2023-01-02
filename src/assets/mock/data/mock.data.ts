@@ -2,7 +2,7 @@ import { CategoryListing } from 'src/app/shared/models/categoryListing.model';
 import { CheckBoxItem } from 'src/app/shared/models/checkboxItem.model';
 import { Item, MultiToggleBox } from 'src/app/shared/models/inner.models';
 import { SevenStepViewModel } from 'src/app/shared/models/viewmodels/vm.model';
-import { Yad2Assets } from 'src/app/shared/models/Yad2Assets.enum';
+import { Yad2Assets } from 'src/app/shared/models/yad2assets.enum';
 import { Yad2Properties } from 'src/app/shared/models/yad2Properties.model';
 
 export const subCategories: Item[] = [
@@ -245,9 +245,9 @@ export const receiveEmailCommericalsCheckboxItem: CheckBoxItem =
     'אני רוצה לקבל עדכון חודשי במייל עם הערכת שווי מעודכנת עבור הנכס, עסקאות באזור והצעות מקצועיות מיועצי נדל״ן'
   );
 
-export const yad2AssetsArray = Object.values(Yad2Assets);
+export const _yad2AssetsArray = Object.values(Yad2Assets);
 
-export const yad2Properties: Yad2Properties[] = [
+export const _yad2Properties: Yad2Properties[] = [
   { name: 'מיזוג', imgSrc: 'assets/images/publish/asset_properties/ac.png' },
   { name: 'ממ״ד', imgSrc: 'assets/images/publish/asset_properties/mamad.png' },
   {
@@ -298,3 +298,10 @@ export const sevenStepsModelData: SevenStepViewModel[] = [
   { title: 'פרטים ליצירת קשר', collapasedTitle: '', stepStage: 5 },
   { title: 'בחירת מסלול', collapasedTitle: '', stepStage: 6 },
 ];
+
+
+export const  govtApi_streets_resourceId: string = '?resource_id=3c318d87-b56a-49f6-b532-d9aa87d85a9a';
+export const  govtApi_fields_streets: string = '&fields=שם_רחוב';
+export const  govtApi_plain_false: string = "&plain=false";
+export const govtApi_limit_10: string = "&limit=10";
+

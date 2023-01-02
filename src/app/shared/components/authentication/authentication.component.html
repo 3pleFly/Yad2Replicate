@@ -9,26 +9,18 @@
     <ul class="common-form-list">
       <li class="common-form-item">
         <label>מייל</label>
-        <app-input [placeHolder]="'yourmail@email.co.il'"></app-input>
+        <app-input [inputModel]="emailInputModel"></app-input>
       </li>
       <li class="common-form-item">
         <label>סיסמה</label>
-        <app-input
-          [inputType]="'password'"
-          [passwordIcon]="true"
-          [placeHolder]="'הקלדת סיסמה'"
-        ></app-input>
+        <app-input [inputModel]="passwordInputModel"></app-input>
         <div class="forgot-password" *ngIf="!registrationMode">
           <a>שכחתי סיסמה</a>
         </div>
       </li>
       <li class="common-form-item" *ngIf="registrationMode">
         <label>אימות סיסמה</label>
-        <app-input
-          [inputType]="'password'"
-          [passwordIcon]="true"
-          [placeHolder]="'הקלדת סיסמה'"
-        ></app-input>
+        <app-input [inputModel]="passwordInputModel"></app-input>
       </li>
     </ul>
     <div class="submit-and-errors">
@@ -63,7 +55,7 @@
       <a routerLink="/auth/register">להרשמה</a>
     </div>
     <div class="u_text_center" *ngIf="registrationMode">
-      <p>כבר יש לך חשבון? </p>
+      <p>כבר יש לך חשבון?</p>
       <a routerLink="/auth/login">להתחברות</a>
     </div>
     <div class="subtitle"></div>

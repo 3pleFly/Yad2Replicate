@@ -15,6 +15,8 @@ export class StepComponent {
   ngOnInit(): void {}
 
   nextStep(): void {
+    console.log(this.stepsService.form);
+
     this.stepsService.activeStage += 1;
   }
 

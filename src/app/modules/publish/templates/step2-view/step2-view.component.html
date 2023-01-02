@@ -5,21 +5,36 @@
     [data]="Yad2AssetsArray"
     [labelName]="'סוג הנכס*'"
     [placeholder]="'דירה או אולי פנטהאוז'"
+    (selectedValue)="setPropertyTypeInput($event)"
   ></app-select>
 
   <app-select
-    [data]="['one', 'two', 'three']"
+    [data]="[
+      'חדש מקבלן (לא גרו בו בכלל)',
+      'חדש (נכס בן עד 5 שנים)',
+      'משופץ (שופץ ב5 שנים האחרונות)',
+      'במצב שמור (במצב טוב לא שופץ)',
+      'דרוש שיפוץ (זקוק לעבודת לשיפוץ)'
+    ]"
     [labelName]="'מצב הנכס*'"
     [placeholder]="'משופץ? חדש מקבלן?'"
+    (selectedValue)="setPropertyStateInput($event)"
   ></app-select>
 
-  <app-input labelName="ישוב*" [placeHolder]="'איפה נמצא הנכס?'"></app-input>
+  <app-dropdown-input
+    [inputModel]="stepsService.cityInputModel"
+    [data]="cityAutoComplete$ | async"
+    (inputChanges$)="handleCityInput$($event)"
+    (itemSelectedEvent)="setCityInput($event)"
+  ></app-dropdown-input>
 
-  <app-input
-    labelName="רחוב"
-    [disabled]="true"
-    [placeHolder]="'הכנסת שם הרחוב'"
-  ></app-input>
+  <app-dropdown-input
+    [inputModel]="stepsService.streetInputModel"
+    [data]="streetAutoComplete$ | async"
+    (inputChanges$)="handleStreetInput$($event)"
+    (itemSelectedEvent)="setStreetInput($event)"
+  ></app-dropdown-input>
+
   <div class="street tooltip">
     <p>
       המידע מגיע מגוף ממשלתי. אם הרחוב שלך לא מופיע, מומלץ לבחור רחוב קרוב אליך
@@ -27,7 +42,7 @@
     <span [ngClass]="{ grayed: true }">לא מצאת את הרחוב?</span>
   </div>
   <span class="address_number">
-    <app-input [disabled]="true" labelName="מס' בית"></app-input>
+    <app-input [inputModel]="stepsService.houseNumInputModel"></app-input>
   </span>
 
   <div *ngIf="showFloorInputs" class="floor_inputs">
@@ -39,26 +54,18 @@
     <ng-template #floorIsRequired>
       <app-input
         *ngIf="hideFloorInput"
-        [disabled]="true"
-        [placeHolder]="'הכנסת מספר קומה'"
-        [labelName]="'קומה*'"
+        [inputModel]="stepsService.floorInputModel"
       ></app-input>
     </ng-template>
 
     <ng-template #floorIsOptional>
       <app-input
         *ngIf="hideFloorInput"
-        [disabled]="true"
-        [placeHolder]="'הכנסת מספר קומה'"
-        [labelName]="'קומה'"
+        [inputModel]="stepsService.floorInputModel"
       ></app-input>
     </ng-template>
 
-    <app-input
-      [disabled]="true"
-      [placeHolder]="'הכנסת סה״כ קומות'"
-      [labelName]="'סה״כ קומות בבניין*'"
-    ></app-input>
+    <app-input ></app-input>
 
     <app-checkbox
       *ngIf="showOnColumsCheckbox"
@@ -66,12 +73,12 @@
     ></app-checkbox>
   </div>
 
-  <app-input [disabled]="true" labelName="שכונה"></app-input>
+  <app-input [inputModel]="stepsService.neighborhoodInputModel"></app-input>
   <div class="tooltip">
     <p>המידע מגיע מגוף ממשלתי ולא ניתן לשינוי</p>
   </div>
 
-  <app-input [disabled]="true" labelName="אזור מכירה"></app-input>
+  <app-input [inputModel]="stepsService.zoneInputModel"></app-input>
   <div class="tooltip">
     <p>המידע מגיע מגוף ממשלתי ולא ניתן לשינוי</p>
   </div>

@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Yad2Assets } from '../../models/Yad2Assets.enum';
+import { Yad2Assets } from '../../models/yad2assets.enum';
 
 
 @Component({

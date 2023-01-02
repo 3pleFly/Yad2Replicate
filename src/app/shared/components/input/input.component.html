@@ -1,12 +1,17 @@
-<label [ngClass]="{ disabled: disabled }">
-  <span [ngClass]="{ disabled: this.disabled }">{{ labelName }}</span>
+<label [ngClass]="{ disabled: disabled }" >
+  <span [ngClass]="{ disabled: disabled }">{{ labelText }}</span>
   <input
-    [readOnly]="readonly"
     [disabled]="disabled"
-    [value]="value"
+    [readOnly]="readonly"
     [type]="inputType"
-    [placeholder]="placeHolder"
+    [placeholder]="placeholder"
+    [(ngModel)]="value"
+    (ngModelChange)="emitInputValue()"
+    (blur)="emitOnBlur($event)"
   />
+  <ng-template [ngIf]="isLoading">
+    <app-spinner [spinnerType]="1"></app-spinner>
+  </ng-template>
   <span
     (click)="togglePasswordInputElementVisibility()"
     *ngIf="passwordIcon"
@@ -14,11 +19,11 @@
   >
     <img
       src="../../../../assets/images/password-icon.png"
-      *ngIf="inputType==='text'"
+      *ngIf="inputType === 'text'"
     />
     <img
       src="../../../../assets/images/password_visible.png"
-      *ngIf="inputType==='password'"
+      *ngIf="inputType === 'password'"
     />
   </span>
 </label>

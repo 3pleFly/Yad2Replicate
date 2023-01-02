@@ -7,6 +7,7 @@ import {
 } from '@angular/common/http';
 import { finalize, Observable } from 'rxjs';
 import { SpinnerService } from './spinner.service';
+import { getCityByNameFirst10Url } from 'src/assets/api/api.url';
 
 @Injectable()
 export class SpinnerInterceptor implements HttpInterceptor {
@@ -16,9 +17,13 @@ export class SpinnerInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    this.spinnerService.activateSpinner();
+    if (request.url.startsWith(getCityByNameFirst10Url)) {
+
+    } else {
+      this.spinnerService.activateGlobalSpinner();
+    }
     return next
       .handle(request)
-      .pipe(finalize(() => this.spinnerService.deactivateSpinner()));
+      .pipe(finalize(() => this.spinnerService.deactivateGlobalSpinner()));
   }
 }

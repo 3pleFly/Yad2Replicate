@@ -28,7 +28,8 @@ export class Step1ViewComponent {
     return BoxDisplays;
   }
 
-  nextStep() {
+  nextStep(category: CategoryBoxModel) {
+    this.stepsService.form.category = category.titleText;
     this.stepsService.activeStage += 1;
   }
 

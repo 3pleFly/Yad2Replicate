@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 import { SliderSwitchComponent } from './components/slider-switch/slider-switch.component';
 import { SearchBarMobileComponent } from './components/search-bar/search-bar-mobile/search-bar-mobile.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
@@ -17,10 +19,14 @@ import { RouterModule } from '@angular/router';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
 import { CategoryBoxComponent } from './components/category-box/category-box.component';
 import { ModalComponent } from './components/modal/modal.component';
-import { FormsModule } from '@angular/forms';
 import { SwitcherComponent } from './components/switcher/switcher.component';
 import { TextareaComponent } from './components/textarea/textarea.component';
 import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
+import { DropdownInputComponent } from './components/dropdown-input/dropdown-input.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { SidebarModalComponent } from './components/sidebar-modal/sidebar-modal.component';
+import { BoldSubStringPipe } from './pipes/bold-sub-string.pipe';
 
 @NgModule({
   declarations: [
@@ -42,7 +48,11 @@ import { ProgressBarComponent } from './components/progress-bar/progress-bar.com
     SwitcherComponent,
     TextareaComponent,
     ProgressBarComponent,
-
+    DropdownInputComponent,
+    SidebarModalComponent,
+    NavbarComponent,
+    SpinnerComponent,
+    BoldSubStringPipe,
   ],
   imports: [CommonModule, HttpClientModule, RouterModule, FormsModule],
   exports: [
@@ -62,7 +72,11 @@ import { ProgressBarComponent } from './components/progress-bar/progress-bar.com
     ModalComponent,
     SwitcherComponent,
     TextareaComponent,
-    ProgressBarComponent
+    ProgressBarComponent,
+    DropdownInputComponent,
+    SidebarModalComponent,
+    NavbarComponent,
+    SpinnerComponent,
   ],
 })
 export class SharedModule {}
