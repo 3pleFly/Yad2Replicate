@@ -7,7 +7,7 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import { CheckBoxItem } from 'src/app/shared/models/checkboxItem.model';
+import { CheckboxItem } from 'src/app/shared/models/checkboxItem.model';
 import { ChildrenView } from 'src/app/shared/models/inner.models';
 
 @Component({
@@ -16,7 +16,7 @@ import { ChildrenView } from 'src/app/shared/models/inner.models';
   styleUrls: ['./mobile-property-select-modal.component.scss'],
 })
 export class MobilePropertySelectModalComponent implements OnInit {
-  @Input() checkBoxItems!: CheckBoxItem[];
+  @Input() checkBoxItems!: CheckboxItem[];
   @Input() showModal!: boolean;
   @Output() showModalChange = new EventEmitter<boolean>();
   prevCheckboxChildrenView!: ChildrenView;

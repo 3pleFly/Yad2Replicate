@@ -1,11 +1,9 @@
-import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, Input, Output } from '@angular/core';
 import {
   CategoryBoxModel,
   BoxDisplays,
 } from 'src/app/shared/models/category-box.model';
-import { MockDataService } from 'src/app/shared/services/mock-data.service';
-import { SevenstepService } from '../../services/sevenstep.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-step1-view',
@@ -13,24 +11,18 @@ import { SevenstepService } from '../../services/sevenstep.service';
   styleUrls: ['./step1-view.component.scss'],
 })
 export class Step1ViewComponent {
-  categories$!: Observable<CategoryBoxModel[]>;
 
   constructor(
-    private mockDataService: MockDataService,
-    private stepsService: SevenstepService
+    private fb: FormBuilder
   ) {}
 
-  ngOnInit(): void {
-    this.categories$ = this.mockDataService.getForsaleSubCategories();
-  }
+  ngOnInit(): void {}
 
   get BoxDisplays() {
     return BoxDisplays;
   }
 
   nextStep(category: CategoryBoxModel) {
-    this.stepsService.form.category = category.titleText;
-    this.stepsService.activeStage += 1;
   }
 
   get isMobileUser(): boolean {

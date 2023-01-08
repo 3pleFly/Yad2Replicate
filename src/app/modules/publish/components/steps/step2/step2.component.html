@@ -1,0 +1,94 @@
+<app-tooltip [activeStep]="viewModel.stepStage"></app-tooltip>
+<app-title [viewModel]="viewModel"></app-title>
+<section class="wrapper">
+  <h4 class="outerSubTitle">סימנו עבורך את שדות החובה. שלא נפספס פרט חשוב</h4>
+  <app-select
+    [control]="form.controls.propertyType"
+    [selectModel]="viewModel.inputs.propertyType"
+  ></app-select>
+  <app-select
+    [control]="form.controls.propertyState"
+    [selectModel]="viewModel.inputs.propertyState"
+  ></app-select>
+
+  <span>
+    <app-dropdown-input
+      [control]="form.controls.city"
+      [inputModel]="viewModel.inputs.city"
+      [isLoading]="isCitiesLoading"
+      [data]="cityData$ | async"
+      (onSearch)="handleCityInputValues($event)"
+    ></app-dropdown-input>
+  </span>
+
+  <span>
+    <app-dropdown-input
+      [control]="form.controls.street"
+      [inputModel]="viewModel.inputs.street"
+      [isLoading]="isStreetsLoading"
+      [data]="streetsData$ | async"
+      (onSearch)="handleStreetInputValues($event)"
+    ></app-dropdown-input>
+    <div class="street tooltip">
+      <p>
+        המידע מגיע מגוף ממשלתי. אם הרחוב שלך לא מופיע, מומלץ לבחור רחוב קרוב
+        אליך
+      </p>
+      <span [ngClass]="{ grayed: viewModel.inputs.street.disabled }"
+        >לא מצאת את הרחוב?</span
+      >
+    </div>
+  </span>
+
+  <span class="address_number">
+    <app-input
+      [inputModel]="viewModel.inputs.houseNum"
+      [control]="form.controls.houseNum"
+    ></app-input>
+  </span>
+
+  <div *ngIf="form.controls.totalFloors" class="floor_inputs">
+    <app-input
+      *ngIf="form.controls.floor"
+      [control]="form.controls.floor"
+      [inputModel]="viewModel.inputs.floor"
+    ></app-input>
+
+    <app-input
+      [control]="form.controls.totalFloors"
+      [inputModel]="viewModel.inputs.totalFloors"
+    ></app-input>
+
+    <app-checkbox
+      *ngIf="viewModel.inputs.isOnColumns.visible"
+      [checkboxItem]="viewModel.inputs.isOnColumns"
+    ></app-checkbox>
+  </div>
+
+  <span>
+    <app-input
+      [control]="form.controls.neighborhood"
+      [inputModel]="viewModel.inputs.neighborhood"
+    ></app-input>
+    <div class="tooltip">
+      <p>המידע מגיע מגוף ממשלתי ולא ניתן לשינוי</p>
+    </div>
+  </span>
+
+  <span>
+    <app-input
+      [control]="form.controls.area"
+      [inputModel]="viewModel.inputs.area"
+    ></app-input>
+    <div class="tooltip">
+      <p>המידע מגיע מגוף ממשלתי ולא ניתן לשינוי</p>
+    </div>
+  </span>
+
+  <!-- <app-checkbox
+    class="commercial_checkbox"
+    [checkboxItem]="viewmodels.emailCommercials"
+  ></app-checkbox> -->
+</section>
+
+<app-nav-buttons></app-nav-buttons>

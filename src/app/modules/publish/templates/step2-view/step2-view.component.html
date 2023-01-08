@@ -1,90 +1,53 @@
-<h4 class="outerSubTitle">סימנו עבורך את שדות החובה. שלא נפספס פרט חשוב</h4>
+<!-- <h4 class="outerSubTitle">סימנו עבורך את שדות החובה. שלא נפספס פרט חשוב</h4>
 <section class="wrapper">
-  <app-select
-    (selectedValue)="selectAsset($event)"
-    [data]="Yad2AssetsArray"
-    [labelName]="'סוג הנכס*'"
-    [placeholder]="'דירה או אולי פנטהאוז'"
-    (selectedValue)="setPropertyTypeInput($event)"
-  ></app-select>
+  <app-select [selectModel]="viewmodels.propertyType"></app-select>
 
-  <app-select
-    [data]="[
-      'חדש מקבלן (לא גרו בו בכלל)',
-      'חדש (נכס בן עד 5 שנים)',
-      'משופץ (שופץ ב5 שנים האחרונות)',
-      'במצב שמור (במצב טוב לא שופץ)',
-      'דרוש שיפוץ (זקוק לעבודת לשיפוץ)'
-    ]"
-    [labelName]="'מצב הנכס*'"
-    [placeholder]="'משופץ? חדש מקבלן?'"
-    (selectedValue)="setPropertyStateInput($event)"
-  ></app-select>
+  <app-select [selectModel]="viewmodels.propertyState"></app-select>
 
   <app-dropdown-input
-    [inputModel]="stepsService.cityInputModel"
+    [inputModel]="viewmodels.city"
     [data]="cityAutoComplete$ | async"
-    (inputChanges$)="handleCityInput$($event)"
-    (itemSelectedEvent)="setCityInput($event)"
   ></app-dropdown-input>
 
   <app-dropdown-input
-    [inputModel]="stepsService.streetInputModel"
+    [inputModel]="viewmodels.street"
     [data]="streetAutoComplete$ | async"
-    (inputChanges$)="handleStreetInput$($event)"
-    (itemSelectedEvent)="setStreetInput($event)"
   ></app-dropdown-input>
 
   <div class="street tooltip">
     <p>
       המידע מגיע מגוף ממשלתי. אם הרחוב שלך לא מופיע, מומלץ לבחור רחוב קרוב אליך
     </p>
-    <span [ngClass]="{ grayed: true }">לא מצאת את הרחוב?</span>
+    <span [ngClass]="{ grayed: viewmodels.street.disabled }"
+      >לא מצאת את הרחוב?</span
+    >
   </div>
   <span class="address_number">
-    <app-input [inputModel]="stepsService.houseNumInputModel"></app-input>
+    <app-input
+      [inputModel]="viewmodels.houseNum"
+    ></app-input>
   </span>
 
-  <div *ngIf="showFloorInputs" class="floor_inputs">
-    <ng-container
-      [ngTemplateOutlet]="
-        showFloorIsRequired ? floorIsRequired : floorIsOptional
-      "
-    ></ng-container>
-    <ng-template #floorIsRequired>
-      <app-input
-        *ngIf="hideFloorInput"
-        [inputModel]="stepsService.floorInputModel"
-      ></app-input>
-    </ng-template>
+  <div *ngIf="true" class="floor_inputs">
+    <app-input [inputModel]="viewmodels.floor"></app-input>
 
-    <ng-template #floorIsOptional>
-      <app-input
-        *ngIf="hideFloorInput"
-        [inputModel]="stepsService.floorInputModel"
-      ></app-input>
-    </ng-template>
+    <app-input [inputModel]="viewmodels.totalFloors"></app-input>
 
-    <app-input ></app-input>
-
-    <app-checkbox
-      *ngIf="showOnColumsCheckbox"
-      [checkboxItem]="onColumnsCheckboxItem"
-    ></app-checkbox>
+    <app-checkbox [checkboxItem]="viewmodels.isOnColumns"></app-checkbox>
   </div>
 
-  <app-input [inputModel]="stepsService.neighborhoodInputModel"></app-input>
+  <app-input [inputModel]="viewmodels.neighborhood"></app-input>
   <div class="tooltip">
     <p>המידע מגיע מגוף ממשלתי ולא ניתן לשינוי</p>
   </div>
 
-  <app-input [inputModel]="stepsService.zoneInputModel"></app-input>
+  <app-input [inputModel]="viewmodels.zone"></app-input>
   <div class="tooltip">
     <p>המידע מגיע מגוף ממשלתי ולא ניתן לשינוי</p>
   </div>
 
   <app-checkbox
     class="commercial_checkbox"
-    [checkboxItem]="receiveEmailCommericalsCheckboxItem"
+    [checkboxItem]="viewmodels.emailCommercials"
   ></app-checkbox>
-</section>
+</section> -->

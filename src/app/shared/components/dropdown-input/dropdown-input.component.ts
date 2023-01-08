@@ -1,79 +1,76 @@
 import {
   Component,
+  ElementRef,
   EventEmitter,
   HostListener,
   Input,
-  OnChanges,
+  OnDestroy,
+  OnInit,
   Output,
-  SimpleChanges,
-
+  ViewChild,
 } from '@angular/core';
-import { BehaviorSubject, of } from 'rxjs';
-import { InputViewModel } from '../../models/viewmodels/input-component.model';
+import { FormControl } from '@angular/forms';
+import { defer, fromEvent, Observable, of, Subscription } from 'rxjs';
+import { InputView } from '../../models/viewmodels/input.model';
 
 @Component({
   selector: 'app-dropdown-input',
   template: `
     <app-input
-      (changedInputValueEvent)="streamInputChanges($event)"
-      [inputModel]="inputModel"
       [isLoading]="isLoading"
+      [inputModel]="inputModel"
+      [inputValue]="inputValue"
+      (keyUpEvent)="emitOnSearch($event)"
     ></app-input>
     <ul [ngClass]="{ dropdown_list: true, list_active: data?.length }">
       <li
-        (mousedown)="emitDropdownItemAndClearData(item, $event)"
         class="dropdown_item"
         *ngFor="let item of data"
+        (mousedown)="selectItem(item)"
       >
         <button class="naked-btn">
-          <span innerHTML="{{ item | boldSubString : inputModel.value }}"> </span>
+          <span innerHTML="{{ item | boldSubString : inputValue }}"> </span>
         </button>
       </li>
     </ul>
   `,
   styleUrls: ['./dropdown-input.component.scss'],
 })
-export class DropdownInputComponent implements OnChanges {
-  private _input$ = new BehaviorSubject<string>('');
-  private isChildClicked: boolean = false;
-  isLoading: boolean = false;
-  @Input() inputModel: InputViewModel = {};
-  @Input() data: string[] | null = null;
+export class DropdownInputComponent implements OnInit {
+  private isChildSelected: boolean = false;
+  inputValue: string | null = null;
+  @Input() isLoading: boolean = false;
+  @Input() inputModel!: InputView;
+  @Input() data?: string[] | null;
+  @Input() control!: FormControl;
   @Output() itemSelectedEvent = new EventEmitter<string>();
-  @Output() inputChanges$ = of(this._input$.asObservable());
+  @Output() onSearch = new EventEmitter<string>();
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['data']) {
-      this.isLoading = false;
-    }
-  }
+  ngOnInit(): void {}
 
   @HostListener('focusout', ['$event'])
   clickOutsideCurrentPopup(e: Event) {
-    this.clearInput(e);
+    this.clearInput();
   }
 
-  emitDropdownItemAndClearData(item: string, e: Event) {
-    this.itemSelectedEvent.emit(item);
-    this.inputModel.value = item;
+  emitOnSearch(value: string) {
+    this.isChildSelected = false;
+    this.inputValue = value;
+    this.onSearch.emit(value);
+  }
+
+  selectItem(item: string) {
     this.data = null;
-    this.isChildClicked = true;
+    this.isChildSelected = true;
+    this.control.setValue(item);
+    this.inputValue = item;
   }
 
-  clearInput(e: Event) {
-    if (!this.isChildClicked) {
-      this.itemSelectedEvent.emit('');
-      this.inputModel.value = '';
+  clearInput() {
+    if (!this.isChildSelected) {
+      this.inputValue = '';
       this.data = null;
-    }
-  }
-
-  streamInputChanges(value: string) {
-    this.isChildClicked = false;
-    this.data = null;
-    if (value.length >= 2) {
-      this.isLoading = true;
-      this._input$.next(value);
+      this.control.reset();
     }
   }
 }

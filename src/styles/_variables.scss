@@ -39,6 +39,11 @@ app-modal {
 
 app-checkbox {
   --checkbox-font-size: 1rem;
+  --checkbox-width: 1em;
+  --checkbox-height: 1em;
+  --checkbox-border: 1px solid #363636;
+  --checkbox-checkmark-top: -1px;
+  --checkbox-checkmark-left: initial;
 }
 
 app-select {

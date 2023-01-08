@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { InputViewModel } from '../../models/viewmodels/input-component.model';
+import { InputView } from '../../models/viewmodels/input.model';
 
 @Component({
   selector: 'app-authentication',
@@ -10,15 +10,16 @@ export class AuthenticationComponent {
   @Input() registrationMode: boolean = false;
   @Output() registrationModeChange = new EventEmitter<boolean>();
 
-  get emailInputModel(): InputViewModel {
-    return { placeholder: 'yourmail@email.co.il' };
+  get emailInputModel(): InputView {
+    return { placeholder: 'yourmail@email.co.il' , required: false};
   }
 
-  get passwordInputModel(): InputViewModel {
+  get passwordInputModel(): InputView {
     return {
       inputType: 'password',
       passwordIcon: true,
       placeholder: 'הקלדת סיסמא',
+      required: false
     };
   }
 }

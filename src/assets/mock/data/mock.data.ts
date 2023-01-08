@@ -1,8 +1,7 @@
+import { SevenStepViewModel } from 'src/app/modules/publish/models/seven-step-form.model';
 import { CategoryListing } from 'src/app/shared/models/categoryListing.model';
-import { CheckBoxItem } from 'src/app/shared/models/checkboxItem.model';
+import { CheckboxItem } from 'src/app/shared/models/checkboxItem.model';
 import { Item, MultiToggleBox } from 'src/app/shared/models/inner.models';
-import { SevenStepViewModel } from 'src/app/shared/models/viewmodels/vm.model';
-import { Yad2Assets } from 'src/app/shared/models/yad2assets.enum';
 import { Yad2Properties } from 'src/app/shared/models/yad2Properties.model';
 
 export const subCategories: Item[] = [
@@ -24,41 +23,41 @@ export const multiToggleBoxItems: MultiToggleBox[] = [
     id: 1,
     imgSrc:
       'https://assets.yad2.co.il/yad2site/y2assets/images/realestate/Building.svg',
-    checkboxItem: new CheckBoxItem(1, 'דירות', [
-      new CheckBoxItem('apartment', 'דירה'),
-      new CheckBoxItem('garden_apartment', 'דירת גן'),
-      new CheckBoxItem('roof/penthouse', 'גג/פנטהאוז'),
-      new CheckBoxItem('duplex', 'דופלקס'),
-      new CheckBoxItem('vacation_apartment', 'דירת נופש'),
-      new CheckBoxItem('basement', 'מרתף/פרטר'),
-      new CheckBoxItem('triplex', 'טריפלקס'),
-      new CheckBoxItem('living_unit', 'יחידת דיור'),
-      new CheckBoxItem('studio', 'סטודיו/לופט'),
+    checkboxItem: new CheckboxItem(1, 'דירות', [
+      new CheckboxItem('apartment', 'דירה'),
+      new CheckboxItem('garden_apartment', 'דירת גן'),
+      new CheckboxItem('roof/penthouse', 'גג/פנטהאוז'),
+      new CheckboxItem('duplex', 'דופלקס'),
+      new CheckboxItem('vacation_apartment', 'דירת נופש'),
+      new CheckboxItem('basement', 'מרתף/פרטר'),
+      new CheckboxItem('triplex', 'טריפלקס'),
+      new CheckboxItem('living_unit', 'יחידת דיור'),
+      new CheckboxItem('studio', 'סטודיו/לופט'),
     ]),
   },
   {
     id: 2,
     imgSrc:
       'https://assets.yad2.co.il/yad2site/y2assets/images/realestate/Country-house.svg',
-    checkboxItem: new CheckBoxItem(2, 'בתים', [
-      new CheckBoxItem('private_residence', 'בית פרטי/קוטג׳'),
-      new CheckBoxItem('townhouse', 'דו משפחתי'),
-      new CheckBoxItem('estate', 'משק חקלאי/נחלה'),
-      new CheckBoxItem('home_farm', 'משק עזר'),
+    checkboxItem: new CheckboxItem(2, 'בתים', [
+      new CheckboxItem('private_residence', 'בית פרטי/קוטג׳'),
+      new CheckboxItem('townhouse', 'דו משפחתי'),
+      new CheckboxItem('estate', 'משק חקלאי/נחלה'),
+      new CheckboxItem('home_farm', 'משק עזר'),
     ]),
   },
   {
     id: 3,
     imgSrc:
       'https://assets.yad2.co.il/yad2site/y2assets/images/realestate/Other.svg',
-    checkboxItem: new CheckBoxItem(3, 'סוגים נוספים', [
-      new CheckBoxItem('lots', 'מגרשים'),
-      new CheckBoxItem('assisted_living', 'דיור מוגן'),
-      new CheckBoxItem('building', 'בניין מגורים'),
-      new CheckBoxItem('storage', 'מחסן'),
-      new CheckBoxItem('parking_lot', 'חניה'),
-      new CheckBoxItem('purchasing_group', 'קב׳ רכישה/זכות לנכס'),
-      new CheckBoxItem('general', 'כללי'),
+    checkboxItem: new CheckboxItem(3, 'סוגים נוספים', [
+      new CheckboxItem('lots', 'מגרשים'),
+      new CheckboxItem('assisted_living', 'דיור מוגן'),
+      new CheckboxItem('building', 'בניין מגורים'),
+      new CheckboxItem('storage', 'מחסן'),
+      new CheckboxItem('parking_lot', 'חניה'),
+      new CheckboxItem('purchasing_group', 'קב׳ רכישה/זכות לנכס'),
+      new CheckboxItem('general', 'כללי'),
     ]),
   },
 ];
@@ -90,17 +89,17 @@ export const numberOfRoomsSelectOptions: string[] = [
 ];
 
 export const advancedSearchCheckboxItems = [
-  new CheckBoxItem('1', 'חניה'),
-  new CheckBoxItem('2', 'מיזוג'),
-  new CheckBoxItem('3', 'ממ״ד'),
-  new CheckBoxItem('4', 'מחסן'),
-  new CheckBoxItem('5', 'משופצת'),
-  new CheckBoxItem('6', 'בבלעדיות'),
-  new CheckBoxItem('7', 'מעלית'),
-  new CheckBoxItem('8', 'מרפסת'),
-  new CheckBoxItem('9', 'סורגים'),
-  new CheckBoxItem('10', 'גישה לנכים'),
-  new CheckBoxItem('11', 'מרוהטת'),
+  new CheckboxItem('1', 'חניה'),
+  new CheckboxItem('2', 'מיזוג'),
+  new CheckboxItem('3', 'ממ״ד'),
+  new CheckboxItem('4', 'מחסן'),
+  new CheckboxItem('5', 'משופצת'),
+  new CheckboxItem('6', 'בבלעדיות'),
+  new CheckboxItem('7', 'מעלית'),
+  new CheckboxItem('8', 'מרפסת'),
+  new CheckboxItem('9', 'סורגים'),
+  new CheckboxItem('10', 'גישה לנכים'),
+  new CheckboxItem('11', 'מרוהטת'),
 ];
 
 export const advancedSearchNumberOfFloorsSelectOptions: string[] = [
@@ -212,40 +211,15 @@ export const categoryListings: CategoryListing[] = [
   },
 ];
 
-export const forsaleListingSubCategories: CategoryListing[] = [
-  {
-    title: 'מכירה',
-    subtitle: '',
-    iconImgSrc: 'assets/images/publish/house-forsale.png',
-  },
-  {
-    title: 'השכרה',
-    subtitle: '',
-    iconImgSrc: 'assets/images/publish/house-forrent.png',
-  },
-  {
-    title: 'שותפים',
-    subtitle: '',
-    iconImgSrc: 'assets/images/publish/roommates.png',
-  },
-  {
-    title: 'מסחרי',
-    subtitle: '',
-    iconImgSrc: 'assets/images/publish/commercial.png',
-  },
-];
-
-export const onColumnsCheckboxItem: CheckBoxItem = new CheckBoxItem(
+export const onColumnsCheckboxItem: CheckboxItem = new CheckboxItem(
   'columns',
   'על עמודים'
 );
-export const receiveEmailCommericalsCheckboxItem: CheckBoxItem =
-  new CheckBoxItem(
+export const receiveEmailCommericalsCheckboxItem: CheckboxItem =
+  new CheckboxItem(
     'email-me',
     'אני רוצה לקבל עדכון חודשי במייל עם הערכת שווי מעודכנת עבור הנכס, עסקאות באזור והצעות מקצועיות מיועצי נדל״ן'
   );
-
-export const _yad2AssetsArray = Object.values(Yad2Assets);
 
 export const _yad2Properties: Yad2Properties[] = [
   { name: 'מיזוג', imgSrc: 'assets/images/publish/asset_properties/ac.png' },
@@ -285,23 +259,12 @@ export const _yad2Properties: Yad2Properties[] = [
   },
 ];
 
-export const sevenStepsModelData: SevenStepViewModel[] = [
-  {
-    title: 'באיזו קטגוריה נפרסם היום?',
-    collapasedTitle: 'אני רוצה למכור נכס',
-    stepStage: 0,
-  },
-  { title: 'כתובת הנכס', collapasedTitle: '', stepStage: 1 },
-  { title: 'על הנכס', collapasedTitle: '', stepStage: 2 },
-  { title: 'תשלומים, תאריכים ועוד', collapasedTitle: '', stepStage: 3 },
-  { title: 'תמונות וסרטונים', collapasedTitle: '', stepStage: 4 },
-  { title: 'פרטים ליצירת קשר', collapasedTitle: '', stepStage: 5 },
-  { title: 'בחירת מסלול', collapasedTitle: '', stepStage: 6 },
-];
-
-
-export const  govtApi_streets_resourceId: string = '?resource_id=3c318d87-b56a-49f6-b532-d9aa87d85a9a';
+export const  govtApi_resourceId_streets_cities: string = '?resource_id=a7296d1a-f8c9-4b70-96c2-6ebb4352f8e3';
 export const  govtApi_fields_streets: string = '&fields=שם_רחוב';
+export const  govtApi_fields_cities: string = '&fields=שם_ישוב';
 export const  govtApi_plain_false: string = "&plain=false";
 export const govtApi_limit_10: string = "&limit=10";
 
+// https://data.gov.il/api/3/action/datastore_search?resource_id=a7296d1a-f8c9-4b70-96c2-6ebb4352f8e3&fields=%D7%A9%D7%9D_%D7%A8%D7%97%D7%95%D7%91&limit=10&q=[object%20Object],%D7%94%D7%A8%D7%A6%D7%9C
+
+//

@@ -1,9 +1,20 @@
 export interface CategoryBoxModel {
-  id: number;
+  id?: number;
+  category: PublishCategory;
   iconImgSrc: string;
-  titleText: string;
-  subtitleText?: string;
+  labelText: string;
+  subtitle?: string;
 }
+
+export const PUBLISH_CATEGORY = {
+  SALE: 'SALE',
+  RENT: 'RENT',
+  ROOMMATES: 'ROOMMATES',
+  COMMERCIAL: 'COMMERCIAL',
+
+} as const;
+
+export type PublishCategory = keyof typeof PUBLISH_CATEGORY;
 
 export enum BoxDisplays {
   All, ImageAndTitle, Title

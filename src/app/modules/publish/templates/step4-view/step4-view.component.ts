@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SevenstepService } from '../../services/sevenstep.service';
+
 
 @Component({
   selector: 'app-step4-view',
@@ -8,15 +8,7 @@ import { SevenstepService } from '../../services/sevenstep.service';
 })
 export class Step4ViewComponent {
 
-  constructor(private stepsService: SevenstepService) {}
 
-  nextStep() {
-    this.stepsService.activeStage += 1;
-  }
-
-  prevStep() {
-    this.stepsService.activeStage -= 1;
-  }
 
   get isMobileUser(): boolean {
     return screen.width < 880;

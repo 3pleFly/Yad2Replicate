@@ -24,11 +24,6 @@ export interface GovtDataStoreSearchResults {
 }
 
 export interface GovtDataStoreSearchResultRecords {
-  שם_רחוב: any;
+  שם_רחוב: string;
   שם_ישוב: string;
-}
-
-export interface GovtDataStoreQueryParams {
-  שם_ישוב?: string;
-  שם_רחוב?: string;
 }

@@ -1,15 +1,16 @@
-export class CheckBoxItem {
+export class CheckboxItem {
   public id: number | string;
   public value: string;
-  public subItems?: CheckBoxItem[];
+  public subItems?: CheckboxItem[];
   public checked: boolean;
   public disabled: boolean = false;
   public countOfCheckedItems = 0;
+  visible: boolean = true;
 
   constructor(
     id: string | number,
     value: string,
-    subItems: CheckBoxItem[] = [],
+    subItems: CheckboxItem[] = [],
     checked: boolean = false
   ) {
     this.id = id;
@@ -18,6 +19,7 @@ export class CheckBoxItem {
     this.checked = checked;
   }
 
+
   public clear() {
     this.countOfCheckedItems = 0;
     this.subItems?.forEach((item) => (item.checked = false));
@@ -25,7 +27,7 @@ export class CheckBoxItem {
   }
 
   public toggleAllChildren(): void {
-    if(this.disabled) return;
+    if (this.disabled) return;
 
     if (this.checked) {
       let lengthOfCheckedItems = this.subItems?.filter(
@@ -40,7 +42,7 @@ export class CheckBoxItem {
   }
 
   public toggleChild(childId: number | string): void {
-    if(this.disabled) return;
+    if (this.disabled) return;
 
     let child = this.subItems?.find((item) => item.id === childId);
     if (!child) throw new Error('child not found');

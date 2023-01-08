@@ -1,0 +1,10 @@
+<ng-container
+  [ngTemplateOutlet]="toggleCollapsed ? expandedView : collapsedView"
+></ng-container>
+
+<ng-template #collapsedView>
+  <app-collapsed-step></app-collapsed-step>
+</ng-template>
+<ng-template #expandedView>
+  <ng-content></ng-content>
+</ng-template>

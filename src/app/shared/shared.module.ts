@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SliderSwitchComponent } from './components/slider-switch/slider-switch.component';
 import { SearchBarMobileComponent } from './components/search-bar/search-bar-mobile/search-bar-mobile.component';
@@ -27,6 +27,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarModalComponent } from './components/sidebar-modal/sidebar-modal.component';
 import { BoldSubStringPipe } from './pipes/bold-sub-string.pipe';
+import { AsteriskPipe } from './pipes/asterisk.pipe';
 
 @NgModule({
   declarations: [
@@ -53,8 +54,9 @@ import { BoldSubStringPipe } from './pipes/bold-sub-string.pipe';
     NavbarComponent,
     SpinnerComponent,
     BoldSubStringPipe,
+    AsteriskPipe,
   ],
-  imports: [CommonModule, HttpClientModule, RouterModule, FormsModule],
+  imports: [CommonModule, HttpClientModule, RouterModule, FormsModule, ReactiveFormsModule],
   exports: [
     SliderSwitchComponent,
     SearchBarComponent,

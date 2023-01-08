@@ -1,29 +1,46 @@
-<label [ngClass]="{ disabled: disabled }" >
-  <span [ngClass]="{ disabled: disabled }">{{ labelText }}</span>
-  <input
-    [disabled]="disabled"
-    [readOnly]="readonly"
-    [type]="inputType"
-    [placeholder]="placeholder"
-    [(ngModel)]="value"
-    (ngModelChange)="emitInputValue()"
-    (blur)="emitOnBlur($event)"
-  />
+<label [ngClass]="{ disabled: inputModel.disabled }">
+  <span [ngClass]="{ disabled: inputModel.disabled }">{{
+    inputModel.labelText | asterisk : !!inputModel.required
+  }}</span>
+
+  <ng-container
+    [ngTemplateOutlet]="control ? formControlInput : defaultInput"
+  ></ng-container>
+
+  <ng-template #formControlInput>
+    <input
+      [formControl]="control"
+      [type]="inputModel.inputType"
+      [placeholder]="inputModel.placeholder"
+    />
+  </ng-template>
+  <ng-template #defaultInput>
+    <input
+      #input
+      [readOnly]="inputModel.readonly"
+      [disabled]="inputModel.disabled"
+      [type]="inputModel.inputType"
+      [placeholder]="inputModel.placeholder"
+      [value]="inputValue"
+      (keyup)="emitKeyUpInputEvent($event)"
+    />
+  </ng-template>
+
   <ng-template [ngIf]="isLoading">
     <app-spinner [spinnerType]="1"></app-spinner>
   </ng-template>
   <span
     (click)="togglePasswordInputElementVisibility()"
-    *ngIf="passwordIcon"
+    *ngIf="inputModel.passwordIcon"
     class="password-visibility"
   >
     <img
       src="../../../../assets/images/password-icon.png"
-      *ngIf="inputType === 'text'"
+      *ngIf="inputModel.inputType === 'text'"
     />
     <img
       src="../../../../assets/images/password_visible.png"
-      *ngIf="inputType === 'password'"
+      *ngIf="inputModel.inputType === 'password'"
     />
   </span>
 </label>

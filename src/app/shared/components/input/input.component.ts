@@ -1,5 +1,20 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { InputViewModel } from '../../models/viewmodels/input-component.model';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  forwardRef,
+  Input,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
+import {
+  ControlValueAccessor,
+  FormControl,
+  NG_VALUE_ACCESSOR,
+} from '@angular/forms';
+import { defer, map, mapTo, of } from 'rxjs';
+import { InputView } from '../../models/viewmodels/input.model';
 
 @Component({
   selector: 'app-input',
@@ -7,23 +22,16 @@ import { InputViewModel } from '../../models/viewmodels/input-component.model';
   styleUrls: ['./input.component.scss'],
 })
 export class InputComponent implements OnInit {
-  @Input() inputModel: InputViewModel = {};
+  @ViewChild('input') input!: ElementRef;
+  @Input() inputModel!: InputView;
+  @Input() control!: FormControl;
+  @Input() inputValue: string | null = null;
   @Input() isLoading: boolean = false;
-
-  @Output() changedInputValueEvent = new EventEmitter<string>();
-  @Output() onBlur = new EventEmitter<Event>();
+  @Output() keyUpEvent = new EventEmitter<string>();
 
   constructor() {}
 
   ngOnInit(): void {}
-
-  emitInputValue(): void {
-    this.changedInputValueEvent.emit(this.inputModel.value);
-  }
-
-  emitOnBlur(e: Event) {
-    this.onBlur.emit(e);
-  }
 
   togglePasswordInputElementVisibility() {
     if (this.inputModel.inputType === 'password') {
@@ -34,37 +42,12 @@ export class InputComponent implements OnInit {
     }
   }
 
-  set value(value: string) {
-    this.inputModel.value = value;
+  emitKeyUpInputEvent(e: Event) {
+    this.keyUpEvent.emit(this.input.nativeElement.value);
   }
 
-  get value(): string {
-    if (!this.inputModel.value) this.inputModel.value = '';
-    return this.inputModel.value;
-  }
-
-  get disabled(): boolean {
-    return this.inputModel.disabled ?? false;
-  }
-
-  get inputType(): string {
-    return this.inputModel.inputType ?? '';
-  }
-
-  get readonly(): string {
-    return this.inputModel.readonly ?? '';
-  }
-
-  get placeholder(): string {
-    return this.inputModel.placeholder ?? '';
-  }
-
-
-  get labelText(): string {
-    return this.inputModel.labelText ?? '';
-  }
-
-  get passwordIcon(): boolean {
-    return this.inputModel.passwordIcon ?? false;
+  get isEmptyView(): boolean {
+    if (!Object.keys(this.inputModel).length) return true;
+    return false;
   }
 }

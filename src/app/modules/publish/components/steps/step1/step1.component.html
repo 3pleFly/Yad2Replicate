@@ -1,0 +1,10 @@
+<app-title [viewModel]="viewModel"></app-title>
+<div class="category_radio_group">
+  <app-category-box
+    *ngFor="let category of categories"
+    [categoryBoxModel]="category"
+    [boxDisplay]="BoxDisplays.ImageAndTitle"
+    (click)="selectCategory(category)"
+  >
+  </app-category-box>
+</div>

@@ -3,7 +3,6 @@ import { SwitcherTypes } from 'src/app/shared/components/switcher/switcher.compo
 import { Yad2Properties } from 'src/app/shared/models/yad2Properties.model';
 import { numberOfRoomsSelectOptions } from 'src/assets/mock/data/mock.data';
 import { _yad2Properties } from 'src/assets/mock/data/mock.data';
-import { SevenstepService } from '../../services/sevenstep.service';
 
 @Component({
   selector: 'app-step3-view',
@@ -11,12 +10,11 @@ import { SevenstepService } from '../../services/sevenstep.service';
   styleUrls: ['./step3-view.component.scss'],
 })
 export class Step3ViewComponent {
+  // viewmodels = InputViewModels
   numberOfRoomsSelectOptions = numberOfRoomsSelectOptions;
   yad2Properties: Yad2Properties[] = _yad2Properties;
   textAreaCountOfChars: number = 0;
   _progressBarText: string = 'ממליצים לך בחום להוסיף תיאור';
-
-  constructor(private stepsService: SevenstepService) {}
 
   setTextAreaString(textAreaString: string) {
     this.textAreaCountOfChars = textAreaString.length;
@@ -46,24 +44,15 @@ export class Step3ViewComponent {
     }
     this._progressBarText = 'בול!';
   }
-
-  nextStep() {
-    this.stepsService.activeStage += 1;
-  }
-
-  prevStep() {
-    this.stepsService.activeStage -= 1;
-  }
-
-  get isMobileUser(): boolean {
-    return screen.width < 880;
-  }
-
   get progressBarText() {
     return this._progressBarText;
   }
 
   get SwitcherTypes() {
     return SwitcherTypes;
+  }
+
+  get isMobileUser(): boolean {
+    return screen.width < 880;
   }
 }

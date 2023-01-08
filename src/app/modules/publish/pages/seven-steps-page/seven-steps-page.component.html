@@ -1,8 +1,52 @@
-<app-step
-  *ngFor="
-    let stepVm of this.mockdataService.getSevenStepsDataViewModel() | async
-  "
-  [stepViewModel]="stepVm"
->
-</app-step>
+<button (click)="nextStep()">next step</button>
+<button (click)="prevStep()">prev step</button>
+<p>{{ activeStep$ | async }}</p>
+<ng-container *ngIf="activeStep$ | async as activeStep">
+  <app-collapsed-step
+    *ngIf="activeStep !== 1"
+    [viewModel]="sevenStepsViewModels.step1"
+  ></app-collapsed-step>
+  <app-step1
+    class="steps_wrapper"
+    *ngIf="activeStep === 1"
+    [viewModel]="sevenStepsViewModels.step1"
+    (formReady)="addChildForm('step1', $event)"
+    (valueChange)="patchFormData($event)"
+  ></app-step1>
 
+  <app-collapsed-step
+    *ngIf="activeStep !== 2"
+    [viewModel]="sevenStepsViewModels.step2"
+  ></app-collapsed-step>
+  <app-step2
+    class="steps_wrapper"
+    *ngIf="activeStep === 2"
+    [viewModel]="sevenStepsViewModels.step2"
+    (formReady)="addChildForm('step2', $event)"
+    (valueChange)="patchFormData($event)"
+  ></app-step2>
+
+  <app-collapsed-step
+    *ngIf="activeStep !== 3"
+    [viewModel]="sevenStepsViewModels.step3"
+  ></app-collapsed-step>
+  <app-collapsed-step
+    *ngIf="activeStep !== 4"
+    [viewModel]="sevenStepsViewModels.step4"
+  ></app-collapsed-step>
+
+  <app-collapsed-step
+    *ngIf="activeStep !== 5"
+    [viewModel]="sevenStepsViewModels.step5"
+  ></app-collapsed-step>
+
+  <app-collapsed-step
+    *ngIf="activeStep !== 6"
+    [viewModel]="sevenStepsViewModels.step6"
+  ></app-collapsed-step>
+
+  <app-collapsed-step
+    *ngIf="activeStep !== 7"
+    [viewModel]="sevenStepsViewModels.step7"
+  ></app-collapsed-step>
+</ng-container>

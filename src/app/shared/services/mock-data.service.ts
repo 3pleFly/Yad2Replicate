@@ -1,12 +1,7 @@
 import { Injectable } from '@angular/core';
-import { delay, Observable, of } from 'rxjs';
-import {
-  categoryListings,
-  forsaleListingSubCategories,
-  sevenStepsModelData,
-} from 'src/assets/mock/data/mock.data';
+import { Observable, of } from 'rxjs';
+import { categoryListings } from 'src/assets/mock/data/mock.data';
 import { CategoryBoxModel } from '../models/category-box.model';
-import { SevenStepViewModel } from '../models/viewmodels/vm.model';
 
 @Injectable({
   providedIn: 'root',
@@ -21,26 +16,11 @@ export class MockDataService {
         <CategoryBoxModel>{
           id: index++,
           iconImgSrc: c.iconImgSrc,
-          titleText: c.title,
-          subtitleText: c.subtitle,
-        }
-    );
-    return of(boxModel).pipe(delay(0));
-  }
-
-  getForsaleSubCategories(): Observable<CategoryBoxModel[]> {
-    let boxModel = forsaleListingSubCategories.map(
-      (c) =>
-        <CategoryBoxModel>{
-          iconImgSrc: c.iconImgSrc,
-          titleText: c.title,
-          subtitleText: c.subtitle,
+          labelText: c.title,
+          subtitle: c.subtitle,
         }
     );
     return of(boxModel);
   }
 
-  getSevenStepsDataViewModel(): Observable<SevenStepViewModel[]> {
-    return of(sevenStepsModelData);
-  }
 }

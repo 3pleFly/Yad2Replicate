@@ -1,4 +1,8 @@
-<div class="wrapper" [ngClass]="{ clickable: isStepCompleted }" (click)="this.expandStep()">
+<div
+  class="wrapper"
+  [ngClass]="{ clickable: isStepCompleted }"
+  (click)="this.expandStep()"
+>
   <section class="title-and-icon">
     <span class="step-checked-icon" *ngIf="isStepCompleted">
       <img
@@ -7,9 +11,9 @@
       />
     </span>
     <span class="num-icon" *ngIf="!isStepCompleted">
-      <span class="number">{{ stepViewModel.stepStage + 1 }}</span>
+      <span class="number">{{ viewModel.stepStage + 1 }}</span>
     </span>
-    <h2 class="title">{{ stepViewModel.title }}</h2>
+    <h2 class="title">{{ viewModel.title }}</h2>
   </section>
   <img
     *ngIf="isStepCompleted"

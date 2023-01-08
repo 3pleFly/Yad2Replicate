@@ -1,4 +1,4 @@
-import { CheckBoxItem } from "./checkboxItem.model";
+import { CheckboxItem } from "./checkboxItem.model";
 
 
 export class ButtonModel {
@@ -40,13 +40,13 @@ export class ButtonModel {
 export interface MultiToggleBox {
   id: number;
   imgSrc: string;
-  checkboxItem: CheckBoxItem;
+  checkboxItem: CheckboxItem;
 }
 
 const item: MultiToggleBox = {
   id: 12,
   imgSrc: "",
-  checkboxItem: new CheckBoxItem("1","2")
+  checkboxItem: new CheckboxItem("1","2")
 };
 
 export interface Item {

@@ -72,7 +72,7 @@
 }
 
 .floor_inputs app-input {
-  --input-width: 46%;
+  --input-width: 48%;
   --input-margin: 0 0 0 5px;
 }
 
@@ -117,7 +117,6 @@
 
   .street {
     width: 33%;
-
   }
   .tooltip_content {
     span {
@@ -136,7 +135,7 @@
   }
 
   .wrapper app-dropdown-input {
-      width: 33%;
+    width: 33%;
     --dropdown-input-height: 40px;
   }
 
@@ -149,11 +148,11 @@
   }
 
   .floor_inputs app-checkbox {
-    margin-top: 25px;
     align-self: center;
   }
 
   .floor_inputs app-input {
+    --input-height: 38px;
     --input-width: 22%;
     --input-margin: 0 0 0 15px;
     float: none !important;

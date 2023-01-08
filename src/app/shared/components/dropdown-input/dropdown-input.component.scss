@@ -1,5 +1,6 @@
 :host {
   position: relative;
+  display: block;
 }
 
 .dropdown_list {
@@ -7,7 +8,7 @@
   position: absolute;
   z-index: 1;
   overflow: 0;
-  width: 100%;
+  width: 90%;
   background: #fff;
   border: 1px solid #ccc;
 }
@@ -37,4 +38,10 @@ app-input {
   --input-placeholder-font-weight: var(
     --dropdown-input-placeholder-font-weight
   );
+}
+
+@media only screen and (min-width: 880px) {
+  .dropdown_list {
+    width: 33%;
+  }
 }

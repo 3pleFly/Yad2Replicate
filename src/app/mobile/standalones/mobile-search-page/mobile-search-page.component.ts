@@ -3,13 +3,13 @@ import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CalendarDate } from 'src/app/shared/models/calendar.model';
-import { CheckBoxItem } from 'src/app/shared/models/checkboxItem.model';
+import { CheckboxItem } from 'src/app/shared/models/checkboxItem.model';
 import {
   ButtonModel,
   Item,
   MultiToggleBox,
 } from 'src/app/shared/models/inner.models';
-import { InputViewModel } from 'src/app/shared/models/viewmodels/input-component.model';
+import { InputView } from 'src/app/shared/models/viewmodels/input.model';
 import { HebrewMonthPipe } from 'src/app/shared/pipes/hebrew-month.pipe';
 import { ApiService } from 'src/app/shared/services/api.service';
 
@@ -36,7 +36,7 @@ export class MobileSearchPageComponent {
   subCategories: Item[] = subCategories;
   searchCategories: Item[] = searchModes;
   multiToggleBoxItems: MultiToggleBox[] = multiToggleBoxItems;
-  checkBoxItems!: CheckBoxItem[];
+  checkBoxItems!: CheckboxItem[];
   selectedSubCategory!: string;
   cityInput!: string;
   toggleSelectPropertyModal: boolean = false;
@@ -44,25 +44,23 @@ export class MobileSearchPageComponent {
   toggleClearAllModalPromptMessage = 'האם לאפס את החיפוש?';
   toggleClearAllModalPrimaryFunc!: ButtonModel;
   toggleClearAllModalSecondaryFunc!: ButtonModel;
-  selectLivingAreaData$!: Observable<string[]>;
-  selectLivingAreaLabelName: string = 'אזור';
   numberOfRoomsSelectOptions: string[] = numberOfRoomsSelectOptions;
   toggleAdvancedSearchVisibility: boolean = true;
-  advancedSearchCheckboxItems: CheckBoxItem[] = advancedSearchCheckboxItems;
+  advancedSearchCheckboxItems: CheckboxItem[] = advancedSearchCheckboxItems;
   advancedSearchNumberOfFloorsSelectOptions: string[] =
     advancedSearchNumberOfFloorsSelectOptions;
   calendarSelectedDateValueString: string = '';
   calendarSelectedDate!: CalendarDate;
   calendarComponentVisible: boolean = false;
   boundToggleCalendarComponentViewOnFocus!: Function;
-  immidiateEntryCheckboxItem: CheckBoxItem = new CheckBoxItem(
+  immidiateEntryCheckboxItem: CheckboxItem = new CheckboxItem(
     '9',
     'כניסה מיידית'
   );
 
   constructor(
     private route: ActivatedRoute,
-    private govtApiService: ApiService,
+    private apiService: ApiService,
     private hebrewMonthPipe: HebrewMonthPipe
   ) {}
 
@@ -74,8 +72,6 @@ export class MobileSearchPageComponent {
     this.checkBoxItems = this.multiToggleBoxItems.map(
       (item) => item.checkboxItem
     );
-
-    this.selectLivingAreaData$ = this.govtApiService.getIsraeliAreasOfLiving();
   }
 
   selectCategory(category: string) {
@@ -122,27 +118,36 @@ export class MobileSearchPageComponent {
     e.stopPropagation();
   }
 
-  get cityInputModel(): InputViewModel {
+  get cityInputModel(): InputView {
     return {
       labelText: 'חפשו עיר',
       placeholder: 'לדוגמה: ירושלים',
+      required: false,
     };
   }
 
-  get neighborhoodInputModel(): InputViewModel {
+  get neighborhoodInputModel(): InputView {
     return {
       labelText: 'חפשו שכונה',
       placeholder: 'הזינו שם של שכונה',
       disabled: !!!this.cityInput,
+      required: false,
     };
   }
 
-  get calendarInputModel(): InputViewModel {
+  get calendarInputModel(): InputView {
     return {
       readonly: 'readonly',
       inputType: 'text',
       placeholder: 'החל מ-הזינו תאריך',
-      value: 'calendarSelectedDateValueString',
+      required: false,
+    };
+  }
+
+  get livingAreaInput(): InputView {
+    return <InputView>{
+      data$: this.apiService.getIsraeliAreasOfLiving(),
+      labelText: 'אזור',
     };
   }
 }

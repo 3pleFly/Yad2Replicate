@@ -1,0 +1,13 @@
+<div class="buttons-wrapper">
+  <button class="nav-btn" (click)="prevStep()">חזרה</button>
+  <button *ngIf="isMobileUser" class="nav-btn" (click)="nextStep()">
+    המשך
+  </button>
+  <button
+    *ngIf="!isMobileUser"
+    class="nav-btn bigger_width"
+    (click)="nextStep()"
+  >
+    להמשיך לשלב הבא
+  </button>
+</div>

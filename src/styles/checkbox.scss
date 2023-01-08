@@ -34,13 +34,12 @@
   display: inline-block;
   vertical-align: middle;
   margin-left: 5px;
-  height: 1em;
-  width: 1em;
+  width: var(--checkbox-width);
+  height: var(--checkbox-height);
+  border: var(--checkbox-border);
   min-width: 1em;
   background-color: #fff;
-  border: 1px solid #363636;
   border-radius: 2px;
-
 }
 
 .checkmark {
@@ -48,11 +47,11 @@
   display: inline-block;
   vertical-align: middle;
   margin-left: 5px;
-  height: 1em;
-  width: 1em;
+  width: var(--checkbox-width);
+  height: var(--checkbox-height);
+  border: var(--checkbox-border);
   min-width: 1em;
   background-color: #fff;
-  border: 1px solid #363636;
   border-radius: 2px;
 }
 
@@ -61,7 +60,8 @@
   position: relative;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  top: -1px;
+  top: var(--checkbox-checkmark-top);
+  left: var(--checkbox-checkmark-left);
   color: #fff;
   display: none;
 }

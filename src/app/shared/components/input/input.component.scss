@@ -1,12 +1,13 @@
 :host {
   margin: var(--input-margin);
   width: var(--input-width);
+  display: block;
 }
 
 label {
   font-size: var(--input-font-size);
-  min-width: 100%;
-  display: inline-block;
+  // min-width: 100%;
+  // display: inline-block;
   color: #363636;
   text-align: right;
   position: relative;
@@ -76,9 +77,6 @@ label {
   }
 }
 
+@media only screen and (min-width: 880px) {
 
-.loading-icon {
-  position: absolute;
-  top: 52%;
-  left: 2%;
 }

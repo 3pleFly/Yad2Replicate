@@ -3,14 +3,14 @@
     <div class="category-icon" *ngIf="isImageActive">
       <img
         [src]="categoryBoxModel.iconImgSrc"
-        [alt]="categoryBoxModel.titleText"
+        [alt]="categoryBoxModel.labelText"
       />
     </div>
     <div class="title" *ngIf="isTitleActive">
-      {{ categoryBoxModel.titleText }}
+      {{ categoryBoxModel.labelText }}
     </div>
     <div *ngIf="isSubtitleActive" class="subtitle">
-      {{ categoryBoxModel.subtitleText }}
+      {{ categoryBoxModel.subtitle }}
     </div>
   </div>
 </div>

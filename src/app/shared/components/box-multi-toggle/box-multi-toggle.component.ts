@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CheckBoxItem } from '../../models/checkboxItem.model';
+import { CheckboxItem } from '../../models/checkboxItem.model';
 import { MultiToggleBox } from '../../models/inner.models';
 
 @Component({

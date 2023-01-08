@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { CheckBoxItem } from '../../models/checkboxItem.model';
+import { CheckboxItem } from '../../models/checkboxItem.model';
 import { ChildrenView } from '../../models/inner.models';
 
 @Component({
@@ -8,8 +8,8 @@ import { ChildrenView } from '../../models/inner.models';
   styleUrls: ['./checkbox.component.scss'],
 })
 export class CheckboxComponent {
-  @Input() checkboxItem!: CheckBoxItem;
-  @Input() multiLayered!: CheckBoxItem;
+  @Input() checkboxItem!: CheckboxItem;
+  @Input() multiLayered!: CheckboxItem;
   @Output() childrenListViewEvent = new EventEmitter<ChildrenView>();
   childrenView: ChildrenView = { view: false };
   CountOfCheckedChildren: number = 0;
