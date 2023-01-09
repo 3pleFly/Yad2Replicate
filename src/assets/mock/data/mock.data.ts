@@ -88,6 +88,22 @@ export const numberOfRoomsSelectOptions: string[] = [
   '12',
 ];
 
+export const numberOfPaymentsSelectOptions: string[] = [
+  '1',
+  '2',
+  '3',
+  '4',
+  '5',
+  '6',
+  '7',
+  '8',
+  '9',
+  '10',
+  '11',
+  '12',
+  'גמיש',
+];
+
 export const advancedSearchCheckboxItems = [
   new CheckboxItem('1', 'חניה'),
   new CheckboxItem('2', 'מיזוג'),
@@ -259,11 +275,12 @@ export const _yad2Properties: Yad2Properties[] = [
   },
 ];
 
-export const  govtApi_resourceId_streets_cities: string = '?resource_id=a7296d1a-f8c9-4b70-96c2-6ebb4352f8e3';
-export const  govtApi_fields_streets: string = '&fields=שם_רחוב';
-export const  govtApi_fields_cities: string = '&fields=שם_ישוב';
-export const  govtApi_plain_false: string = "&plain=false";
-export const govtApi_limit_10: string = "&limit=10";
+export const govtApi_resourceId_streets_cities: string =
+  '?resource_id=a7296d1a-f8c9-4b70-96c2-6ebb4352f8e3';
+export const govtApi_fields_streets: string = '&fields=שם_רחוב';
+export const govtApi_fields_cities: string = '&fields=שם_ישוב';
+export const govtApi_plain_false: string = '&plain=false';
+export const govtApi_limit_10: string = '&limit=10';
 
 // https://data.gov.il/api/3/action/datastore_search?resource_id=a7296d1a-f8c9-4b70-96c2-6ebb4352f8e3&fields=%D7%A9%D7%9D_%D7%A8%D7%97%D7%95%D7%91&limit=10&q=[object%20Object],%D7%94%D7%A8%D7%A6%D7%9C
 

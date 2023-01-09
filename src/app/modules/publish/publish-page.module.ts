@@ -9,10 +9,6 @@ import { PublishPageModal } from './components/publish-page-modal/publish-page-m
 import { SevenStepsPageComponent } from './pages/seven-steps-page/seven-steps-page.component';
 import { PublishPageComponent } from './pages/publish-page/publish-page.component';
 import { CollapsedStepComponent } from './components/collapsed-step/collapsed-step.component';
-import { Step2ViewComponent } from './templates/step2-view/step2-view.component';
-import { Step1ViewComponent } from './templates/step1-view/step1-view.component';
-import { Step3ViewComponent } from './templates/step3-view/step3-view.component';
-import { Step4ViewComponent } from './templates/step4-view/step4-view.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Step1Component } from './components/steps/step1/step1.component';
@@ -38,9 +34,6 @@ import { StepsService } from './services/steps.service';
     SevenStepsPageComponent,
     PublishPageComponent,
     CollapsedStepComponent,
-    Step2ViewComponent,
-    Step3ViewComponent,
-    Step4ViewComponent,
     Step1Component,
     Step2Component,
     Step3Component,

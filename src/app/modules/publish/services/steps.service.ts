@@ -22,6 +22,18 @@ export class StepsService implements OnDestroy {
     parkingCount: this.fb.control<string | null>(null),
     balconyCount: this.fb.control<string | null>(null),
     propertyFeatures: this.fb.control<string[] | null>(null),
+    numberOfPayments: '',
+    houseCommittee: '',
+    propertyTax: '',
+    squareMeter: '',
+    gardenSquareMeter: '',
+    totalSquareMeter: '',
+    price: '',
+    entryDate: '',
+    isImmediateEntry: '',
+    isFlexible: '',
+    isLongTerm: ''
+
   });
 
   propertyType$ = this.form.controls.propertyType.valueChanges.subscribe(
@@ -78,7 +90,7 @@ export class StepsService implements OnDestroy {
     }
   );
 
-  private _activeStep$ = new BehaviorSubject<number>(1);
+  private _activeStep$ = new BehaviorSubject<number>(4);
   public activeStep$ = this._activeStep$.asObservable();
 
   constructor(private fb: FormBuilder) {}

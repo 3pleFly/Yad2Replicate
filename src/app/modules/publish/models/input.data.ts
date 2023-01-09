@@ -3,7 +3,10 @@ import {
   SelectView,
   InputView,
 } from 'src/app/shared/models/viewmodels/input.model';
-import { numberOfRoomsSelectOptions } from '../../../../assets/mock/data/mock.data';
+import {
+  numberOfPaymentsSelectOptions,
+  numberOfRoomsSelectOptions,
+} from '../../../../assets/mock/data/mock.data';
 import { YAD2_ASSET } from 'src/app/shared/models/yad2Assets.const';
 import {
   CategoryBoxModel,
@@ -75,7 +78,6 @@ export const totalFloors: InputView = {
   labelText: 'סה״כ קומות בבניין',
   required: true,
   visible: true,
-
 };
 
 export const isOnColumns: CheckboxItem = new CheckboxItem(0, 'על עמודים');
@@ -112,10 +114,52 @@ export const emailCommercials: CheckboxItem = new CheckboxItem(
 );
 
 export const rooms: SelectView = {
-  placeholder: "בחירת מספר חדרים",
-  labelText: "מספר חדרים",
+  placeholder: 'בחירת מספר חדרים',
+  labelText: 'מספר חדרים',
   options: numberOfRoomsSelectOptions,
 };
+
+export const numberOfPayments: SelectView = {
+  labelText: 'מספר תשלומים',
+  placeholder: 'בחירת מספר תשלומים',
+  options: numberOfPaymentsSelectOptions,
+  required: true,
+};
+
+export const houseCommitte: InputView = {
+  labelText: 'ועד בית',
+  placeholder: 'הכנסת סכום לתשלום לועד בית',
+};
+
+export const propertyTax: InputView = {
+  labelText: 'ארנונה לחודשיים',
+  placeholder: 'סכום ארנונה לתשלום',
+};
+
+export const squareMeter: InputView = { labelText: 'מ״ר בנוי', placeholder: 'כמה מטר רבוע יש בנכס' };
+
+export const gardenSquareMeter: InputView = { labelText: 'מ״ר גינה', placeholder: '' };
+
+export const totalSquareMeter: InputView = {
+  labelText: 'גודל במ״ר סך הכל',
+  placeholder: '',
+  required: true,
+};
+
+export const price: InputView = { labelText: 'מחיר', placeholder: 'סכום מינימלי 100' };
+
+export const entryDate: InputView = {
+  labelText: 'תאריך כניסה',
+  placeholder: 'DD/MM/YYYY',
+  required: true,
+  inputType: 'date'
+};
+
+export const isImmediateEnty: CheckboxItem = new CheckboxItem('4', 'מיידי');
+
+export const isFlexible: CheckboxItem = new CheckboxItem('4', 'גמיש');
+
+export const isLongTerm: CheckboxItem = new CheckboxItem('4', 'טווח ארוך');
 
 export const Yad2InputsViewModels = {
   categories,
@@ -131,6 +175,17 @@ export const Yad2InputsViewModels = {
   area,
   emailCommercials,
   rooms,
+  numberOfPayments,
+  houseCommitte,
+  propertyTax,
+  squareMeter,
+  gardenSquareMeter,
+  totalSquareMeter,
+  price,
+  entryDate,
+  isImmediateEnty,
+  isFlexible,
+  isLongTerm,
 };
 
 export const sevenStepsModelData = {

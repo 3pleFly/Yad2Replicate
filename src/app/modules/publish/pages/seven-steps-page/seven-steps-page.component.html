@@ -36,6 +36,11 @@
     *ngIf="activeStep !== 4"
     [viewModel]="sevenStepsViewModels.step4"
   ></app-collapsed-step>
+  <app-step4
+    class="steps_wrapper"
+    *ngIf="activeStep === 4"
+    [viewModel]="sevenStepsViewModels.step4"
+  ></app-step4>
 
   <app-collapsed-step
     *ngIf="activeStep !== 5"

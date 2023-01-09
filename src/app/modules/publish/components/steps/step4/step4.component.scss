@@ -1,0 +1,71 @@
+:host {
+  display: block;
+  position: relative;
+}
+
+.wrapper > * {
+  display: block;
+  padding: 0 5%;
+  margin-top: 1.5rem;
+  position: relative;
+}
+
+.wrapper app-select {
+  --select-width: 100%;
+  --select-height: 50px;
+  --select-border-radius: 4px;
+  --select-dropdown-icon-width: 12px;
+  --select-dropdown-icon-bottom: 5px;
+  --select-font-size: 14px;
+}
+
+.wrapper app-input {
+  --input-width: 100%;
+  --input-height: 50px;
+  --input-font-size: 14px;
+  --input-border-radius: 4px;
+  --input-placeholder-font-weight: 400;
+}
+
+.floor_inputs app-checkbox {
+  --checkbox-font-size: 14px;
+  --checkbox-checkmark-top: 0px;
+  --checkbox-checkmark-left: -2px;
+  position: relative;
+  top: 19px;
+}
+
+.group_inputs {
+  display: flex !important;
+  align-items: flex-end;
+  gap: 15px;
+  width: 75%;
+}
+
+.group_inputs app-input {
+  width: 36%;
+}
+
+.group_inputs > * {
+  flex-shrink: 0;
+}
+
+@media only screen and (min-width: 880px) {
+  .wrapper app-select {
+    --select-width: 26.2%;
+    --select-height: 40px;
+  }
+
+  .wrapper app-input {
+    --input-width: 33.5%;
+    --input-height: 40px;
+  }
+
+  .floor_inputs app-checkbox {
+    align-self: center;
+    --checkbox-top: 19px;
+    --checkbox-height: 20px;
+    --checkbox-width: 20px;
+    --checkbox-border: 1px solid #ccc;
+  }
+}

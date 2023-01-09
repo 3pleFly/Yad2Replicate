@@ -1,1 +1,54 @@
-<p>step4 works!</p>
+<app-tooltip [activeStep]="viewModel.stepStage"></app-tooltip>
+<app-title [viewModel]="viewModel"></app-title>
+<div class="wrapper">
+  <app-select
+    [control]="form.controls.numberOfPayments"
+    [selectModel]="viewModel.inputs.numberOfPayments"
+  ></app-select>
+
+  <app-input
+    [control]="form.controls.houseCommittee"
+    [inputModel]="viewModel.inputs.houseCommitte"
+  ></app-input>
+
+  <app-input
+    [control]="form.controls.propertyTax"
+    [inputModel]="viewModel.inputs.propertyTax"
+  ></app-input>
+
+  <div class="group_inputs">
+    <app-input
+      [control]="form.controls.squareMeter"
+      [inputModel]="viewModel.inputs.squareMeter"
+    ></app-input>
+
+    <app-input
+      [control]="form.controls.gardenSquareMeter"
+      [inputModel]="viewModel.inputs.gardenSquareMeter"
+    ></app-input>
+  </div>
+
+  <app-input
+    [control]="form.controls.totalSquareMeter"
+    [inputModel]="viewModel.inputs.totalSquareMeter"
+  ></app-input>
+
+  <app-input
+    [control]="form.controls.price"
+    [inputModel]="viewModel.inputs.price"
+  ></app-input>
+
+  <div class="group_inputs">
+    <app-input
+      [control]="form.controls.entryDate"
+      [inputModel]="viewModel.inputs.entryDate"
+    ></app-input>
+    <app-checkbox
+      [checkboxItem]="viewModel.inputs.isImmediateEnty"
+    ></app-checkbox>
+    <app-checkbox [checkboxItem]="viewModel.inputs.isFlexible"></app-checkbox>
+  </div>
+  <app-checkbox [checkboxItem]="viewModel.inputs.isLongTerm"></app-checkbox>
+</div>
+
+<app-nav-buttons></app-nav-buttons>
