@@ -1,0 +1,58 @@
+:host {
+  margin: var(--input-margin);
+  width: var(--input-width);
+  display: block;
+}
+
+label {
+  font-size: var(--input-font-size);
+  color: #363636;
+  text-align: right;
+  position: relative;
+
+  span {
+    display: block;
+  }
+
+  input {
+    width: 100%;
+    height: var(--input-height);
+    border-radius: var(--input-border-radius);
+    font-size: (--input-font-size);
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+  }
+  input::placeholder {
+    font-size: 1rem;
+    color: #999999;
+  }
+  input[disabled] {
+    background-color: #fff;
+    border-color: #ccc;
+    color: #ccc;
+    opacity: 0.4;
+  }
+
+  input[disabled]:hover {
+    border-color: #ccc;
+    opacity: 0.4;
+  }
+
+  input::placeholder {
+    font-weight: var(--input-placeholder-font-weight);
+    font-size: var(--input-font-size);
+  }
+
+  input:focus-visible {
+    border-color: rgb(56, 56, 56);
+  }
+  input:hover {
+    border-color: rgb(56, 56, 56);
+  }
+}
+
+.disabled {
+  color: #ddd;
+}

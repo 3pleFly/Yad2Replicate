@@ -29,7 +29,7 @@ import { SelectView } from '../../models/viewmodels/input.model';
 })
 export class SelectComponent {
   @Input() selectModel!: SelectView;
-  @Input() control = new FormControl({ value: '', disabled: false });
+  @Input() control: FormControl<any> = new FormControl({ value: '', disabled: false });
   @Output() selectOptionEvent = new EventEmitter();
 
   emitSelection(value: string) {

@@ -47,14 +47,15 @@
     ></app-input>
   </span>
 
-  <div *ngIf="form.controls.totalFloors" class="floor_inputs">
+  <div class="floor_inputs">
     <app-input
-      *ngIf="form.controls.floor"
+      *ngIf="viewModel.inputs.floor.visible"
       [control]="form.controls.floor"
       [inputModel]="viewModel.inputs.floor"
     ></app-input>
 
     <app-input
+      *ngIf="viewModel.inputs.totalFloors.visible"
       [control]="form.controls.totalFloors"
       [inputModel]="viewModel.inputs.totalFloors"
     ></app-input>

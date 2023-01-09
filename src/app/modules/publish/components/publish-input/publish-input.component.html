@@ -1,0 +1,13 @@
+<label [ngClass]="{ disabled: inputModel.formControl?.disabled }">
+  <span [ngClass]="{ disabled: inputModel.formControl?.disabled }">{{
+    inputModel.labelText | asterisk : !!inputModel.required
+  }}</span>
+
+  <input
+    *ngIf="inputModel.formControl"
+    [formControl]="inputModel.formControl"
+    [placeholder]="inputModel.placeholder"
+    type="text"
+  />
+  <input *ngIf="!inputModel.formControl" type="text" />
+</label>

@@ -85,6 +85,10 @@
   float: left;
 }
 
+.floor_inputs:empty {
+  display: none !important;
+}
+
 .floor_inputs app-checkbox {
   --checkbox-font-size: 14px;
   --checkbox-checkmark-top: 0px;

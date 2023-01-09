@@ -15,7 +15,7 @@ export const categories: CategoryBoxModel[] = [
     category: PUBLISH_CATEGORY.SALE,
     labelText: 'מכירה',
     subtitle: '',
-    iconImgSrc: 'assets/images/publish/house-forsale.png'
+    iconImgSrc: 'assets/images/publish/house-forsale.png',
   },
   {
     category: PUBLISH_CATEGORY.RENT,
@@ -64,17 +64,18 @@ export const city: InputView = {
 };
 
 export const floor: InputView = {
-  disabled: true,
   placeholder: 'הכנסת מספר קומה',
   labelText: 'קומה',
   required: true,
+  visible: true,
 };
 
 export const totalFloors: InputView = {
-  disabled: true,
   placeholder: 'הכנסת סה״כ קומות',
   labelText: 'סה״כ קומות בבניין',
   required: true,
+  visible: true,
+
 };
 
 export const isOnColumns: CheckboxItem = new CheckboxItem(0, 'על עמודים');
@@ -83,28 +84,25 @@ export const street: InputView = {
   labelText: 'רחוב',
   disabled: true,
   placeholder: 'הכנסת שם הרחוב',
-  required: true,
+  required: false,
 };
 
 export const houseNum: InputView = {
-  disabled: true,
   labelText: "מס' בית",
-  placeholder: "",
-  required: true,
+  placeholder: '',
+  required: false,
 };
 
 export const neighborhood: InputView = {
-  disabled: true,
   labelText: 'שכונה',
   required: false,
-  placeholder: ""
+  placeholder: '',
 };
 
 export const area: InputView = {
-  disabled: true,
   labelText: 'אזור מכירה',
   required: false,
-  placeholder: "בחירת אזור מכירה"
+  placeholder: 'בחירת אזור מכירה',
 };
 
 export const emailCommercials: CheckboxItem = new CheckboxItem(
@@ -114,8 +112,8 @@ export const emailCommercials: CheckboxItem = new CheckboxItem(
 );
 
 export const rooms: SelectView = {
-  placeholder: "'בחירת מספר חדרים'",
-  labelText: "'מספר חדרים*'",
+  placeholder: "בחירת מספר חדרים",
+  labelText: "מספר חדרים",
   options: numberOfRoomsSelectOptions,
 };
 

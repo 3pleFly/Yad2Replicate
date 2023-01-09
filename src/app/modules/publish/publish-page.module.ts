@@ -27,6 +27,7 @@ import { TooltipComponent } from './components/tooltip/tooltip.component';
 import { TitleComponent } from './components/title/title.component';
 import { StepContainerComponent } from './components/step-container/step-container.component';
 import { SevenStepsComponent } from './pages/seven-steps/seven-steps.component';
+import { StepsService } from './services/steps.service';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { SevenStepsComponent } from './pages/seven-steps/seven-steps.component';
     StepContainerComponent,
     SevenStepsComponent,
   ],
+  providers: [StepsService],
   imports: [CommonModule, PublishPageRoutingModule, SharedModule, FormsModule, ReactiveFormsModule],
 })
 export class PublishPageModule {}

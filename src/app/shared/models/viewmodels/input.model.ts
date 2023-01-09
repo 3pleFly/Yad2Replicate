@@ -2,11 +2,11 @@ import { Observable } from 'rxjs';
 
 abstract class BaseViewModel {
   labelText?: string;
-  disabled?: boolean;
   readonly?: string;
   placeholder?: string;
   required?: boolean;
   visible?: boolean;
+  disabled?: boolean;
   isLoading?: boolean;
 }
 

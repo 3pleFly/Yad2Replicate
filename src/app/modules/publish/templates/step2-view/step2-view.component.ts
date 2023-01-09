@@ -1,7 +1,6 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { defer, map, Observable, of, startWith } from 'rxjs';
 import { FormBuilder } from '@angular/forms';
-import { Yad2Asset } from 'src/app/shared/models/yad2Assets.const';
 
 @Component({
   selector: 'app-step2-view',

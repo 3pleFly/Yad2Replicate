@@ -1,1 +1,55 @@
-<p>step3 works!</p>
+<app-title [viewModel]="viewModel"></app-title>
+<div class="wrapper">
+  <app-select
+    [control]="form.controls.rooms"
+    [selectModel]="viewModel.inputs.rooms"
+  ></app-select>
+
+  <app-switcher
+    [type]="SwitcherTypes.SINGLE_RECTANGLES"
+    [labelName]="'חניה'"
+    [data]="['ללא', '1', '2', '3']"
+    (SingleSwitchedRectangleEvent)="selectParking($event)"
+  ></app-switcher>
+  <app-switcher
+    [type]="SwitcherTypes.SINGLE_RECTANGLES"
+    [labelName]="'מרפסת'"
+    [data]="['ללא', '1', '2', '3']"
+    (SingleSwitchedRectangleEvent)="selectBalcony($event)"
+  ></app-switcher>
+
+  <div class="column_title">
+    <h3>מאפייני הנכס</h3>
+  </div>
+
+  <span class="rounded_multi_switch">
+    <app-switcher
+      [type]="SwitcherTypes.MULTI_ROUND"
+      [data]="yad2Properties"
+      (multiRoundedSwitchedElementsEvent)="selectYad2Properties($event)"
+    ></app-switcher>
+  </span>
+
+  <div class="column_title">
+    <h3>מה חשוב לך שידעו על הנכס?</h3>
+  </div>
+
+  <label class="description_textarea_label">
+    <span class="label_text">פרוט הנכס</span>
+    <div class="progress_bar">
+      <app-progress-bar [progress]="propertyDescriptionProgress"> </app-progress-bar>
+      <span class="counter">{{ propertyDescriptionProgress }}/{{ 400 }}</span>
+    </div>
+    <app-textarea
+      [maxLength]="400"
+      [placeholder]="
+        'זה המקום לתאר את הפרטים הבולטים, למשל, האם נערך שיפוץ במבנה, מה שופץ, כיווני אוויר, האווירה ברחוב וכו'
+      "
+      (textAreaEnterCharEvent)="handleEnteredPropertyDescription($event)"
+    ></app-textarea>
+    <p class="textarea_comment">
+      אין צורך להוסיף מספר טלפון כחלק מהתיאור, בהמשך התהליך יש אזור מסודר לזה
+    </p>
+  </label>
+</div>
+<app-nav-buttons></app-nav-buttons>

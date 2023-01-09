@@ -20,32 +20,11 @@ export class Step1Component implements OnInit {
   form = this.fb.group({
     category: this.fb.control<CategoryBoxModel | null>(null),
   });
-
-  @Output() formReady = of(this.form);
-  @Output()
-  valueChange = defer(() =>
-    this.form.valueChanges.pipe(
-      map(
-        (v): Partial<SevenStepsFormData> => ({
-          category: v.category,
-        })
-      )
-    )
-  );
   @Input() viewModel!: SevenStepViewModel;
 
   constructor(private fb: FormBuilder, private stepsService: StepsService) {}
 
-  ngOnInit(): void {
-    this.stepsService
-      .getInitialForm()
-      .pipe(take(1))
-      .subscribe((formData) => {
-        this.form.patchValue({
-          category: formData.category,
-        });
-      });
-  }
+  ngOnInit(): void {}
 
   selectCategory(category: CategoryBoxModel) {
     this.form.controls.category.setValue(category);

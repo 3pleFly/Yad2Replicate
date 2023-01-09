@@ -10,8 +10,6 @@
     class="steps_wrapper"
     *ngIf="activeStep === 1"
     [viewModel]="sevenStepsViewModels.step1"
-    (formReady)="addChildForm('step1', $event)"
-    (valueChange)="patchFormData($event)"
   ></app-step1>
 
   <app-collapsed-step
@@ -22,14 +20,18 @@
     class="steps_wrapper"
     *ngIf="activeStep === 2"
     [viewModel]="sevenStepsViewModels.step2"
-    (formReady)="addChildForm('step2', $event)"
-    (valueChange)="patchFormData($event)"
   ></app-step2>
 
   <app-collapsed-step
     *ngIf="activeStep !== 3"
     [viewModel]="sevenStepsViewModels.step3"
   ></app-collapsed-step>
+  <app-step3
+    class="steps_wrapper"
+    *ngIf="activeStep === 3"
+    [viewModel]="sevenStepsViewModels.step3"
+  ></app-step3>
+
   <app-collapsed-step
     *ngIf="activeStep !== 4"
     [viewModel]="sevenStepsViewModels.step4"

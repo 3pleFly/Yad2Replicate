@@ -25,6 +25,7 @@ export class SwitcherComponent {
     let index = this.switchedMultiRounded.indexOf(value);
     if (index !== -1) {
       this.switchedMultiRounded.splice(index, 1);
+      this.multiRoundedSwitchedElementsEvent.emit(this.switchedMultiRounded);
       return;
     }
     this.switchedMultiRounded = [...this.switchedMultiRounded, value];

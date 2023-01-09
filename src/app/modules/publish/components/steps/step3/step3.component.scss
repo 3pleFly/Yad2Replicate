@@ -1,0 +1,177 @@
+:host {
+  display: block;
+}
+
+.wrapper > * {
+  display: block;
+  padding: 0 5%;
+  margin-top: 1.5rem;
+  position: relative;
+}
+
+.tooltip_wrapper {
+  display: none;
+  justify-content: flex-start;
+  align-items: center;
+  height: 76px;
+  border: 1px solid #c6e1ff;
+  border-radius: 3px;
+  background-color: #f3f8ff;
+  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 8%);
+  padding: 8px;
+
+  img {
+    object-fit: contain;
+    width: 58px;
+  }
+}
+
+.tooltip_content {
+  h5 {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 2px;
+  }
+  span {
+    display: block;
+    width: 80%;
+    font-size: 14px;
+  }
+}
+
+.column_title {
+  h3 {
+    font-weight: 500;
+    font-size: 17px;
+  }
+}
+
+.description_textarea_label {
+  font-size: 14px;
+  display: block;
+}
+
+.description_textarea_label span {
+  margin: 25px 0;
+  text-align: left;
+  font-weight: 400;
+}
+
+.counter {
+  display: block;
+  width: 23%;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.progress_bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.progress_bar_text {
+  position: relative;
+  margin: 0 !important;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p {
+    margin: 0;
+    font-size: 1rem;
+    color: #555;
+  }
+}
+
+.textarea_comment {
+  font-size: 12px;
+  color: #333;
+  margin: 0;
+}
+
+.progress_bar app-progress-bar {
+  --progressBar-width: 74%;
+  --progressBar-height: 30px;
+}
+
+.description_textarea_label app-textarea {
+  --textarea-width: 100%;
+  --textarea-box-width: 100%;
+  --textarea-box-height: 156px;
+  --textarea-box-resize: none;
+  --textarea-box-padding: 16px 10px 20px 70px;
+}
+
+.wrapper app-select {
+  --select-width: 100%;
+  --select-height: 50px;
+  --select-border-radius: 4px;
+  --select-dropdown-icon-width: 12px;
+  --select-dropdown-icon-bottom: 5px;
+  --select-font-size: 14px;
+}
+
+.wrapper app-switcher {
+  --switcher-width: 100%;
+  --switcher-height: 50px;
+  --switcher-label-font-size: 16px;
+  --switcher-item-font-size: 16px;
+  --switcher-margin: 0 0 50px 0;
+}
+
+.rounded_multi_switch app-switcher {
+  --switcher-width: 100%;
+  --switcher-height: initial;
+  --switcher-item-width: 45%;
+  --switcher-item-height: 40px;
+}
+
+@media only screen and (min-width: 880px) {
+  .tooltip_wrapper {
+    display: flex;
+    position: absolute;
+    top: -64px;
+    left: 20px;
+    width: 521px;
+    height: 54px;
+
+    img {
+      width: 48px;
+    }
+  }
+
+  .tooltip_content {
+    span {
+      width: 100%;
+    }
+  }
+
+  .wrapper app-select {
+    --select-width: 25%;
+    --select-height: 40px;
+  }
+
+  .wrapper app-switcher {
+    --switcher-width: 25%;
+    --switcher-height: 40px;
+    --switcher-label-font-size: 14px;
+    --switcher-item-font-size: 14px;
+  }
+
+  .rounded_multi_switch app-switcher {
+    --switcher-width: 80%;
+    --switcher-height: unset;
+    --switcher-item-width: 22%;
+    --switcher-item-height: 36px;
+  }
+
+  .description_textarea_label app-textarea {
+    --textarea-width: 62%;
+    --textarea-box-width: calc(100% - 80px);
+  }
+
+  .progress_bar {
+    width: 52%;
+  }
+}

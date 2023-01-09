@@ -44,6 +44,7 @@ export class Step3ViewComponent {
     }
     this._progressBarText = 'בול!';
   }
+
   get progressBarText() {
     return this._progressBarText;
   }

@@ -1,5 +1,5 @@
-<label [ngClass]="{ disabled: inputModel.disabled }">
-  <span [ngClass]="{ disabled: inputModel.disabled }">{{
+<label [ngClass]="{ disabled: control && control.disabled || inputModel.disabled}">
+  <span [ngClass]="{ disabled: control && control.disabled || inputModel.disabled }">{{
     inputModel.labelText | asterisk : !!inputModel.required
   }}</span>
 

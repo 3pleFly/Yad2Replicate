@@ -1,5 +1,5 @@
 import { Component, Input, OnDestroy, OnInit, Output } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import {
   of,
   defer,
@@ -13,7 +13,7 @@ import {
   Subject,
   Subscription,
 } from 'rxjs';
-import { Yad2Asset } from 'src/app/shared/models/yad2Assets.const';
+import { YAD2_ASSET } from 'src/app/shared/models/yad2Assets.const';
 import { ApiService } from 'src/app/shared/services/api.service';
 import {
   SevenStepsFormData,
@@ -27,45 +27,16 @@ import { StepsService } from '../../../services/steps.service';
   styleUrls: ['./step2.component.scss'],
 })
 export class Step2Component implements OnInit, OnDestroy {
-  form = this.fb.group({
-    propertyState: '',
-    city: '',
-    street: { value: '', disabled: true },
-    houseNum: { value: '', disabled: true },
-    neighborhood: { value: '', disabled: true },
-    area: { value: '', disabled: true },
-    floor: { value: '', disabled: true },
-    totalFloors: { value: '', disabled: true },
-    isOnColumns: { value: '', disabled: true },
-    propertyType: this.fb.control<Yad2Asset | null>(null),
-  });
+  @Input() viewModel!: SevenStepViewModel;
   private cityKeyword$ = new Subject<string>();
   private streetKeyword$ = new Subject<string>();
   cityData$!: Observable<string[]>;
   streetsData$!: Observable<string[]>;
   isCitiesLoading: boolean = false;
   isStreetsLoading: boolean = false;
-  cityValueChanges!: Subscription;
-  streetValueChanges!: Subscription;
-
-  @Input() viewModel!: SevenStepViewModel;
-  @Output() formReady = of(this.form);
-  @Output()
-  valueChange = defer(() =>
-    this.form.valueChanges.pipe(
-      map(
-        (v): Partial<SevenStepsFormData> => ({
-          propertyType: v.propertyType ?? null,
-          propertyState: v.propertyState ?? '',
-          city: v.city ?? '',
-          street: v.street ?? '',
-          houseNum: v.houseNum ?? '',
-          neighborhood: v.neighborhood ?? '',
-          area: v.area ?? '',
-        })
-      )
-    )
-  );
+  city$!: Subscription;
+  street$!: Subscription;
+  propertyType$!: Subscription;
 
   constructor(
     private fb: FormBuilder,
@@ -74,13 +45,98 @@ export class Step2Component implements OnInit, OnDestroy {
   ) {}
 
   ngOnDestroy(): void {
-    this.cityValueChanges.unsubscribe();
-    this.streetValueChanges.unsubscribe();
+    this.city$.unsubscribe();
+    this.street$.unsubscribe();
+    this.propertyType$.unsubscribe();
+  }
+
+  get form() {
+    return this.stepsService.form;
   }
 
   ngOnInit(): void {
+    this.viewModel.inputs.isOnColumns.disabled = true;
 
+    // Enable or disable street && houseNum if city value.
+    this.city$ = this.form.controls.city.valueChanges.subscribe((v) => {
+      if (v) {
+        this.viewModel.inputs.street.disabled = false;
+        this.form.controls.houseNum.disable();
+      } else {
+        this.viewModel.inputs.street.disabled = true;
+      }
+    });
 
+    // Enable or disable houseNum if street value.
+    this.street$ = this.form.controls.street.valueChanges.subscribe((v) => {
+      if (v) {
+        this.form.controls.houseNum.enable();
+      } else {
+        this.form.controls.houseNum.disable();
+      }
+    });
+
+    //Set form per property type.
+    this.propertyType$ = this.form.controls.propertyType.valueChanges.subscribe(
+      (v) => {
+        if (!v) return;
+        this.viewModel.inputs.isOnColumns.disabled = false;
+
+        switch (v) {
+          case YAD2_ASSET.LOT:
+            this.viewModel.inputs.isOnColumns.visible = false;
+            this.viewModel.inputs.floor.visible = false;
+            this.viewModel.inputs.totalFloors.visible = false;
+            break;
+
+          case YAD2_ASSET.ROOF_OR_PENTHOUSE:
+          case YAD2_ASSET.APARTMENT:
+          case YAD2_ASSET.GENERAL:
+          case YAD2_ASSET.STUDIO:
+          case YAD2_ASSET.DUPLEX:
+          case YAD2_ASSET.TRIPLEX:
+          case YAD2_ASSET.UNIT:
+            this.viewModel.inputs.floor.visible = true;
+            this.viewModel.inputs.totalFloors.visible = true;
+            this.viewModel.inputs.isOnColumns.visible = true;
+            this.viewModel.inputs.isOnColumns.disabled = false;
+            break;
+
+          case YAD2_ASSET.STORAGE:
+          case YAD2_ASSET.PURCHASING_GROUP:
+          case YAD2_ASSET.PARKING:
+          case YAD2_ASSET.TOWNHOUSE:
+          case YAD2_ASSET.AGRICULTURAL_FARM:
+          case YAD2_ASSET.AUXILIARY_FARM:
+            this.viewModel.inputs.isOnColumns.visible = false;
+            this.viewModel.inputs.floor.visible = false;
+            this.viewModel.inputs.totalFloors.visible = false;
+            break;
+
+          case YAD2_ASSET.GARDEN_APARTMENT:
+          case YAD2_ASSET.ASSISTED_LIVING:
+          case YAD2_ASSET.BASEMENT:
+            this.viewModel.inputs.isOnColumns.visible = false;
+            this.viewModel.inputs.totalFloors.visible = true;
+            this.viewModel.inputs.floor.visible = true;
+            break;
+
+          case YAD2_ASSET.BUILDING:
+            this.viewModel.inputs.floor.visible = false;
+            this.viewModel.inputs.isOnColumns.visible = true;
+            this.viewModel.inputs.totalFloors.visible = true;
+            break;
+
+          case YAD2_ASSET.PRIVATE_HOUSE_OR_COTTEGE:
+            this.viewModel.inputs.floor.visible = false;
+            this.viewModel.inputs.isOnColumns.visible = false;
+            this.viewModel.inputs.totalFloors.visible = true;
+            break;
+        }
+      }
+    );
+
+    //City dropdown api call
     this.cityData$ = this.cityKeyword$.pipe(
       debounceTime(700),
       switchMap((keyword) =>
@@ -91,6 +147,7 @@ export class Step2Component implements OnInit, OnDestroy {
       })
     );
 
+    //Street dropdown api call
     this.streetsData$ = this.streetKeyword$.pipe(
       debounceTime(700),
       switchMap((keyword) =>
@@ -101,21 +158,6 @@ export class Step2Component implements OnInit, OnDestroy {
       ),
       tap((v) => (this.isStreetsLoading = false))
     );
-
-    this.stepsService
-      .getInitialForm()
-      .pipe(take(1))
-      .subscribe((formData) => {
-        this.form.patchValue({
-          propertyType: formData.propertyType,
-          propertyState: formData.propertyState,
-          city: formData.city,
-          street: formData.street,
-          houseNum: formData.houseNum,
-          neighborhood: formData.neighborhood,
-          area: formData.area,
-        });
-      });
   }
 
   handleCityInputValues(keyword: string) {
