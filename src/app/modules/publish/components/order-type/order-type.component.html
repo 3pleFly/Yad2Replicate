@@ -1,0 +1,22 @@
+<div [ngClass]="{ container: true, highlighted: orderType.recommended }">
+  <img
+    class="recommended_img"
+    src="https://assets.yad2.co.il/personal/images/payment/ribbon_new.svg"
+    alt="מסלול מומלץ"
+    *ngIf="orderType.recommended"
+  />
+  <img class="order_img" [src]="orderType.imgSrc" alt="בחירת מסלול" />
+  <h2 class="title">{{ orderType.title }}</h2>
+  <app-line-divider></app-line-divider>
+  <ul>
+    <li *ngFor="let item of orderType.featureList">{{ item }}</li>
+    <li *ngFor="let item of orderType.missingFeatureList">{{ item }}</li>
+  </ul>
+
+  <div class="title_and_price">
+    <h3 class="title price_title">{{ orderType.price }}</h3>
+    <span class="days-subtitle">{{ orderType.days }}</span>
+  </div>
+
+  <button>{{ orderType.buttonText }}</button>
+</div>

@@ -25,6 +25,7 @@ import { StepContainerComponent } from './components/step-container/step-contain
 import { SevenStepsComponent } from './pages/seven-steps/seven-steps.component';
 import { StepsService } from './services/steps.service';
 import { UploadButtonComponent } from './components/upload-button/upload-button.component';
+import { OrderTypeComponent } from './components/order-type/order-type.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { UploadButtonComponent } from './components/upload-button/upload-button.
     StepContainerComponent,
     SevenStepsComponent,
     UploadButtonComponent,
+    OrderTypeComponent,
   ],
   providers: [StepsService],
   imports: [CommonModule, PublishPageRoutingModule, SharedModule, FormsModule, ReactiveFormsModule],

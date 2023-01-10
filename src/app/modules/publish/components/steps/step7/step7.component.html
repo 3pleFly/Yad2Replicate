@@ -1,1 +1,22 @@
-<p>step7 works!</p>
+<app-title [viewModel]="viewModel"></app-title>
+<div class="wrapper">
+  <h3>
+    זהו, אנחנו בסוף. לנו נשאר לשמור את המודעה שלך, לך נשאר לבחור את מסלול
+    הפרסום.
+  </h3>
+  <app-line-divider></app-line-divider>
+  <h3>באיזה מסלול לפרסם את המודעה? זה הרגע לבלוט מעל כולם</h3>
+  <div class="order_types">
+    <app-order-type
+      *ngFor="let order of orderTypes"
+      [orderType]="order"
+    ></app-order-type>
+  </div>
+
+  <app-custom-checkbox
+    [control]="this.form.controls.acceptCommercialsRelatedToMyListing"
+    [labelText]="'אני מאשר קבלת דיוור פרסומי הקשור למודעה שפרסמתי באתר יד 2 (להסרה - יש להוריד את הסימון בתיבה)'"
+  >
+  </app-custom-checkbox>
+
+</div>

@@ -29,3 +29,15 @@ export interface SevenStepViewModel {
   stepStage: number;
   inputs: SevenStepsInputViewModel;
 }
+
+
+export interface OrderTypeView {
+  imgSrc: string;
+  title: string;
+  featureList: string[];
+  missingFeatureList: string[];
+  price: string;
+  days: string;
+  buttonText: string;
+  recommended: boolean;
+}

@@ -41,7 +41,7 @@ export class StepsService implements OnDestroy {
     agreeToTermsAndConditions: '',
     useVirtualNumber: '',
     receiveCallsOnWeekends: '',
-
+    acceptCommercialsRelatedToMyListing: '',
   });
 
   propertyType$ = this.form.controls.propertyType.valueChanges.subscribe(
@@ -98,7 +98,7 @@ export class StepsService implements OnDestroy {
     }
   );
 
-  private _activeStep$ = new BehaviorSubject<number>(6);
+  private _activeStep$ = new BehaviorSubject<number>(7);
   public activeStep$ = this._activeStep$.asObservable();
 
   constructor(private fb: FormBuilder) {}

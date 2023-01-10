@@ -12,6 +12,7 @@ import {
   CategoryBoxModel,
   PUBLISH_CATEGORY,
 } from 'src/app/shared/models/category-box.model';
+import { OrderTypeView } from './seven-step-form.model';
 
 export const categories: CategoryBoxModel[] = [
   {
@@ -216,6 +217,43 @@ export const wouldLiketoRecieveUpdates: CheckboxItem = new CheckboxItem(
   '10',
   ''
 );
+
+export const basicOrder: OrderTypeView = {
+  imgSrc: 'assets/images/publish/basic-order.png',
+  title: 'בסיסי',
+  featureList: ['מודעה רגילה ללא הדגשה'],
+  missingFeatureList: ['הקפצה אוטומטית פעם ביום'],
+  price: 'חינם',
+  days: '-',
+  buttonText: 'בחירה במסלול',
+  recommended: false
+};
+
+export const recommendedOrder: OrderTypeView = {
+  imgSrc: 'assets/images/publish/recommended-order.png',
+  title: 'למכור מהר!',
+  featureList: [
+    'מודעה בצהוב מעל כולם',
+    'הקפצה אוטומטית פעם ביום',
+    'מקבלת הכי הרבה טלפונים',
+  ],
+  missingFeatureList: [],
+  price: '199 ₪',
+  days: '28 ימים',
+  buttonText: 'המסלול המומלץ',
+  recommended: true
+
+};
+export const highlightedOrder: OrderTypeView = {
+  imgSrc: 'assets/images/publish/highlighted-order.png',
+  title: 'מודגשת',
+  featureList: ['מודעה בורוד מעל רגילות', 'הקפצה אוטומטית פעם ביום'],
+  missingFeatureList: [],
+  price: '99 ₪',
+  days: '28 ימים',
+  buttonText: 'בחירה במסלול',
+  recommended: false
+};
 
 export const Yad2InputsViewModels = {
   categories,

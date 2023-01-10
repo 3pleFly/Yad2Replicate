@@ -1,7 +1,11 @@
+:host {
+  display: block;
+}
+
 div {
   content: "";
   width: 100%;
   display: block;
   height: 1px;
-  background: #9d9d9d;
+  background: var(--line-divider-color);
 }
