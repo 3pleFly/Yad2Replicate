@@ -28,6 +28,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarModalComponent } from './components/sidebar-modal/sidebar-modal.component';
 import { BoldSubStringPipe } from './pipes/bold-sub-string.pipe';
 import { AsteriskPipe } from './pipes/asterisk.pipe';
+import { LineDividerComponent } from './components/line-divider/line-divider.component';
+import { CustomCheckboxComponent } from './components/custom-checkbox/custom-checkbox.component';
 
 @NgModule({
   declarations: [
@@ -55,8 +57,16 @@ import { AsteriskPipe } from './pipes/asterisk.pipe';
     SpinnerComponent,
     BoldSubStringPipe,
     AsteriskPipe,
+    LineDividerComponent,
+    CustomCheckboxComponent,
   ],
-  imports: [CommonModule, HttpClientModule, RouterModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   exports: [
     SliderSwitchComponent,
     SearchBarComponent,
@@ -79,6 +89,8 @@ import { AsteriskPipe } from './pipes/asterisk.pipe';
     SidebarModalComponent,
     NavbarComponent,
     SpinnerComponent,
+    LineDividerComponent,
+    CustomCheckboxComponent,
   ],
 })
 export class SharedModule {}

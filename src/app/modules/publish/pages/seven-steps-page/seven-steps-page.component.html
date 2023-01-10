@@ -46,14 +46,30 @@
     *ngIf="activeStep !== 5"
     [viewModel]="sevenStepsViewModels.step5"
   ></app-collapsed-step>
+  <app-step5
+    class="steps_wrapper"
+    *ngIf="activeStep === 5"
+    [viewModel]="sevenStepsViewModels.step5"
+  ></app-step5>
 
   <app-collapsed-step
     *ngIf="activeStep !== 6"
     [viewModel]="sevenStepsViewModels.step6"
   ></app-collapsed-step>
 
+  <app-step6
+    class="steps_wrapper"
+    *ngIf="activeStep === 6"
+    [viewModel]="sevenStepsViewModels.step6"
+  ></app-step6>
+
   <app-collapsed-step
     *ngIf="activeStep !== 7"
     [viewModel]="sevenStepsViewModels.step7"
   ></app-collapsed-step>
+  <app-step7
+    class="steps_wrapper"
+    *ngIf="activeStep === 7"
+    [viewModel]="sevenStepsViewModels.step7"
+  ></app-step7>
 </ng-container>

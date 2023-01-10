@@ -24,6 +24,7 @@ import { TitleComponent } from './components/title/title.component';
 import { StepContainerComponent } from './components/step-container/step-container.component';
 import { SevenStepsComponent } from './pages/seven-steps/seven-steps.component';
 import { StepsService } from './services/steps.service';
+import { UploadButtonComponent } from './components/upload-button/upload-button.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { StepsService } from './services/steps.service';
     TitleComponent,
     StepContainerComponent,
     SevenStepsComponent,
+    UploadButtonComponent,
   ],
   providers: [StepsService],
   imports: [CommonModule, PublishPageRoutingModule, SharedModule, FormsModule, ReactiveFormsModule],

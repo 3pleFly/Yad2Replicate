@@ -1,0 +1,62 @@
+:host {
+  display: block;
+  position: relative;
+}
+
+.wrapper > * {
+  position: relative;
+  display: block;
+  padding: 0 5% !important;
+  margin: 1.5rem 0;
+}
+
+.wrapper app-input {
+  --input-height: 40px;
+  --input-font-size: 14px;
+  --input-border-radius: 4px;
+  --input-placeholder-font-weight: 400;
+}
+
+.title {
+  font-size: 1rem;
+  margin-top: 20px;
+  font-weight: 300;
+}
+
+.content > * {
+  margin: 0;
+}
+
+.virtual_num {
+  position: relative;
+  top: 7px;
+}
+
+.checkbox_subtitle {
+  font-size: 14px;
+  color: #808080;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--btn-primary-color);
+}
+
+.more_info_icon {
+  width: 35px;
+}
+
+.terms_and_conditions {
+  --checkbox2-background: #f9f9f9;
+
+  --checkbox2-width: 50%;
+}
+
+
+@media only screen and (min-width: 880px) {
+
+  .wrapper app-input {
+    --input-width: 37.5%;
+
+  }
+}

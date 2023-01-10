@@ -20,6 +20,7 @@ import {
   SevenStepViewModel,
 } from '../../../models/seven-step-form.model';
 import { StepsService } from '../../../services/steps.service';
+import { TooltipIcons } from '../../tooltip/tooltip.component';
 
 @Component({
   selector: 'app-step2',
@@ -172,5 +173,9 @@ export class Step2Component implements OnInit, OnDestroy {
       this.streetKeyword$.next(keyword);
       this.isStreetsLoading = true;
     }
+  }
+
+  get TooltipIcons() {
+    return TooltipIcons;
   }
 }

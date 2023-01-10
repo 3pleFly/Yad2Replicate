@@ -1,0 +1,64 @@
+:host {
+  position: relative;
+  font-size: 15.4px;
+}
+
+.tooltip {
+  font-size: 14px;
+}
+
+.wrapper > * {
+  display: block;
+  padding: 0 5%;
+  margin-top: 1.5rem;
+  position: relative;
+}
+
+app-tooltip {
+  --tooltip-width: 413px;
+}
+
+.text_header p {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.upload_header {
+  display: flex !important;
+}
+
+.upload_header > * {
+  width: 30%;
+  height: 200px;
+  margin-left: 20px;
+}
+
+.video_upload {
+  --upload-btn-border: 2px dashed #9d9d9d;
+}
+
+.image_upload {
+  --upload-btn-header-backgroundColor: #eee;
+  --upload-btn-border: none;
+  --upload-btn-content-padding: 0 0 20px 0;
+}
+
+.upload_body {
+  h2 {
+    font-weight: 400;
+    font-size: 22.4px;
+    margin: 40px 0;
+  }
+}
+
+.upload_body .content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.upload_body app-upload-button {
+  --upload-btn-border: 2px dashed #9d9d9d;
+  width: 28%;
+  height: 170px;
+}

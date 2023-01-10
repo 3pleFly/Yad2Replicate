@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SevenStepViewModel } from '../../../models/seven-step-form.model';
 import { StepsService } from '../../../services/steps.service';
+import { TooltipIcons } from '../../tooltip/tooltip.component';
 
 @Component({
   selector: 'app-step4',
@@ -16,6 +17,10 @@ export class Step4Component implements OnInit {
 
   get form() {
     return this.stepsService.form;
+  }
+
+  get TooltipIcons() {
+    return TooltipIcons;
   }
 
 }

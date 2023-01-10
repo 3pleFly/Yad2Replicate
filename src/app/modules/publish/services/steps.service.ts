@@ -32,7 +32,15 @@ export class StepsService implements OnDestroy {
     entryDate: '',
     isImmediateEntry: '',
     isFlexible: '',
-    isLongTerm: ''
+    isLongTerm: '',
+    contactName: '',
+    contactPhoneNumber: '',
+    secondContactName: '',
+    secondContactPhoneNumber: '',
+    email: '',
+    agreeToTermsAndConditions: '',
+    useVirtualNumber: '',
+    receiveCallsOnWeekends: '',
 
   });
 
@@ -90,7 +98,7 @@ export class StepsService implements OnDestroy {
     }
   );
 
-  private _activeStep$ = new BehaviorSubject<number>(4);
+  private _activeStep$ = new BehaviorSubject<number>(6);
   public activeStep$ = this._activeStep$.asObservable();
 
   constructor(private fb: FormBuilder) {}

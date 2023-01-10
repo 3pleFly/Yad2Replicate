@@ -1,0 +1,36 @@
+:host {
+  display: block;
+  position: relative;
+  width: var(--checkbox2-width);
+  font-size: 14px;
+  color: #363636;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  background: var(--checkbox2-background);
+  padding: 10px 0 ;
+}
+
+.checkbox_subtitle {
+  color: #808080;
+}
+
+.checkbox_subtitle .link {
+  text-decoration: none;
+  color: var(--btn-primary-color);
+}
+
+.checkbox {
+  position: absolute;
+  visibility: hidden;
+}
+
+.checkmark {
+  --checkbox-width: 15px;
+  --checkbox-height: 15px;
+  --checkbox-checkmark-top: -1.5px;
+  --checkbox-checkmark-left: 0px;
+  --checkbox-border: 1px solid #363636;
+}

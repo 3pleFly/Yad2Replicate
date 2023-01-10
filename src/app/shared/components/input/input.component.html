@@ -11,7 +11,7 @@
     <input
       [formControl]="control"
       [type]="inputModel.inputType"
-      [placeholder]="inputModel.placeholder"
+      [placeholder]="inputModel.placeholder ?? ''"
     />
   </ng-template>
   <ng-template #defaultInput>
@@ -20,7 +20,7 @@
       [readOnly]="inputModel.readonly"
       [disabled]="inputModel.disabled"
       [type]="inputModel.inputType"
-      [placeholder]="inputModel.placeholder"
+      [placeholder]="inputModel.placeholder ?? ''"
       [value]="inputValue"
       (keyup)="emitKeyUpInputEvent($event)"
     />

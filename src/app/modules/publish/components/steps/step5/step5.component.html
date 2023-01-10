@@ -1,1 +1,49 @@
-<p>step5 works!</p>
+<app-tooltip [icon]="TooltipIcons.LIGHTBULB">
+  <ng-template #tooltipTextView>
+    <p class="tooltip">
+      לא לדאוג, גם אם רואים את התמונה באופן לא ברור כעת, לאחר הפרסום הכל יראה
+      כמו שצריך
+    </p>
+  </ng-template>
+</app-tooltip>
+<app-title [viewModel]="viewModel"></app-title>
+<div class="wrapper">
+  <div class="text_header">
+    <p>ידעת שמודעות עם תמונות ברורות מקבלות פי 10 יותר פניות?</p>
+    <p>
+      לא להסס להעלות לפה תמונות (אפשר עד 10 + וידאו) ולהבליט את הצדדים הטובים
+      ביותר של הנכס
+    </p>
+  </div>
+
+  <div class="upload_header">
+    <app-upload-button
+      class="video_upload"
+      [uploadType]="UploadButtonType.VIDEO"
+    ></app-upload-button>
+    <app-upload-button
+      class="image_upload"
+      [title]="'תמונה ראשית'"
+    ></app-upload-button>
+  </div>
+  <app-line-divider></app-line-divider>
+  <div class="upload_body">
+    <h2>תמונות שיופיעו בגוף המודעה</h2>
+    <section class="content">
+      <app-upload-button></app-upload-button>
+      <app-upload-button></app-upload-button>
+      <app-upload-button></app-upload-button>
+
+      <app-upload-button></app-upload-button>
+      <app-upload-button></app-upload-button>
+      <app-upload-button></app-upload-button>
+
+      <app-upload-button></app-upload-button>
+      <app-upload-button></app-upload-button>
+      <app-upload-button></app-upload-button>
+
+    </section>
+  </div>
+</div>
+
+<app-nav-buttons></app-nav-buttons>

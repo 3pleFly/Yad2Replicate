@@ -136,9 +136,15 @@ export const propertyTax: InputView = {
   placeholder: 'סכום ארנונה לתשלום',
 };
 
-export const squareMeter: InputView = { labelText: 'מ״ר בנוי', placeholder: 'כמה מטר רבוע יש בנכס' };
+export const squareMeter: InputView = {
+  labelText: 'מ״ר בנוי',
+  placeholder: 'כמה מטר רבוע יש בנכס',
+};
 
-export const gardenSquareMeter: InputView = { labelText: 'מ״ר גינה', placeholder: '' };
+export const gardenSquareMeter: InputView = {
+  labelText: 'מ״ר גינה',
+  placeholder: '',
+};
 
 export const totalSquareMeter: InputView = {
   labelText: 'גודל במ״ר סך הכל',
@@ -146,13 +152,16 @@ export const totalSquareMeter: InputView = {
   required: true,
 };
 
-export const price: InputView = { labelText: 'מחיר', placeholder: 'סכום מינימלי 100' };
+export const price: InputView = {
+  labelText: 'מחיר',
+  placeholder: 'סכום מינימלי 100',
+};
 
 export const entryDate: InputView = {
   labelText: 'תאריך כניסה',
   placeholder: 'DD/MM/YYYY',
   required: true,
-  inputType: 'date'
+  inputType: 'date',
 };
 
 export const isImmediateEnty: CheckboxItem = new CheckboxItem('4', 'מיידי');
@@ -160,6 +169,53 @@ export const isImmediateEnty: CheckboxItem = new CheckboxItem('4', 'מיידי')
 export const isFlexible: CheckboxItem = new CheckboxItem('4', 'גמיש');
 
 export const isLongTerm: CheckboxItem = new CheckboxItem('4', 'טווח ארוך');
+
+export const contactName: InputView = {
+  labelText: 'שם איש קשר',
+  required: true,
+  inputType: 'text',
+};
+
+export const contactPhoneNumber: InputView = {
+  labelText: 'טלפון ראשי',
+  required: true,
+  inputType: 'text',
+};
+
+export const secondContactName: InputView = {
+  labelText: 'איש קשר נוסף',
+  required: true,
+  inputType: 'text',
+};
+
+export const secondContactPhoneNumber: InputView = {
+  labelText: 'טלפון נוסף',
+  required: true,
+  inputType: 'text',
+};
+
+export const email: InputView = {
+  labelText: 'דוא״ל',
+  required: false,
+  inputType: 'text',
+};
+
+// export const useVirtualNumber: CheckboxItem = new CheckboxItem('7', '');.
+
+export const agreeToReceiveCallsOnTheWeekends: CheckboxItem = new CheckboxItem(
+  '8',
+  ''
+);
+
+export const agreedToTermsAndConditions: CheckboxItem = new CheckboxItem(
+  '9',
+  ''
+);
+
+export const wouldLiketoRecieveUpdates: CheckboxItem = new CheckboxItem(
+  '10',
+  ''
+);
 
 export const Yad2InputsViewModels = {
   categories,
@@ -186,6 +242,13 @@ export const Yad2InputsViewModels = {
   isImmediateEnty,
   isFlexible,
   isLongTerm,
+  contactName,
+  secondContactName,
+  contactPhoneNumber,
+  secondContactPhoneNumber,
+  agreeToReceiveCallsOnTheWeekends,
+  agreedToTermsAndConditions,
+  email,
 };
 
 export const sevenStepsModelData = {

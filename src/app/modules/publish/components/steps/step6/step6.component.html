@@ -1,1 +1,57 @@
-<p>step6 works!</p>
+<app-title [viewModel]="viewModel"></app-title>
+<div class="wrapper">
+  <h3 class="title">רגע לפני שמפרסמים את המודעה, נבדוק שפרטי הקשר נכונים</h3>
+
+  <app-input [inputModel]="viewModel.inputs.contactName"></app-input>
+  <app-input [inputModel]="viewModel.inputs.contactPhoneNumber"></app-input>
+
+  <app-input [inputModel]="viewModel.inputs.secondContactName"></app-input>
+  <app-input
+    [inputModel]="viewModel.inputs.secondContactPhoneNumber"
+  ></app-input>
+
+  <app-custom-checkbox [control]="this.form.controls.useVirtualNumber">
+    <ng-template #contentView>
+      <span class="virtual_num content">
+        <p class="checkbox_label">אני רוצה שיופיע מספר וירטואלי במודעה שלי</p>
+        <p class="checkbox_subtitle">
+          המספר הוירטואלי יינתן בחינם בכפוף למדיניות השירות למעט במקרים המפורטים
+          <a class="link" href="">כאן</a>
+        </p>
+      </span>
+    </ng-template>
+  </app-custom-checkbox>
+
+  <app-custom-checkbox
+    [control]="this.form.controls.receiveCallsOnWeekends"
+    [labelText]="'אני רוצה לקבל שיחות מגולשי האתר גם בסופ״ש'"
+  >
+  </app-custom-checkbox>
+
+  <app-input
+    [control]="this.form.controls.email"
+    [inputModel]="viewModel.inputs.email"
+  ></app-input>
+
+  <app-custom-checkbox
+    class="terms_and_conditions"
+    [control]="this.form.controls.receiveCallsOnWeekends"
+  >
+    <ng-template #contentView>
+      <span class="content">
+        <p class="checkbox_label bold">
+          קראתי ואישרתי את
+          <a class="link" href="">התקנון</a>*
+        </p>
+      </span>
+    </ng-template>
+  </app-custom-checkbox>
+  <app-custom-checkbox
+    [control]="this.form.controls.receiveCallsOnWeekends"
+    [labelText]="
+      'אשמח לקבל עדכונים, הצעות או טיפים לשיפור המודעה שלי לפרטי החשבון או לפרטי המודעה'
+    "
+  >
+  </app-custom-checkbox>
+</div>
+<app-nav-buttons></app-nav-buttons>
